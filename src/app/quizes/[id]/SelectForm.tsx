@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, type ChangeEvent } from "react";
+import { Button } from "~/components/ui/button";
 
 interface SelectFormProps {
   choices: string[];
@@ -41,7 +42,7 @@ const SelectForm: React.FC<SelectFormProps> = ({ choices, correctChoice }) => {
           </li>
         ))}
       </ul>
-      <button onClick={handleSubmit}>Submit</button>
+      <Button onClick={handleSubmit}>Submit</Button>
     </>
   );
 };
