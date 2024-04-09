@@ -27,7 +27,7 @@ export function shuffle<T>(array: T[]): T[] {
 }
 const Visualization: NextPage<{ params: Params }> = ({ params: { id } }) => {
   const html = `<div style="min-height:368px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/${id}/embed.js?v=1" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/${id}/full.png" alt="" /></noscript></div>`;
-  const { correctChoice, wrongChoices, prompt } = DATA.get(id)!;
+  const { correctChoice, wrongChoices, description } = DATA.get(id)!;
   const choices = shuffle([...wrongChoices, correctChoice]);
 
   return (
@@ -40,7 +40,7 @@ const Visualization: NextPage<{ params: Params }> = ({ params: { id } }) => {
       <SelectForm
         choices={choices}
         correctChoice={correctChoice}
-        prompt={prompt}
+        description={description}
       />
     </main>
   );

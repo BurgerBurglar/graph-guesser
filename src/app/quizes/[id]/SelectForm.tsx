@@ -1,51 +1,40 @@
 "use client";
+import { CheckCircle, CircleX } from "lucide-react";
 import React, { useState, type ChangeEvent } from "react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "~/components/ui/alert-dialog";
 import { Button } from "~/components/ui/button";
-import { useToast } from "~/components/ui/use-toast";
 import { cn } from "~/lib/utils";
 
 interface SelectFormProps {
   choices: string[];
   correctChoice: string;
-  prompt: string;
+  description: string;
 }
 
 type QuizStatus = "pending" | "submitted";
 
-type GetColorsProps = {
-  status: QuizStatus;
-  isSelected: boolean;
-  isChoiceCorrect: boolean;
-};
-const getColors = ({ status, isSelected, isChoiceCorrect }: GetColorsProps) => {
-  if (status === "pending")
-    return isSelected
-      ? "border-blue-600 text-blue-600"
-      : "border-slate-600 text-slate-600";
-  if (isChoiceCorrect) return "border-green-600 text-green-600";
-  return isSelected
-    ? "border-red-600 text-red-600"
-    : "border-slate-600 text-slate-600";
-};
-
 const SelectForm: React.FC<SelectFormProps> = ({
   choices,
   correctChoice,
-  prompt,
+  description,
 }) => {
   const [selectedChoice, setSelectedChoice] = useState<string>();
-  const isUserCorrect = selectedChoice === correctChoice;
   const [status, setStatus] = useState<QuizStatus>("pending");
-  const { toast } = useToast();
+  const isUserCorrect = selectedChoice === correctChoice;
+  const ResultIcon = isUserCorrect ? CheckCircle : CircleX;
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedChoice(event.target.value);
   };
   const handleSubmit = () => {
-    toast({
-      title: isUserCorrect ? "Correct" : "Wrong",
-      description: prompt,
-    });
     setStatus("submitted");
   };
 
@@ -54,13 +43,6 @@ const SelectForm: React.FC<SelectFormProps> = ({
       <ul className="grid w-full gap-6 md:grid-cols-2">
         {choices.map((choice, index) => {
           const isSelected = selectedChoice === choice;
-          const isChoiceCorrect = choice === correctChoice;
-          const borderColor = getColors({
-            status,
-            isSelected,
-            isChoiceCorrect,
-          });
-
           return (
             <li key={index}>
               <input
@@ -76,21 +58,43 @@ const SelectForm: React.FC<SelectFormProps> = ({
               <label
                 htmlFor={`answer-${index}`}
                 className={cn(
-                  "inline-flex w-full cursor-pointer items-center justify-between rounded-lg border bg-white p-5",
-                  borderColor,
+                  "inline-flex w-full cursor-pointer items-center justify-between rounded-lg border border-gray-200 bg-white p-5 text-gray-500   peer-checked:border-blue-600 peer-checked:text-blue-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400  dark:peer-checked:text-blue-500",
                   {
-                    "hover:bg-slate-100": status === "pending",
+                    "hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-gray-300":
+                      status === "pending",
                   },
                 )}
               >
-                <div className="block">
-                  <div className="w-full">{choice}</div>
-                </div>
+                <div>{choice}</div>
               </label>
             </li>
           );
         })}
       </ul>
+      <AlertDialog open={status === "submitted"}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              <div className="flex items-center gap-2">
+                <ResultIcon />
+                {isUserCorrect ? "Correct" : "Incorrect"}
+              </div>
+            </AlertDialogTitle>
+            {!isUserCorrect && (
+              <AlertDialogDescription className="flex flex-col items-start gap-2 text-start">
+                <div>
+                  <div className="font-bold">Correct answer:</div>
+                  <div>{correctChoice}</div>
+                </div>
+                <div>{description}</div>
+              </AlertDialogDescription>
+            )}
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction>Continue</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
       <Button onClick={handleSubmit}>Submit</Button>
     </>
   );
