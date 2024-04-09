@@ -76,7 +76,13 @@ const SelectForm: React.FC<SelectFormProps> = ({
         })}
       </ul>
       <AlertDialog open={status === "submitted"}>
-        <AlertDialogContent>
+        <AlertDialogContent
+          className={
+            isUserCorrect
+              ? "bg-green-200 text-green-700"
+              : "bg-red-200 text-red-700"
+          }
+        >
           <AlertDialogHeader>
             <AlertDialogTitle>
               <div className="flex items-center gap-2">
@@ -84,33 +90,54 @@ const SelectForm: React.FC<SelectFormProps> = ({
                 {isUserCorrect ? "Correct" : "Incorrect"}
               </div>
             </AlertDialogTitle>
-            {!isUserCorrect && (
-              <AlertDialogDescription className="flex flex-col items-start gap-2 text-start">
+            <AlertDialogDescription
+              className={cn(
+                "flex flex-col items-start gap-2 text-start",
+                isUserCorrect ? "text-green-700" : "text-red-700",
+              )}
+            >
+              {!isUserCorrect && (
                 <div>
                   <div className="font-bold">Correct answer:</div>
                   <div>{correctChoice}</div>
                 </div>
+              )}
+              <div>
+                <div className="font-bold">Did you know?</div>
                 <div>
-                  <div className="font-bold">Did you know?</div>
-                  <div>
-                    <Link
-                      href={source}
-                      target="_blank"
-                      className="hover:text-primary underline underline-offset-2"
-                    >
-                      {description}
-                    </Link>
-                  </div>
+                  <Link
+                    href={source}
+                    target="_blank"
+                    className={cn(
+                      "underline underline-offset-2",
+                      isUserCorrect
+                        ? "hover:text-green-600"
+                        : "hover:text-red-600",
+                    )}
+                  >
+                    {description}
+                  </Link>
                 </div>
-              </AlertDialogDescription>
-            )}
+              </div>
+            </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogAction>Continue</AlertDialogAction>
+            <AlertDialogAction
+              className={cn(
+                "font-bold",
+                isUserCorrect
+                  ? "bg-green-600 hover:bg-green-700"
+                  : "bg-red-600 hover:bg-red-700",
+              )}
+            >
+              {isUserCorrect ? "CONTINUE" : "GOT IT"}
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-      <Button onClick={handleSubmit}>Submit</Button>
+      <Button className="font-bold" onClick={handleSubmit}>
+        Submit
+      </Button>
     </>
   );
 };
