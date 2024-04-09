@@ -27,17 +27,21 @@ export function shuffle<T>(array: T[]): T[] {
 }
 const Visualization: NextPage<{ params: Params }> = ({ params: { id } }) => {
   const html = `<div style="min-height:368px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/${id}/embed.js?v=1" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/${id}/full.png" alt="" /></noscript></div>`;
-  const { correctChoice, wrongChoices } = DATA.get(id)!;
+  const { correctChoice, wrongChoices, prompt } = DATA.get(id)!;
   const choices = shuffle([...wrongChoices, correctChoice]);
 
   return (
-    <main className="container mx-auto flex flex-col gap-5 px-4 py-6">
+    <main className="container mx-auto flex flex-col gap-6 px-4 py-6">
       <div
         dangerouslySetInnerHTML={{
           __html: html,
         }}
       />
-      <SelectForm choices={choices} correctChoice={correctChoice} />
+      <SelectForm
+        choices={choices}
+        correctChoice={correctChoice}
+        prompt={prompt}
+      />
     </main>
   );
 };

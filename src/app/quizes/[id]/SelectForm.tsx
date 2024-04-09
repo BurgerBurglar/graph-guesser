@@ -1,20 +1,31 @@
 "use client";
 import React, { useState, type ChangeEvent } from "react";
 import { Button } from "~/components/ui/button";
+import { useToast } from "~/components/ui/use-toast";
 
 interface SelectFormProps {
   choices: string[];
   correctChoice: string;
+  prompt: string;
 }
 
-const SelectForm: React.FC<SelectFormProps> = ({ choices, correctChoice }) => {
+const SelectForm: React.FC<SelectFormProps> = ({
+  choices,
+  correctChoice,
+  prompt,
+}) => {
   const [selectedChoice, setSelectedChoice] = useState<string>();
+  const { toast } = useToast();
+
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedChoice(event.target.value);
   };
   const handleSubmit = () => {
-    console.log({ selectedChoice, correctChoice });
-    console.log(selectedChoice === correctChoice);
+    const isCorrect = selectedChoice === correctChoice;
+    toast({
+      title: isCorrect ? "Correct" : "Wrong",
+      description: prompt,
+    });
   };
 
   return (
