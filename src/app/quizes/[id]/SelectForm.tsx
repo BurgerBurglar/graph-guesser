@@ -12,11 +12,14 @@ import {
 } from "~/components/ui/alert-dialog";
 import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
+import type { Quiz } from "~/data";
+import Link from "next/link";
 
 interface SelectFormProps {
   choices: string[];
-  correctChoice: string;
-  description: string;
+  correctChoice: Quiz["correctChoice"];
+  description: Quiz["description"];
+  source: Quiz["source"];
 }
 
 type QuizStatus = "pending" | "submitted";
@@ -25,6 +28,7 @@ const SelectForm: React.FC<SelectFormProps> = ({
   choices,
   correctChoice,
   description,
+  source,
 }) => {
   const [selectedChoice, setSelectedChoice] = useState<string>();
   const [status, setStatus] = useState<QuizStatus>("pending");
@@ -86,7 +90,18 @@ const SelectForm: React.FC<SelectFormProps> = ({
                   <div className="font-bold">Correct answer:</div>
                   <div>{correctChoice}</div>
                 </div>
-                <div>{description}</div>
+                <div>
+                  <div className="font-bold">Did you know?</div>
+                  <div>
+                    <Link
+                      href={source}
+                      target="_blank"
+                      className="hover:text-primary underline underline-offset-2"
+                    >
+                      {description}
+                    </Link>
+                  </div>
+                </div>
               </AlertDialogDescription>
             )}
           </AlertDialogHeader>
