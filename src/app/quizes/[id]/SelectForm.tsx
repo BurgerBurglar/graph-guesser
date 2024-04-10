@@ -14,8 +14,11 @@ import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 import type { Quiz } from "~/data";
 import Link from "next/link";
+import { useQuizStore } from "../../../lib/zustand";
+import { useRouter } from "next/navigation";
 
 interface SelectFormProps {
+  quizId: string;
   choices: string[];
   correctChoice: Quiz["correctChoice"];
   description: Quiz["description"];
@@ -25,11 +28,20 @@ interface SelectFormProps {
 type QuizStatus = "pending" | "submitted";
 
 const SelectForm: React.FC<SelectFormProps> = ({
+  quizId,
   choices,
   correctChoice,
   description,
   source,
 }) => {
+  const router = useRouter();
+  const quizIds = useQuizStore((state) => state.quizIds);
+  const currentQuizIndex = quizIds.indexOf(quizId);
+  const nextQuizIndex = [-1, quizIds.length - 1].includes(currentQuizIndex)
+    ? undefined
+    : currentQuizIndex + 1;
+  const nextQuizId = nextQuizIndex ? quizIds[nextQuizIndex] : undefined;
+
   const [selectedChoice, setSelectedChoice] = useState<string>();
   const [status, setStatus] = useState<QuizStatus>("pending");
   const isUserCorrect = selectedChoice === correctChoice;
@@ -38,8 +50,15 @@ const SelectForm: React.FC<SelectFormProps> = ({
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedChoice(event.target.value);
   };
-  const handleSubmit = () => {
+  const handleCheck = () => {
     setStatus("submitted");
+  };
+  const handleNext = () => {
+    if (nextQuizId) {
+      router.push(`/quizes/${nextQuizId}`);
+    } else {
+      router.push("/");
+    }
   };
 
   return (
@@ -129,14 +148,15 @@ const SelectForm: React.FC<SelectFormProps> = ({
                   ? "bg-green-600 hover:bg-green-700"
                   : "bg-red-600 hover:bg-red-700",
               )}
+              onClick={handleNext}
             >
               {isUserCorrect ? "CONTINUE" : "GOT IT"}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-      <Button className="font-bold" onClick={handleSubmit}>
-        Submit
+      <Button className="font-bold" onClick={handleCheck}>
+        CHECK
       </Button>
     </>
   );
