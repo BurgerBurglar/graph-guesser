@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { DATA } from "~/data";
-import SelectForm from "./SelectForm";
 import { shuffle } from "~/utils";
+import SelectForm from "./SelectForm";
 
 type Params = {
   id: string;

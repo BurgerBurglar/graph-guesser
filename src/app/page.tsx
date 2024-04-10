@@ -3,8 +3,8 @@
 import { useRouter } from "next/navigation";
 import { Button } from "~/components/ui/button";
 import { DATA } from "~/data";
-import { useQuizStore } from "../lib/zustand";
 import { shuffle } from "~/utils";
+import { useQuizStore } from "../lib/zustand";
 
 const NUM_QUIZES_PER_PLAY = 10;
 

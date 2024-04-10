@@ -1,5 +1,7 @@
 "use client";
 import { CheckCircle, CircleX } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState, type ChangeEvent } from "react";
 import {
   AlertDialog,
@@ -11,11 +13,9 @@ import {
   AlertDialogTitle,
 } from "~/components/ui/alert-dialog";
 import { Button } from "~/components/ui/button";
-import { cn } from "~/lib/utils";
 import type { Quiz } from "~/data";
-import Link from "next/link";
+import { cn } from "~/lib/utils";
 import { useQuizStore } from "../../../lib/zustand";
-import { useRouter } from "next/navigation";
 
 interface SelectFormProps {
   quizId: string;
@@ -155,7 +155,11 @@ const SelectForm: React.FC<SelectFormProps> = ({
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-      <Button className="font-bold" onClick={handleCheck}>
+      <Button
+        className="font-bold"
+        disabled={!selectedChoice}
+        onClick={handleCheck}
+      >
         CHECK
       </Button>
     </>
