@@ -22,7 +22,11 @@ export default function RootLayout({
   return (
     <DeckContextProvider>
       <html lang="en">
-        <body className={`font-sans ${inter.variable}`}>{children}</body>
+        <body
+          className={`font-sans ${inter.variable} flex min-h-screen flex-col`}
+        >
+          {children}
+        </body>
       </html>
     </DeckContextProvider>
   );

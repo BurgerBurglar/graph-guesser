@@ -3,6 +3,7 @@ import { DATA } from "~/data";
 import { shuffle } from "~/utils";
 import OptionsResults from "./OptionsResults";
 import { notFound } from "next/navigation";
+import Header from "./Header";
 
 type Params = {
   id: string;
@@ -18,20 +19,23 @@ const Visualization: NextPage<{ params: Params }> = ({ params: { id } }) => {
   const choices = shuffle([...wrongChoices, correctChoice]);
 
   return (
-    <main className="container mx-auto flex min-h-screen flex-col justify-between gap-6 px-4 py-6">
-      <div
-        dangerouslySetInnerHTML={{
-          __html: html,
-        }}
-      />
-      <OptionsResults
-        quizId={id}
-        choices={choices}
-        correctChoice={correctChoice}
-        description={description}
-        source={source}
-      />
-    </main>
+    <>
+      <Header />
+      <main className="container mb-6 flex flex-1 flex-col justify-between gap-6 px-4">
+        <div
+          dangerouslySetInnerHTML={{
+            __html: html,
+          }}
+        />
+        <OptionsResults
+          quizId={id}
+          choices={choices}
+          correctChoice={correctChoice}
+          description={description}
+          source={source}
+        />
+      </main>
+    </>
   );
 };
 
