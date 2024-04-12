@@ -15,7 +15,7 @@ import {
 import { Button } from "~/components/ui/button";
 import type { Quiz } from "~/data";
 import { cn } from "~/lib/utils";
-import { useQuizStore } from "../../../lib/zustand";
+import { useDeck } from "~/Context";
 
 type QuizStatus = "pending" | "submitted";
 
@@ -114,16 +114,22 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   source,
 }) => {
   const router = useRouter();
-  const quizIds = useQuizStore((state) => state.quizIds);
-  const currentQuizIndex = quizIds.indexOf(quizId);
-  const nextQuizIndex = [-1, quizIds.length - 1].includes(currentQuizIndex)
-    ? undefined
-    : currentQuizIndex + 1;
-  const nextQuizId = nextQuizIndex ? quizIds[nextQuizIndex] : undefined;
-
+  const {
+    deck: { quizIds },
+  } = useDeck();
   const [selectedChoice, setSelectedChoice] = useState<string>();
   const [status, setStatus] = useState<QuizStatus>("pending");
+
   const isUserCorrect = selectedChoice === correctChoice;
+
+  const currentQuizIndex = quizIds.indexOf(quizId);
+  const NOT_FOUND_INDEX = -1;
+  const LAST_INDEX = quizIds.length - 1;
+  const nextQuizIndex = [NOT_FOUND_INDEX, LAST_INDEX].includes(currentQuizIndex)
+    ? undefined
+    : currentQuizIndex + 1;
+  const nextQuizId =
+    nextQuizIndex === undefined ? undefined : quizIds[nextQuizIndex];
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedChoice(event.target.value);

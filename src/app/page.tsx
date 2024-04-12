@@ -2,20 +2,17 @@
 
 import { useRouter } from "next/navigation";
 import { Button } from "~/components/ui/button";
-import { DATA } from "~/data";
-import { shuffle } from "~/utils";
-import { useQuizStore } from "../lib/zustand";
-
-const NUM_QUIZES_PER_PLAY = 100;
+import { useDeck } from "~/Context";
 
 export default function HomePage() {
   const router = useRouter();
-  const updateQuizIds = useQuizStore((state) => state.updateQuizIds);
+  const { initializeRandomDeck } = useDeck();
+
   const play = () => {
-    const quizIds = shuffle([...DATA.keys()].slice(0, NUM_QUIZES_PER_PLAY));
-    updateQuizIds(quizIds);
-    void router.push(`quizes/${quizIds[0]}`);
+    const newQuizIds = initializeRandomDeck();
+    void router.push(`quizes/${newQuizIds[0]}`);
   };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
