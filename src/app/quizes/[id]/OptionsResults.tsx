@@ -3,6 +3,7 @@ import { CheckCircle, CircleX } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState, type ChangeEvent } from "react";
+import { useDeck } from "~/Context";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -12,10 +13,9 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "~/components/ui/alert-dialog";
-import { Button } from "~/components/ui/button";
+import { PrimaryButton } from "~/components/ui/button";
 import type { Quiz } from "~/data";
 import { cn } from "~/lib/utils";
-import { useDeck } from "~/Context";
 
 type QuizStatus = "pending" | "submitted";
 
@@ -141,7 +141,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
     if (nextQuizId) {
       router.push(`/quizes/${nextQuizId}`);
     } else {
-      router.push("/");
+      router.push("/results");
     }
   };
 
@@ -186,13 +186,9 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
         description={description}
         handleNext={handleNext}
       />
-      <Button
-        className="mt-auto h-max rounded-xl border-b-4 border-green-800 bg-green-700 p-3 pb-4 font-bold hover:bg-green-600 active:border-b-0"
-        disabled={!selectedChoice}
-        onClick={handleCheck}
-      >
+      <PrimaryButton disabled={!selectedChoice} onClick={handleCheck}>
         {selectedChoice ? "CHECK" : "SELECT"}
-      </Button>
+      </PrimaryButton>
     </>
   );
 };

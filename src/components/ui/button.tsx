@@ -1,8 +1,8 @@
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "~/lib/utils"
+import { cn } from "~/lib/utils";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
@@ -30,27 +30,55 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
-)
+  },
+);
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+  asChild?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+    const Comp = asChild ? Slot : "button";
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       />
-    )
-  }
-)
-Button.displayName = "Button"
+    );
+  },
+);
+Button.displayName = "Button";
 
-export { Button, buttonVariants }
+const PrimaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : Button;
+    return (
+      <Comp
+        ref={ref}
+        className="mt-auto h-max rounded-xl border-b-4 border-green-800 bg-green-700 p-3 px-6 pb-4 font-bold hover:bg-green-700 active:mt-1 active:border-b-0"
+        {...props}
+      />
+    );
+  },
+);
+PrimaryButton.displayName = "PrimaryButton";
+
+const SecondaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : Button;
+    return (
+      <Comp
+        ref={ref}
+        className="mt-auto h-max rounded-xl border-b-4 border-gray-300 bg-gray-200 p-3 px-6 pb-4 font-bold text-gray-900 hover:bg-gray-200 active:mt-1 active:border-b-0"
+        {...props}
+      />
+    );
+  },
+);
+SecondaryButton.displayName = "SecondaryButton";
+
+export { Button, buttonVariants, PrimaryButton, SecondaryButton };
