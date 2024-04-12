@@ -81,4 +81,19 @@ const SecondaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 SecondaryButton.displayName = "SecondaryButton";
 
-export { Button, buttonVariants, PrimaryButton, SecondaryButton };
+const GhostButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : Button;
+    return (
+      <Comp
+        ref={ref}
+        variant="ghost"
+        className="h-max rounded-xl p-3 px-6 pb-4 font-bold"
+        {...props}
+      />
+    );
+  },
+);
+GhostButton.displayName = "GhostButton";
+
+export { Button, buttonVariants, PrimaryButton, SecondaryButton, GhostButton };
