@@ -16,6 +16,7 @@ import {
 import { PrimaryButton } from "~/components/ui/button";
 import type { Quiz } from "~/data";
 import { cn } from "~/lib/utils";
+import { useResults } from "../../../utils";
 
 type QuizStatus = "pending" | "submitted";
 
@@ -119,6 +120,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   } = useDeck();
   const [selectedChoice, setSelectedChoice] = useState<string>();
   const [status, setStatus] = useState<QuizStatus>("pending");
+  const { setResult } = useResults();
 
   const isUserCorrect = selectedChoice === correctChoice;
 
@@ -136,6 +138,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   };
   const handleCheck = () => {
     setStatus("submitted");
+    setResult({ quizId, isCorrect: isUserCorrect });
   };
   const handleNext = () => {
     if (nextQuizId) {

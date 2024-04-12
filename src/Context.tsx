@@ -1,9 +1,8 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
-import { shuffle } from "./utils";
+import { NUM_QUIZES_PER_PLAY, shuffle } from "./utils";
 import { DATA } from "./data";
-import { NUM_QUIZES_PER_PLAY } from "./lib/utils";
 
 type DeckContextState = {
   quizIds: string[];
@@ -28,7 +27,7 @@ export const DeckContextProvider = ({
 }) => {
   const [deck, setDeck] = useState(defaultDeck.deck);
   const initializeRandomDeck = () => {
-    const quizIds = shuffle([...DATA.keys()].slice(0, NUM_QUIZES_PER_PLAY));
+    const quizIds = shuffle([...DATA.keys()]).slice(0, NUM_QUIZES_PER_PLAY);
     setDeck({
       quizIds,
     });
