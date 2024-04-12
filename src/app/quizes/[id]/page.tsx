@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { DATA } from "~/data";
 import { shuffle } from "~/utils";
-import SelectForm from "./SelectForm";
+import OptionsResults from "./OptionsResults";
 
 type Params = {
   id: string;
@@ -15,13 +15,13 @@ const Visualization: NextPage<{ params: Params }> = ({ params: { id } }) => {
   const choices = shuffle([...wrongChoices, correctChoice]);
 
   return (
-    <main className="container mx-auto flex flex-col gap-6 px-4 py-6">
+    <main className="container mx-auto flex min-h-screen flex-col justify-between gap-6 px-4 py-6">
       <div
         dangerouslySetInnerHTML={{
           __html: html,
         }}
       />
-      <SelectForm
+      <OptionsResults
         quizId={id}
         choices={choices}
         correctChoice={correctChoice}
