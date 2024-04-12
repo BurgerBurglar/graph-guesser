@@ -9,7 +9,7 @@ const Header: React.FC = () => {
     deck: { quizIds },
   } = useDeck();
   const params = useParams();
-  const total = quizIds.length;
+  const total = quizIds.length || 1;
   const currentQuizId = params.id as string;
   const currentQuizIndex = quizIds.indexOf(currentQuizId);
   const currentQuizIndexForHumans = currentQuizIndex + 1;
