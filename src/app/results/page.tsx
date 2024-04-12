@@ -3,7 +3,7 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import { PrimaryButton, SecondaryButton } from "../../components/ui/button";
-import { useResults } from "../../utils";
+import { usePlay, useResults } from "../../utils";
 import { useDeck } from "../../Context";
 
 interface ResultDisplayProps {
@@ -35,6 +35,7 @@ const Results: NextPage = () => {
   } = useDeck();
   const { numCorrectResultsInDeck, numCorrectResults, numResults } =
     useResults();
+  const { playRandomGame } = usePlay();
 
   return (
     <main className="container flex min-h-screen flex-col items-center justify-end gap-12 px-4 py-6">
@@ -65,7 +66,7 @@ const Results: NextPage = () => {
       <div className="flex w-full flex-col items-stretch gap-2 pt-12">
         <SecondaryButton>SHARE</SecondaryButton>
         <SecondaryButton>SEE RESULTS</SecondaryButton>
-        <PrimaryButton>PLAY AGAIN</PrimaryButton>
+        <PrimaryButton onClick={playRandomGame}>PLAY AGAIN</PrimaryButton>
       </div>
     </main>
   );

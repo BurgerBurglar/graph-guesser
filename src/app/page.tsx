@@ -1,17 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { Button } from "~/components/ui/button";
-import { useDeck } from "~/Context";
+import { usePlay } from "~/utils";
 
 export default function HomePage() {
-  const router = useRouter();
-  const { initializeRandomDeck } = useDeck();
-
-  const play = () => {
-    const newQuizIds = initializeRandomDeck();
-    void router.push(`quizes/${newQuizIds[0]}`);
-  };
+  const { playRandomGame } = usePlay();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
@@ -22,7 +15,7 @@ export default function HomePage() {
         <div className="text-center text-lg">{`We have the plots. You can guess what they mean.`}</div>
         <Button
           className="rounded-xl bg-white/10 p-6 text-2xl font-bold text-white hover:bg-white/20"
-          onClick={play}
+          onClick={playRandomGame}
         >
           {`Let's Play`}
         </Button>

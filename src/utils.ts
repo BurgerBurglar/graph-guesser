@@ -1,6 +1,7 @@
 import { useLocalStorage } from "@uidotdev/usehooks";
 import type { Results } from "./types";
 import { useDeck } from "./Context";
+import { useRouter } from "next/navigation";
 
 export function shuffle<T>(array: T[]): T[] {
   let currentIndex = array.length,
@@ -23,6 +24,17 @@ export function shuffle<T>(array: T[]): T[] {
 }
 
 export const NUM_QUIZES_PER_PLAY = 3;
+
+export const usePlay = () => {
+  const router = useRouter();
+  const { initializeRandomDeck } = useDeck();
+
+  const playRandomGame = () => {
+    const newQuizIds = initializeRandomDeck();
+    void router.push(`quizes/${newQuizIds[0]}`);
+  };
+  return { playRandomGame };
+};
 
 export const useResults = () => {
   const [results, saveResults] = useLocalStorage<Results>("results", {});
