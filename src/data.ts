@@ -21,7 +21,7 @@ export const DATA = new Map<string, Quiz>([
     },
   ],
   [
-    "8Pwpx",
+    "bvIiZ",
     {
       correctChoice: "Child mortality rate in 2022",
       wrongChoices: [
@@ -112,7 +112,7 @@ export const DATA = new Map<string, Quiz>([
   [
     "IV40s",
     {
-      correctChoice: "neuropsychiatric conditions and drug use disorders",
+      correctChoice: "Neuropsychiatric conditions and drug use disorders",
       wrongChoices: [
         "Respiratory diseases",
         "Digestive diseases",
@@ -150,7 +150,7 @@ export const DATA = new Map<string, Quiz>([
       correctChoice: "East Timor",
       wrongChoices: ["Indonesia", "Malaysia", "Vietnam"],
       description:
-        "The Indonesian invasion of East Timor of 1975 created many humanitarian crises, including a genocide of 100,000 to 300,000 people.",
+        "The Indonesian invasion of East Timor of 1975 created many humanitarian crises, including a genocide with estimated 100,000 to 300,000 victims.",
       source: "https://ourworldindata.org/grapher/life-expectancy-undp",
     },
   ],
@@ -178,14 +178,15 @@ export const DATA = new Map<string, Quiz>([
         "Immigration",
       ],
       description:
-        "In the US, as of 2024, marriage under 18 is legal in 41 states. In California, a child can marry at any age with parental consent and judicial approval.",
-      source: "https://ourworldindata.org/grapher/laws-on-child-marriage",
+        "In the US, the women were granted the consitutional right to vote in 1920.",
+      source:
+        "https://ourworldindata.org/grapher/countries-with-universal-right-to-vote-lexical",
     },
   ],
   [
     "r6tkq",
     {
-      correctChoice: "Disease burden from lead exposure.",
+      correctChoice: "Disease burden from lead exposure",
       wrongChoices: [
         "CO₂ emmision in tons",
         "Water usage in tons",

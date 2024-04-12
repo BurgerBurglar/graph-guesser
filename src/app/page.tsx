@@ -6,7 +6,7 @@ import { DATA } from "~/data";
 import { shuffle } from "~/utils";
 import { useQuizStore } from "../lib/zustand";
 
-const NUM_QUIZES_PER_PLAY = 10;
+const NUM_QUIZES_PER_PLAY = 100;
 
 export default function HomePage() {
   const router = useRouter();
