@@ -18,4 +18,4 @@ export function shuffle<T>(array: T[]): T[] {
   return array;
 }
 
-export const NUM_QUIZES_PER_PLAY = 3;
+export const NUM_QUIZES_PER_PLAY = 5;

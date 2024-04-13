@@ -32,13 +32,7 @@ const Header: React.FC = () => {
       <div className="container flex items-center gap-4 px-4 py-6">
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <Button
-              variant="ghost"
-              className="p-2"
-              onClick={() => {
-                console.log("lol");
-              }}
-            >
+            <Button variant="ghost" className="p-2">
               <X />
             </Button>
           </AlertDialogTrigger>
@@ -47,7 +41,7 @@ const Header: React.FC = () => {
               Are you sure you want to leave?
             </AlertDialogTitle>
             <div className="flex flex-col gap-2">
-              <SecondaryButton>
+              <SecondaryButton asChild>
                 <Link href="/">LEAVE</Link>
               </SecondaryButton>
               <AlertDialogCancel asChild>
