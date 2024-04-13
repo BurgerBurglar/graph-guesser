@@ -149,7 +149,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   };
 
   return (
-    <>
+    <div className="container flex grow flex-col justify-between gap-6 px-4 pb-6">
       <ul className="grid w-full gap-2 md:grid-cols-2">
         {choices.map((choice, index) => {
           const isSelected = selectedChoice === choice;
@@ -189,16 +189,14 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
         description={description}
         handleNext={handleNext}
       />
-      <div className="mt-auto">
-        <PrimaryButton
-          disabled={!selectedChoice}
-          className="w-full"
-          onClick={handleCheck}
-        >
-          {selectedChoice ? "CHECK" : "SELECT"}
-        </PrimaryButton>
-      </div>
-    </>
+      <PrimaryButton
+        disabled={!selectedChoice}
+        className="w-full"
+        onClick={handleCheck}
+      >
+        {selectedChoice ? "CHECK" : "SELECT"}
+      </PrimaryButton>
+    </div>
   );
 };
 

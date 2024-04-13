@@ -28,34 +28,32 @@ const Header: React.FC = () => {
   const percentage = (currentQuizIndexForHumans / (total + 1)) * 100;
 
   return (
-    <>
-      <div className="container flex items-center gap-4 px-4 py-6">
-        <AlertDialog>
-          <AlertDialogTrigger asChild>
-            <Button variant="ghost" className="p-2">
-              <X />
-            </Button>
-          </AlertDialogTrigger>
-          <AlertDialogContent className="flex flex-col gap-8 bg-blue-100">
-            <AlertDialogTitle className="text-center text-xl font-bold">
-              Are you sure you want to leave?
-            </AlertDialogTitle>
-            <div className="flex flex-col gap-2">
-              <SecondaryButton asChild>
-                <Link href="/">LEAVE</Link>
-              </SecondaryButton>
-              <AlertDialogCancel asChild>
-                <GhostButton>STAY</GhostButton>
-              </AlertDialogCancel>
-            </div>
-          </AlertDialogContent>
-        </AlertDialog>
-        <Progress value={percentage} className="flex-1" />
-        <div className="w-[40px] text-center font-medium text-green-700">
-          {currentQuizIndexForHumans}/{total}
-        </div>
+    <div className="container flex items-center gap-4 px-4 py-6">
+      <AlertDialog>
+        <AlertDialogTrigger asChild>
+          <Button variant="ghost" className="p-2">
+            <X />
+          </Button>
+        </AlertDialogTrigger>
+        <AlertDialogContent className="flex flex-col gap-8 bg-blue-100">
+          <AlertDialogTitle className="text-center text-xl font-bold">
+            Are you sure you want to leave?
+          </AlertDialogTitle>
+          <div className="flex flex-col gap-2">
+            <SecondaryButton asChild>
+              <Link href="/">LEAVE</Link>
+            </SecondaryButton>
+            <AlertDialogCancel asChild>
+              <GhostButton>STAY</GhostButton>
+            </AlertDialogCancel>
+          </div>
+        </AlertDialogContent>
+      </AlertDialog>
+      <Progress value={percentage} className="flex-1" />
+      <div className="w-[40px] text-center font-medium text-green-700">
+        {currentQuizIndexForHumans}/{total}
       </div>
-    </>
+    </div>
   );
 };
 export default Header;

@@ -23,20 +23,19 @@ const Visualization: NextPage<{ params: Params }> = ({ params: { id } }) => {
   return (
     <>
       <Header />
-      <main className="container mb-6 flex flex-1 flex-col justify-start gap-4 px-4">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: html,
-          }}
-        />
-        <OptionsResults
-          quizId={id}
-          choices={choices}
-          correctChoice={correctChoice}
-          description={description}
-          source={source}
-        />
-      </main>
+      <div
+        className="container mb-4 flex min-h-0 flex-col justify-start gap-4 overflow-scroll px-4"
+        dangerouslySetInnerHTML={{
+          __html: html,
+        }}
+      />
+      <OptionsResults
+        quizId={id}
+        choices={choices}
+        correctChoice={correctChoice}
+        description={description}
+        source={source}
+      />
     </>
   );
 };
