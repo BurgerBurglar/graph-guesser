@@ -38,7 +38,7 @@ const Results: NextPage = () => {
   const { playRandomGame } = usePlay();
 
   return (
-    <main className="container flex min-h-screen flex-col items-center justify-end gap-12 px-4 py-6">
+    <main className="container flex min-h-screen flex-col items-center justify-end gap-12 bg-gradient-to-b from-green-100 to-green-50 px-4 py-6">
       <Image
         src="/you-did-great.webp"
         alt="you did great!"

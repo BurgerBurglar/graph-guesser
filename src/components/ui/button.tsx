@@ -54,12 +54,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button";
 
 const PrimaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : Button;
     return (
       <Comp
         ref={ref}
-        className="mt-auto h-max rounded-xl border-b-4 border-green-800 bg-green-700 p-3 px-6 pb-4 font-bold hover:bg-green-700 active:mt-1 active:border-b-0"
+        className={cn(
+          buttonVariants({ variant, size, className }),
+          "h-max rounded-xl border-b-4 border-green-800 bg-green-700 p-3 px-6 pb-4 font-bold hover:bg-green-700 active:mt-1 active:border-b-0",
+        )}
         {...props}
       />
     );
@@ -68,12 +71,15 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
 PrimaryButton.displayName = "PrimaryButton";
 
 const SecondaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : Button;
     return (
       <Comp
         ref={ref}
-        className="mt-auto h-max rounded-xl border-b-4 border-gray-300 bg-gray-200 p-3 px-6 pb-4 font-bold text-gray-900 hover:bg-gray-200 active:mt-1 active:border-b-0"
+        className={cn(
+          buttonVariants({ variant, size, className }),
+          "h-max rounded-xl border-b-4 border-gray-300 bg-gray-200 p-3 px-6 pb-4 font-bold text-gray-900 hover:bg-gray-200 active:mt-1 active:border-b-0",
+        )}
         {...props}
       />
     );
@@ -82,13 +88,16 @@ const SecondaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
 SecondaryButton.displayName = "SecondaryButton";
 
 const GhostButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ asChild = false, ...props }, ref) => {
+  ({ className, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : Button;
     return (
       <Comp
         ref={ref}
         variant="ghost"
-        className="h-max rounded-xl p-3 px-6 pb-4 font-bold"
+        className={cn(
+          buttonVariants({ variant: "ghost", size, className }),
+          "h-max rounded-xl p-3 px-6 pb-4 font-bold",
+        )}
         {...props}
       />
     );
