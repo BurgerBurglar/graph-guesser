@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
-import { NUM_QUIZES_PER_PLAY, shuffle } from "./utils";
+import { NUM_QUIZES_PER_PLAY, shuffle, useResults } from "./utils";
 import { DATA } from "./data";
 
 type DeckContextState = {
@@ -26,8 +26,12 @@ export const DeckContextProvider = ({
   children: React.ReactNode;
 }) => {
   const [deck, setDeck] = useState(defaultDeck.deck);
+  const { results } = useResults();
   const initializeRandomDeck = () => {
-    const quizIds = shuffle([...DATA.keys()]).slice(0, NUM_QUIZES_PER_PLAY);
+    const allQuizIds = [...DATA.keys()];
+    const quizIds = shuffle(
+      allQuizIds.filter((quizId) => !Object.keys(results).includes(quizId)),
+    ).slice(0, NUM_QUIZES_PER_PLAY);
     setDeck({
       quizIds,
     });
