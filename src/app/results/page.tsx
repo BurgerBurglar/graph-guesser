@@ -2,15 +2,13 @@
 
 import type { NextPage } from "next";
 import Image from "next/image";
+import { useDeck } from "../../Context";
 import {
-  Button,
-  PrimaryButton,
+  CloseButton,
   NeutralButton,
+  PrimaryButton,
 } from "../../components/ui/button";
 import { usePlay, useResults } from "../../utils";
-import { useDeck } from "../../Context";
-import Link from "next/link";
-import { X } from "lucide-react";
 
 interface ResultDisplayProps {
   header: string;
@@ -45,22 +43,13 @@ const Results: NextPage = () => {
 
   return (
     <main className="container relative flex min-h-screen flex-col items-center justify-end gap-16 bg-gradient-to-b from-green-100 to-green-50 px-4 py-6">
-      <Button
-        asChild
-        variant="ghost"
-        className="absolute left-4 top-4 h-10 w-10 p-0"
-      >
-        <Link href="/">
-          <X />
-        </Link>
-      </Button>
-
+      <CloseButton />
       <div className="flex flex-col items-center">
         <Image
           src="/you-did-great.webp"
           alt="you did great!"
-          width={250}
-          height={250}
+          width={350}
+          height={350}
         />
         <div className="text-center font-medium">
           <p>You learned so much about the world today!</p>

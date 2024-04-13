@@ -3,6 +3,8 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "~/lib/utils";
+import Link from "next/link";
+import { X } from "lucide-react";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
@@ -122,6 +124,28 @@ const GhostButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 GhostButton.displayName = "GhostButton";
 
+const CloseButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, size, ...props }, ref) => {
+    return (
+      <Button
+        asChild
+        ref={ref}
+        variant="ghost"
+        className={cn(
+          buttonVariants({ variant: "ghost", size, className }),
+          "absolute left-4 top-4 h-10 w-10 p-0",
+        )}
+        {...props}
+      >
+        <Link href="/">
+          <X />
+        </Link>
+      </Button>
+    );
+  },
+);
+CloseButton.displayName = "CloseButton";
+
 export {
   Button,
   buttonVariants,
@@ -129,4 +153,5 @@ export {
   SecondaryButton,
   NeutralButton,
   GhostButton,
+  CloseButton,
 };
