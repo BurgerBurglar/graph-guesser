@@ -2,9 +2,15 @@
 
 import type { NextPage } from "next";
 import Image from "next/image";
-import { PrimaryButton, SecondaryButton } from "../../components/ui/button";
+import {
+  Button,
+  PrimaryButton,
+  SecondaryButton,
+} from "../../components/ui/button";
 import { usePlay, useResults } from "../../utils";
 import { useDeck } from "../../Context";
+import Link from "next/link";
+import { X } from "lucide-react";
 
 interface ResultDisplayProps {
   header: string;
@@ -38,19 +44,34 @@ const Results: NextPage = () => {
   const { playRandomGame } = usePlay();
 
   return (
-    <main className="container flex min-h-screen flex-col items-center justify-end gap-12 bg-gradient-to-b from-green-100 to-green-50 px-4 py-6">
-      <Image
-        src="/you-did-great.webp"
-        alt="you did great!"
-        width={250}
-        height={250}
-      />
-      <div className="text-lg">You learned so much about the world today!</div>
+    <main className="container relative flex min-h-screen flex-col items-center justify-end gap-16 bg-gradient-to-b from-green-100 to-green-50 px-4 py-6">
+      <Button
+        asChild
+        variant="ghost"
+        className="absolute left-4 top-4 h-10 w-10 p-0"
+      >
+        <Link href="/">
+          <X />
+        </Link>
+      </Button>
+
+      <div className="flex flex-col items-center">
+        <Image
+          src="/you-did-great.webp"
+          alt="you did great!"
+          width={250}
+          height={250}
+        />
+        <div className="text-center font-medium">
+          <p>You learned so much about the world today!</p>
+          <p>Wanna learn more?</p>
+        </div>
+      </div>
 
       <div className="flex gap-4">
         {!!quizIds.length && (
           <ResultDisplay
-            header="OVERALL"
+            header="JUST NOW"
             numCorrect={numCorrectResultsInDeck}
             numTotal={quizIds.length}
           />
@@ -63,7 +84,7 @@ const Results: NextPage = () => {
           />
         )}
       </div>
-      <div className="flex w-full flex-col items-stretch gap-2 pt-12">
+      <div className="flex w-full flex-col items-stretch gap-2">
         <SecondaryButton>SHARE</SecondaryButton>
         <SecondaryButton>SEE RESULTS</SecondaryButton>
         <PrimaryButton onClick={playRandomGame}>PLAY AGAIN</PrimaryButton>
