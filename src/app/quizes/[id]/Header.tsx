@@ -46,7 +46,7 @@ const Header: React.FC = () => {
               <X />
             </Button>
           </AlertDialogTrigger>
-          <AlertDialogContent className="flex flex-col gap-8 ">
+          <AlertDialogContent className="flex flex-col gap-8 bg-blue-100">
             <AlertDialogTitle className="text-center text-xl font-bold">
               Are you sure you want to leave?
             </AlertDialogTitle>
