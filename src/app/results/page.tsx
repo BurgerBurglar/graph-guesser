@@ -2,13 +2,13 @@
 
 import type { NextPage } from "next";
 import Image from "next/image";
-import { useDeck } from "../../Context";
 import {
   CloseButton,
   NeutralButton,
   PrimaryButton,
-} from "../../components/ui/button";
-import { usePlay, useResults } from "../../utils";
+} from "~/components/ui/button";
+import { useDeck } from "~/context/DeckContext";
+import { usePlay, useResults } from "~/hooks";
 
 interface ResultDisplayProps {
   header: string;

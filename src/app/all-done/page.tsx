@@ -6,8 +6,8 @@ import {
   CloseButton,
   NeutralButton,
   PrimaryButton,
-} from "../../components/ui/button";
-import { usePlay } from "../../utils";
+} from "~/components/ui/button";
+import { usePlay } from "~/hooks";
 const AllDone: NextPage = () => {
   const { playRandomGame } = usePlay();
 

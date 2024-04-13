@@ -4,19 +4,15 @@ import { X } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import React from "react";
-import { useDeck } from "~/Context";
 import {
   AlertDialog,
   AlertDialogContent,
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "~/components/ui/alert-dialog";
+import { Button, GhostButton, SecondaryButton } from "~/components/ui/button";
 import { Progress } from "~/components/ui/progress";
-import {
-  Button,
-  GhostButton,
-  SecondaryButton,
-} from "../../../components/ui/button";
+import { useDeck } from "~/context/DeckContext";
 
 const Header: React.FC = () => {
   const {

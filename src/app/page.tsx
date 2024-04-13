@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { PrimaryButton } from "~/components/ui/button";
-import { usePlay } from "~/utils";
+import { usePlay } from "~/hooks";
 
 export default function HomePage() {
   const { playRandomGame } = usePlay();

@@ -3,7 +3,7 @@ import { CheckCircle, CircleX } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState, type ChangeEvent } from "react";
-import { useDeck } from "~/Context";
+import { useDeck } from "~/context/DeckContext";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -16,7 +16,7 @@ import {
 import { PrimaryButton } from "~/components/ui/button";
 import type { Quiz } from "~/data";
 import { cn } from "~/lib/utils";
-import { useResults } from "../../../utils";
+import { useResults } from "~/hooks";
 
 type QuizStatus = "pending" | "submitted";
 

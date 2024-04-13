@@ -1,8 +1,9 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
-import { NUM_QUIZES_PER_PLAY, shuffle, useResults } from "./utils";
-import { DATA } from "./data";
+import { NUM_QUIZES_PER_PLAY, shuffle } from "~/utils";
+import { useResults } from "~/hooks";
+import { DATA } from "~/data";
 
 type DeckContextState = {
   quizIds: string[];
