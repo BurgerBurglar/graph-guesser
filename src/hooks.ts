@@ -1,11 +1,9 @@
-/* eslint-disable no-console */
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { useDeck } from "./context/DeckContext";
-import type { Results } from "./types";
+import { useLocalStorage } from "usehooks-ts";
+import { useDeck } from "~/context/DeckContext";
+import type { Results } from "~/types";
 
 export const usePlay = () => {
   const router = useRouter();
@@ -21,40 +19,8 @@ export const usePlay = () => {
   };
   return { playRandomGame };
 };
-export const useLocalStorage = <T>(key: string, initialValue: T) => {
-  const [storedValue, setStoredValue] = useState<T>(initialValue);
-
-  const setValue = (value: T) => {
-    window.localStorage.setItem(key, JSON.stringify(value));
-  };
-
-  useEffect(() => {
-    const value = window.localStorage.getItem(key);
-
-    if (value) {
-      try {
-        const parsed = JSON.parse(value) as T;
-        setStoredValue(parsed);
-      } catch (error) {
-        console.log(error);
-        setStoredValue(initialValue);
-      }
-    } else {
-      setStoredValue(initialValue);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (storedValue) {
-      setValue(storedValue);
-    }
-  }, [storedValue]);
-
-  return [storedValue, setStoredValue] as const;
-};
 
 export const useResults = () => {
-  "use client";
   const [results, saveResults] = useLocalStorage<Results>("results", {});
   const { deck } = useDeck();
 

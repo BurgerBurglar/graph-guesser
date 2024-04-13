@@ -1,9 +1,12 @@
 import type { NextPage } from "next";
+import dynamic from "next/dynamic";
+import { notFound } from "next/navigation";
+import OptionsResults from "~/app/quizes/[id]/OptionsResults";
 import { DATA } from "~/data";
 import { shuffle } from "~/utils";
-import OptionsResults from "./OptionsResults";
-import { notFound } from "next/navigation";
-import Header from "./Header";
+const Header = dynamic(() => import("~/app/quizes/[id]/Header"), {
+  ssr: false,
+});
 
 type Params = {
   id: string;

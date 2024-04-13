@@ -1,9 +1,10 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
-import { NUM_QUIZES_PER_PLAY, shuffle } from "~/utils";
-import { useResults } from "~/hooks";
+import { createContext, useContext } from "react";
+import { useLocalStorage } from "usehooks-ts";
 import { DATA } from "~/data";
+import { useResults } from "~/hooks";
+import { NUM_QUIZES_PER_PLAY, shuffle } from "~/utils";
 
 type DeckContextState = {
   quizIds: string[];
@@ -26,7 +27,8 @@ export const DeckContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [deck, setDeck] = useState(defaultDeck.deck);
+  const [deck, setDeck] = useLocalStorage("deck", defaultDeck.deck);
+
   const { results } = useResults();
   const initializeRandomDeck = (canPlayOld = false) => {
     const allQuizIds = [...DATA.keys()];
