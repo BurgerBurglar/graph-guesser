@@ -23,7 +23,7 @@ const Visualization: NextPage<{ params: Params }> = ({ params: { id } }) => {
   return (
     <>
       <Header />
-      <main className="container mb-6 flex flex-1 flex-col justify-between gap-6 px-4">
+      <main className="container mb-6 flex flex-1 flex-col justify-start gap-4 px-4">
         <div
           dangerouslySetInnerHTML={{
             __html: html,

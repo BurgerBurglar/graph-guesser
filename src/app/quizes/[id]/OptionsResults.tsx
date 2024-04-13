@@ -189,9 +189,15 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
         description={description}
         handleNext={handleNext}
       />
-      <PrimaryButton disabled={!selectedChoice} onClick={handleCheck}>
-        {selectedChoice ? "CHECK" : "SELECT"}
-      </PrimaryButton>
+      <div className="mt-auto">
+        <PrimaryButton
+          disabled={!selectedChoice}
+          className="w-full"
+          onClick={handleCheck}
+        >
+          {selectedChoice ? "CHECK" : "SELECT"}
+        </PrimaryButton>
+      </div>
     </>
   );
 };
