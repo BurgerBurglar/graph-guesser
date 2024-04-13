@@ -78,7 +78,7 @@ const SecondaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={cn(
           buttonVariants({ variant, size, className }),
-          "h-max rounded-xl border-b-4 border-gray-300 bg-gray-200 p-3 px-6 pb-4 font-bold text-gray-900 hover:bg-gray-200 active:mt-1 active:border-b-0",
+          "h-max rounded-xl border-b-4 border-blue-800 bg-blue-700 p-3 px-6 pb-4 font-bold hover:bg-blue-700 active:mt-1 active:border-b-0",
         )}
         {...props}
       />
@@ -86,6 +86,23 @@ const SecondaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   },
 );
 SecondaryButton.displayName = "SecondaryButton";
+
+const NeutralButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : Button;
+    return (
+      <Comp
+        ref={ref}
+        className={cn(
+          buttonVariants({ variant, size, className }),
+          "h-max rounded-xl border-b-4 border-gray-300 bg-gray-200 p-3 px-6 pb-4 font-bold text-gray-900 hover:bg-gray-200 active:mt-1 active:border-b-0",
+        )}
+        {...props}
+      />
+    );
+  },
+);
+NeutralButton.displayName = "NeutralButton";
 
 const GhostButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, size, asChild = false, ...props }, ref) => {
@@ -105,4 +122,11 @@ const GhostButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 GhostButton.displayName = "GhostButton";
 
-export { Button, buttonVariants, PrimaryButton, SecondaryButton, GhostButton };
+export {
+  Button,
+  buttonVariants,
+  PrimaryButton,
+  SecondaryButton,
+  NeutralButton,
+  GhostButton,
+};

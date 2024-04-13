@@ -1,5 +1,7 @@
 "use client";
+import { AlertDialogCancel } from "@radix-ui/react-alert-dialog";
 import { X } from "lucide-react";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import React from "react";
 import { useDeck } from "~/Context";
@@ -13,10 +15,8 @@ import { Progress } from "~/components/ui/progress";
 import {
   Button,
   GhostButton,
-  PrimaryButton,
+  SecondaryButton,
 } from "../../../components/ui/button";
-import Link from "next/link";
-import { AlertDialogCancel } from "@radix-ui/react-alert-dialog";
 
 const Header: React.FC = () => {
   const {
@@ -46,14 +46,14 @@ const Header: React.FC = () => {
               <X />
             </Button>
           </AlertDialogTrigger>
-          <AlertDialogContent className="flex flex-col gap-8 bg-green-100 text-green-700">
+          <AlertDialogContent className="flex flex-col gap-8 ">
             <AlertDialogTitle className="text-center text-xl font-bold">
               Are you sure you want to leave?
             </AlertDialogTitle>
             <div className="flex flex-col gap-2">
-              <PrimaryButton>
+              <SecondaryButton>
                 <Link href="/">LEAVE</Link>
-              </PrimaryButton>
+              </SecondaryButton>
               <AlertDialogCancel asChild>
                 <GhostButton>STAY</GhostButton>
               </AlertDialogCancel>

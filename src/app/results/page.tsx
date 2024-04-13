@@ -5,7 +5,7 @@ import Image from "next/image";
 import {
   Button,
   PrimaryButton,
-  SecondaryButton,
+  NeutralButton,
 } from "../../components/ui/button";
 import { usePlay, useResults } from "../../utils";
 import { useDeck } from "../../Context";
@@ -85,8 +85,8 @@ const Results: NextPage = () => {
         )}
       </div>
       <div className="flex w-full flex-col items-stretch gap-2">
-        <SecondaryButton>SHARE</SecondaryButton>
-        <SecondaryButton>SEE RESULTS</SecondaryButton>
+        <NeutralButton>SHARE</NeutralButton>
+        <NeutralButton>SEE RESULTS</NeutralButton>
         <PrimaryButton onClick={playRandomGame}>PLAY AGAIN</PrimaryButton>
       </div>
     </main>
