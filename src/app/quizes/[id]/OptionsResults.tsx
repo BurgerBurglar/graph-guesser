@@ -49,9 +49,9 @@ const ResultAlert: React.FC<ResultAlertProps> = ({
       >
         <AlertDialogHeader>
           <AlertDialogTitle>
-            <div className="flex items-center gap-2 text-2xl font-bold">
-              <ResultIcon />
-              {isUserCorrect ? "Correct" : "Incorrect"}
+            <div className="flex items-center gap-2 text-xl font-bold">
+              <ResultIcon size={32} />
+              {isUserCorrect ? "CORRECT" : "INCORRECT"}
             </div>
           </AlertDialogTitle>
           <AlertDialogDescription
