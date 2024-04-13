@@ -21,7 +21,7 @@ export default function HomePage() {
         </div>
         <PrimaryButton
           className="p-6 text-2xl font-bold"
-          onClick={playRandomGame}
+          onClick={() => playRandomGame(false)}
         >
           {`LET'S GUESS`}
         </PrimaryButton>
