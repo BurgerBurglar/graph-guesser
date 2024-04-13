@@ -87,7 +87,9 @@ const Results: NextPage = () => {
       <div className="flex w-full flex-col items-stretch gap-2">
         <NeutralButton>SHARE</NeutralButton>
         <NeutralButton>SEE RESULTS</NeutralButton>
-        <PrimaryButton onClick={playRandomGame}>PLAY AGAIN</PrimaryButton>
+        <PrimaryButton onClick={() => playRandomGame(false)}>
+          PLAY AGAIN
+        </PrimaryButton>
       </div>
     </main>
   );

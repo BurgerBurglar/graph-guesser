@@ -10,7 +10,7 @@ type DeckContextState = {
 
 type DeckContextValue = {
   deck: DeckContextState;
-  initializeRandomDeck: () => DeckContextState["quizIds"];
+  initializeRandomDeck: (canPlayOld?: boolean) => DeckContextState["quizIds"];
 };
 
 const defaultDeck: DeckContextValue = {
@@ -27,11 +27,12 @@ export const DeckContextProvider = ({
 }) => {
   const [deck, setDeck] = useState(defaultDeck.deck);
   const { results } = useResults();
-  const initializeRandomDeck = () => {
+  const initializeRandomDeck = (canPlayOld = false) => {
     const allQuizIds = [...DATA.keys()];
-    const quizIds = shuffle(
-      allQuizIds.filter((quizId) => !Object.keys(results).includes(quizId)),
-    ).slice(0, NUM_QUIZES_PER_PLAY);
+    const quizIdsToShuffle = canPlayOld
+      ? [...allQuizIds]
+      : allQuizIds.filter((quizId) => !Object.keys(results).includes(quizId));
+    const quizIds = shuffle(quizIdsToShuffle).slice(0, NUM_QUIZES_PER_PLAY);
     setDeck({
       quizIds,
     });

@@ -1,0 +1,30 @@
+"use client";
+
+import type { NextPage } from "next";
+import Image from "next/image";
+import { NeutralButton, PrimaryButton } from "../../components/ui/button";
+import { usePlay } from "../../utils";
+const AllDone: NextPage = () => {
+  const { playRandomGame } = usePlay();
+
+  return (
+    <main className="container relative flex min-h-screen flex-col justify-end gap-48 bg-gradient-to-b from-green-100 to-green-50 px-4 py-6">
+      <div className="flex flex-col items-center gap-4">
+        <Image src="/all-done.webp" alt="all-done" width={250} height={250} />
+        <div className="text-4xl font-bold text-green-700">ALL DONE</div>
+        <div className="text-center font-medium">
+          <p>You finished all quizes.</p>
+          <p>Want to play the old ones again?</p>
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <NeutralButton>SHARE</NeutralButton>
+        <PrimaryButton onClick={() => playRandomGame(true)}>
+          CONTINUE
+        </PrimaryButton>
+      </div>
+    </main>
+  );
+};
+
+export default AllDone;

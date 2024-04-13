@@ -29,8 +29,12 @@ export const usePlay = () => {
   const router = useRouter();
   const { initializeRandomDeck } = useDeck();
 
-  const playRandomGame = () => {
-    const newQuizIds = initializeRandomDeck();
+  const playRandomGame = (canPlayOld = false) => {
+    const newQuizIds = initializeRandomDeck(canPlayOld);
+    if (newQuizIds.length === 0) {
+      router.push("/all-done");
+      return;
+    }
     void router.push(`quizes/${newQuizIds[0]}`);
   };
   return { playRandomGame };
