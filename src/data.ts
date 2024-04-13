@@ -60,7 +60,7 @@ export const DATA = new Map<string, Quiz>([
         "Number of livestocks",
       ],
       description:
-        "In the US, the number of landline phone subscriptions peaked in 2000, while in India it peaked in 2005",
+        "In the US, the number of landline phone subscriptions peaked in 2000, while in India it peaked in 2005.",
       source: "https://ourworldindata.org/grapher/landline-phone-subscriptions",
     },
   ],
@@ -243,7 +243,7 @@ export const DATA = new Map<string, Quiz>([
         "Journalists & Media",
       ],
       description:
-        "India's terrorist death toll in 2021 dropped to 135 compared to 1152 in 1992",
+        "India's terrorist death toll in 2021 dropped to 135 compared to 1152 in 1992.",
       source:
         "https://ourworldindata.org/grapher/deaths-from-terrorism-by-target",
     },
@@ -263,9 +263,9 @@ export const DATA = new Map<string, Quiz>([
     {
       correctChoice: "Historical activities of chemical and biological weapons",
       wrongChoices: [
-        "War crimes committed since 1900",
-        "Nobel Prize winners",
-        "Terrorist attacks of 100+ victims",
+        "War crimes committed 1800-1900 and 1900 to now",
+        "Nobel Prize winners and nominatees",
+        "Terrorist attacks of 50-100 and 100+ victims",
       ],
       description:
         "As of 2022, only Russia, United States, North Korea, and Iran claim to pursue biological weapons.",
