@@ -36,7 +36,7 @@ const Results: NextPage = () => {
           <p>Wanna learn more?</p>
         </div>
         <div className="flex gap-4">
-          {!!quizIds.length && (
+          {isClient && !!quizIds.length && (
             <ResultDisplay
               header="JUST NOW"
               numCorrect={numCorrectResultsInDeck}
