@@ -2,6 +2,8 @@
 
 import type { NextPage } from "next";
 import Image from "next/image";
+import { useIsClient } from "usehooks-ts";
+import ResultDisplay from "~/app/results/ResultsDisplay";
 import {
   CloseButton,
   NeutralButton,
@@ -10,29 +12,6 @@ import {
 import { useDeck } from "~/context/DeckContext";
 import { usePlay, useResults } from "~/hooks";
 
-interface ResultDisplayProps {
-  header: string;
-  numCorrect: number;
-  numTotal: number;
-}
-
-const ResultDisplay: React.FC<ResultDisplayProps> = ({
-  header,
-  numCorrect,
-  numTotal,
-}) => {
-  return (
-    <div className="flex flex-col items-stretch rounded-xl border-2 border-t-0 border-green-700 text-center">
-      <div className="min-w-32 rounded-t-xl bg-green-700 py-1 font-bold text-white">
-        {header}
-      </div>
-      <div className="px-10 py-2 text-lg font-medium text-green-700">
-        {numCorrect}/{numTotal}
-      </div>
-    </div>
-  );
-};
-
 const Results: NextPage = () => {
   const {
     deck: { quizIds },
@@ -40,6 +19,7 @@ const Results: NextPage = () => {
   const { numCorrectResultsInDeck, numCorrectResults, numResults } =
     useResults();
   const { playRandomGame } = usePlay();
+  const isClient = useIsClient();
 
   return (
     <main className="container relative flex min-h-[100dvh] flex-col items-center justify-end gap-16 bg-gradient-to-b px-4 py-6">
@@ -65,7 +45,7 @@ const Results: NextPage = () => {
             numTotal={quizIds.length}
           />
         )}
-        {!!numResults && (
+        {isClient && !!numResults && (
           <ResultDisplay
             header="OVERALL"
             numCorrect={numCorrectResults}
