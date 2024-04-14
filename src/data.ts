@@ -9,11 +9,11 @@ export const DATA = new Map<string, Quiz>([
   [
     "2jhEe",
     {
-      correctChoice: "Deaths in armed conflicts in 2022",
+      correctChoice: "Deaths in armed conflicts",
       wrongChoices: [
-        "Sunflower seed production in kilotons in 2021",
-        "Military weapon aid received in USD (millions) in 2023",
-        "Iron ore export in USD (millions) in 2022",
+        "Sunflower seed production in kilotons",
+        "Military weapon aid received in USD (millions)",
+        "Iron ore export in USD (millions)",
       ],
       description:
         "In 2022, 102,860 people died in Ethiopia due to armed conflicts.",
@@ -23,12 +23,8 @@ export const DATA = new Map<string, Quiz>([
   [
     "bvIiZ",
     {
-      correctChoice: "Child mortality rate in 2022",
-      wrongChoices: [
-        "Birth rate in 2022",
-        "GDP growth in 2023",
-        "Illiteracy rate in 2022",
-      ],
+      correctChoice: "Child mortality rate",
+      wrongChoices: ["Birth rate", "GDP growth", "Illiteracy rate"],
       description:
         "In 2022, 11.2% of Somalian children die before the age of 5.",
       source:
@@ -38,12 +34,11 @@ export const DATA = new Map<string, Quiz>([
   [
     "TcmXT",
     {
-      correctChoice:
-        "Deaths per 100,000 people from unsafe water sources in 2019",
+      correctChoice: "Deaths per 100,000 people from unsafe water sources",
       wrongChoices: [
-        "Antibiotic use in livestock in ton in 2022",
-        "Number of farmers per 1,000 people in 2018",
-        "Government spending on infrastructure in USD in 2020",
+        "Antibiotic use in livestock in ton",
+        "Number of farmers per 1,000 people",
+        "Government spending on infrastructure in USD",
       ],
       description:
         "In India, death rate from unsafe water in 2022 is 24% of what it was in 1990.",
@@ -97,11 +92,11 @@ export const DATA = new Map<string, Quiz>([
   [
     "uXqke",
     {
-      correctChoice: "Government revenues as a share of GDP in 2020",
+      correctChoice: "Government revenues as a share of GDP",
       wrongChoices: [
-        "Percentage of people with free healthcare in 2020",
-        "Percentage of public schools with free meals in 2020",
-        "Percentage of people who believe in evolution theory in 2020",
+        "Percentage of people with free healthcare",
+        "Percentage of public schools with free meals",
+        "Percentage of people who believe in evolution theory",
       ],
       description:
         "Nauru and Kiribati are the only two countries with a higher goverment revenue than GDP in 2020.",
