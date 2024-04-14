@@ -21,10 +21,10 @@ const Visualization: NextPage<{ params: Params }> = ({ params: { id } }) => {
   const choices = shuffle([...wrongChoices, correctChoice]);
 
   return (
-    <main className="flex h-[100svh] flex-col">
+    <div className="flex min-h-[100svh] flex-col gap-4 px-4 pb-6">
       <Header />
-      <div
-        className="container flex min-h-[145px] grow flex-col px-4 pb-2"
+      <figure
+        className="flex min-h-[145px] grow flex-col"
         dangerouslySetInnerHTML={{
           __html: html,
         }}
@@ -36,7 +36,7 @@ const Visualization: NextPage<{ params: Params }> = ({ params: { id } }) => {
         description={description}
         source={source}
       />
-    </main>
+    </div>
   );
 };
 

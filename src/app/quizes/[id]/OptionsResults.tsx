@@ -149,8 +149,8 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   };
 
   return (
-    <div className="container flex flex-col justify-end gap-2 px-4 pb-2">
-      <ul className="grid w-full gap-1 md:grid-cols-2">
+    <div className="flex flex-col justify-end gap-2">
+      <ul className="grid w-full gap-2 md:grid-cols-2">
         {choices.map((choice, index) => {
           const isSelected = selectedChoice === choice;
           return (
@@ -168,7 +168,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
               <label
                 htmlFor={`answer-${index}`}
                 className={cn(
-                  "inline-flex w-full cursor-pointer items-center justify-center rounded-xl border-2 border-b-4 border-gray-200 bg-white px-4 py-2  text-center font-medium active:mt-[2.4px] active:border-b-2 peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-600",
+                  "inline-flex w-full cursor-pointer items-center justify-center rounded-xl border-2 border-b-4 border-gray-200 bg-white px-4 py-3  text-center font-medium active:mt-[2.4px] active:border-b-2 peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-600",
                   {
                     "hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-gray-300":
                       status === "pending",
