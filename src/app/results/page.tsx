@@ -22,9 +22,9 @@ const Results: NextPage = () => {
   const isClient = useIsClient();
 
   return (
-    <main className="container relative flex min-h-[100dvh] flex-col items-center justify-end gap-16 bg-gradient-to-b px-4 py-6">
+    <main className="container relative flex min-h-[100dvh] flex-col items-center justify-between gap-6 bg-gradient-to-b px-4 pb-6 pt-16">
       <CloseButton />
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center gap-2">
         <Image
           src="/you-did-great.webp"
           alt="you did great!"
@@ -35,23 +35,22 @@ const Results: NextPage = () => {
           <p>You learned so much about the world today!</p>
           <p>Wanna learn more?</p>
         </div>
-      </div>
-
-      <div className="flex gap-4">
-        {!!quizIds.length && (
-          <ResultDisplay
-            header="JUST NOW"
-            numCorrect={numCorrectResultsInDeck}
-            numTotal={quizIds.length}
-          />
-        )}
-        {isClient && !!numResults && (
-          <ResultDisplay
-            header="OVERALL"
-            numCorrect={numCorrectResults}
-            numTotal={numResults}
-          />
-        )}
+        <div className="flex gap-4">
+          {!!quizIds.length && (
+            <ResultDisplay
+              header="JUST NOW"
+              numCorrect={numCorrectResultsInDeck}
+              numTotal={quizIds.length}
+            />
+          )}
+          {isClient && !!numResults && (
+            <ResultDisplay
+              header="OVERALL"
+              numCorrect={numCorrectResults}
+              numTotal={numResults}
+            />
+          )}
+        </div>
       </div>
       <div className="flex w-full flex-col items-stretch gap-2">
         <NeutralButton>SHARE</NeutralButton>

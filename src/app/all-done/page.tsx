@@ -12,7 +12,7 @@ const AllDone: NextPage = () => {
   const { playRandomGame } = usePlay();
 
   return (
-    <main className="container relative flex min-h-[100dvh] flex-col justify-end gap-48 bg-gradient-to-b px-4 py-6">
+    <main className="container relative flex min-h-[100dvh] flex-col justify-between gap-6 bg-gradient-to-b px-4 pb-6 pt-16">
       <CloseButton />
       <div className="flex flex-col items-center gap-4">
         <Image src="/all-done.webp" alt="all-done" width={250} height={250} />

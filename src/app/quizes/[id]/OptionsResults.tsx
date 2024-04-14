@@ -84,7 +84,7 @@ const ResultAlert: React.FC<ResultAlertProps> = ({
         <AlertDialogFooter>
           <AlertDialogAction
             className={cn(
-              "h-max rounded-2xl border-b-4 p-3 pb-4 font-bold active:mt-1 active:border-b-0",
+              "h-max rounded-2xl border-b-4 p-3  font-bold active:mt-1 active:border-b-0",
               isUserCorrect
                 ? "border-green-800 bg-green-700 hover:bg-green-500"
                 : "border-red-800 bg-red-700 hover:bg-red-500",
@@ -149,7 +149,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   };
 
   return (
-    <div className="container flex grow flex-col justify-between gap-6 px-4 pb-6">
+    <div className="container flex grow flex-col justify-end gap-2 px-4 pb-2">
       <ul className="grid w-full gap-2 md:grid-cols-2">
         {choices.map((choice, index) => {
           const isSelected = selectedChoice === choice;
@@ -168,7 +168,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
               <label
                 htmlFor={`answer-${index}`}
                 className={cn(
-                  "inline-flex w-full cursor-pointer items-center justify-center rounded-xl border-2 border-b-4 border-gray-200 bg-white p-3 pb-4 text-center font-medium text-gray-500 active:mt-[2.4px] active:border-b-2 peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-600",
+                  "inline-flex w-full cursor-pointer items-center justify-center rounded-xl border-2 border-b-4 border-gray-200 bg-white p-3  text-center font-medium active:mt-[2.4px] active:border-b-2 peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-600",
                   {
                     "hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-gray-300":
                       status === "pending",

@@ -28,7 +28,7 @@ const Header: React.FC = () => {
   const percentage = (currentQuizIndexForHumans / (total + 1)) * 100;
 
   return (
-    <div className="container flex items-center gap-4 px-4 py-6">
+    <div className="container flex items-center gap-4 px-4 py-2">
       <AlertDialog>
         <AlertDialogTrigger asChild>
           <Button variant="ghost" className="p-2">

@@ -63,7 +63,7 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={cn(
           buttonVariants({ variant, size, className }),
-          "h-max rounded-xl border-b-4 border-green-800 bg-green-700 p-3 px-6 pb-4 font-bold hover:bg-green-700 active:mt-1 active:border-b-0",
+          "text-md px- h-max rounded-xl border-b-4 border-green-800 bg-green-700 p-3  font-bold hover:bg-green-700 active:mt-1 active:border-b-0",
         )}
         {...props}
       />
@@ -80,7 +80,7 @@ const SecondaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={cn(
           buttonVariants({ variant, size, className }),
-          "h-max rounded-xl border-b-4 border-blue-800 bg-blue-700 p-3 px-6 pb-4 font-bold hover:bg-blue-700 active:mt-1 active:border-b-0",
+          "text-md h-max rounded-xl border-b-4 border-blue-800 bg-blue-700 p-3 px-6 font-bold hover:bg-blue-700 active:mt-1 active:border-b-0",
         )}
         {...props}
       />
@@ -97,7 +97,7 @@ const NeutralButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={cn(
           buttonVariants({ variant, size, className }),
-          "h-max rounded-xl border-b-4 border-gray-300 bg-gray-200 p-3 px-6 pb-4 font-bold text-gray-900 hover:bg-gray-200 active:mt-1 active:border-b-0",
+          "text-md px- h-max rounded-xl border-b-4 border-gray-300 bg-gray-200 p-3  font-bold text-gray-900 hover:bg-gray-200 active:mt-1 active:border-b-0",
         )}
         {...props}
       />
@@ -115,7 +115,7 @@ const GhostButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         variant="ghost"
         className={cn(
           buttonVariants({ variant: "ghost", size, className }),
-          "h-max rounded-xl p-3 px-6 pb-4 font-bold",
+          "h-max rounded-xl p-3 px-6  font-bold",
         )}
         {...props}
       />
