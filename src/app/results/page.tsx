@@ -42,7 +42,7 @@ const Results: NextPage = () => {
   const { playRandomGame } = usePlay();
 
   return (
-    <main className="container relative flex min-h-screen flex-col items-center justify-end gap-16 bg-gradient-to-b from-green-100 to-green-50 px-4 py-6">
+    <main className="container relative flex min-h-[100dvh] flex-col items-center justify-end gap-16 bg-gradient-to-b px-4 py-6">
       <CloseButton />
       <div className="flex flex-col items-center">
         <Image
