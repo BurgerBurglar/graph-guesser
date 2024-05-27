@@ -2,11 +2,7 @@
 
 import type { NextPage } from "next";
 import Image from "next/image";
-import {
-  CloseButton,
-  NeutralButton,
-  PrimaryButton,
-} from "~/components/ui/button";
+import { Button, CloseButton } from "~/components/ui/button";
 import { usePlay } from "~/hooks";
 const AllDone: NextPage = () => {
   const { playRandomGame } = usePlay();
@@ -24,10 +20,16 @@ const AllDone: NextPage = () => {
           </div>
         </div>
         <div className="flex flex-col gap-2 md:flex-row">
-          <NeutralButton className="grow">SHARE</NeutralButton>
-          <PrimaryButton className="grow" onClick={() => playRandomGame(true)}>
+          <Button variant="neutral" className="grow">
+            SHARE
+          </Button>
+          <Button
+            variant="primary"
+            className="grow"
+            onClick={() => playRandomGame(true)}
+          >
             CONTINUE
-          </PrimaryButton>
+          </Button>
         </div>
       </main>
     </div>

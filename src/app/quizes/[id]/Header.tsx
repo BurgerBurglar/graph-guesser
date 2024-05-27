@@ -10,7 +10,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "~/components/ui/alert-dialog";
-import { Button, GhostButton, SecondaryButton } from "~/components/ui/button";
+import { Button } from "~/components/ui/button";
 import { Progress } from "~/components/ui/progress";
 import { useDeck } from "~/context/DeckContext";
 
@@ -40,11 +40,11 @@ const Header: React.FC = () => {
             Are you sure you want to leave?
           </AlertDialogTitle>
           <div className="flex flex-col gap-2">
-            <SecondaryButton asChild>
+            <Button variant="secondary" asChild>
               <Link href="/">LEAVE</Link>
-            </SecondaryButton>
+            </Button>
             <AlertDialogCancel asChild>
-              <GhostButton>STAY</GhostButton>
+              <Button variant="ghost">STAY</Button>
             </AlertDialogCancel>
           </div>
         </AlertDialogContent>

@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CloseButton, PrimaryButton } from "~/components/ui/button";
+import { Button, CloseButton } from "~/components/ui/button";
 const NotFound: NextPage = () => {
   return (
     <div className="flex flex-col justify-end bg-gradient-to-b from-green-100 to-green-50">
@@ -18,9 +18,9 @@ const NotFound: NextPage = () => {
             </div>
           </div>
           <div className="flex w-full flex-col items-stretch gap-2 md:flex-row">
-            <PrimaryButton asChild>
+            <Button asChild variant="primary">
               <Link href="/">GO HOME</Link>
-            </PrimaryButton>
+            </Button>
           </div>
         </div>
       </main>

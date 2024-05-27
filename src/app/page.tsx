@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { PrimaryButton } from "~/components/ui/button";
+import { Button } from "~/components/ui/button";
 import { usePlay } from "~/hooks";
 
 export default function HomePage() {
@@ -19,12 +19,13 @@ export default function HomePage() {
           <p>{`We have the plots.`}</p>
           <p>{`You can guess what they mean.`}</p>
         </div>
-        <PrimaryButton
-          className="p-6 text-2xl font-bold"
+        <Button
+          variant="primary"
+          className="text-2xl font-bold"
           onClick={() => playRandomGame(false)}
         >
           {`LET'S GUESS`}
-        </PrimaryButton>
+        </Button>
       </div>
     </main>
   );

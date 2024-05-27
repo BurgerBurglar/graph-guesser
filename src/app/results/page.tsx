@@ -5,11 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useIsClient } from "usehooks-ts";
 import ResultDisplay from "~/app/results/ResultsDisplay";
-import {
-  CloseButton,
-  NeutralButton,
-  PrimaryButton,
-} from "~/components/ui/button";
+import { Button, CloseButton } from "~/components/ui/button";
 import { useDeck } from "~/context/DeckContext";
 import { usePlay, useResults } from "~/hooks";
 
@@ -57,13 +53,19 @@ const Results: NextPage = () => {
           </div>
         </div>
         <div className="flex w-full flex-col items-stretch gap-2 md:flex-row">
-          <NeutralButton className="grow">SHARE</NeutralButton>
-          <NeutralButton asChild className="grow">
+          <Button variant="neutral" className="grow">
+            SHARE
+          </Button>
+          <Button variant="neutral" asChild className="grow">
             <Link href="/results/details">SEE RESULTS</Link>
-          </NeutralButton>
-          <PrimaryButton className="grow" onClick={() => playRandomGame(false)}>
+          </Button>
+          <Button
+            variant="primary"
+            className="grow"
+            onClick={() => playRandomGame(false)}
+          >
             PLAY AGAIN
-          </PrimaryButton>
+          </Button>
         </div>
       </main>
     </div>

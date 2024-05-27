@@ -3,7 +3,6 @@ import { CheckCircle, CircleX } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState, type ChangeEvent } from "react";
-import { useDeck } from "~/context/DeckContext";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -13,10 +12,11 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "~/components/ui/alert-dialog";
-import { PrimaryButton } from "~/components/ui/button";
+import { Button } from "~/components/ui/button";
+import { useDeck } from "~/context/DeckContext";
 import type { Quiz } from "~/data";
-import { cn } from "~/lib/utils";
 import { useResults } from "~/hooks";
+import { cn } from "~/lib/utils";
 
 type QuizStatus = "pending" | "submitted";
 
@@ -189,13 +189,14 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
         description={description}
         handleNext={handleNext}
       />
-      <PrimaryButton
+      <Button
+        variant="primary"
         disabled={!selectedChoice}
         className="w-full"
         onClick={handleCheck}
       >
         {selectedChoice ? "CHECK" : "SELECT"}
-      </PrimaryButton>
+      </Button>
     </div>
   );
 };

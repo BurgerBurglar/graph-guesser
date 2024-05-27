@@ -1,13 +1,13 @@
 "use client";
 
+import { CheckCircle, CircleX } from "lucide-react";
 import type { NextPage } from "next";
+import Link from "next/link";
 import { useIsClient } from "usehooks-ts";
 import Graph from "~/app/quizes/[id]/Graph";
-import { GhostButton } from "~/components/ui/button";
+import { Button } from "~/components/ui/button";
 import { useDeck } from "~/context/DeckContext";
 import { useResults } from "~/hooks";
-import { CheckCircle, CircleX } from "lucide-react";
-import Link from "next/link";
 
 const Page: NextPage = () => {
   const isClient = useIsClient();
@@ -28,10 +28,10 @@ const Page: NextPage = () => {
               className="flex flex-col rounded-xl border border-slate-300 bg-gray-50 p-4 pb-2"
             >
               <Graph quizId={quizId} />
-              <GhostButton className="gap-2">
+              <Button variant="ghost" className="gap-2">
                 <ResultIcon />
                 <Link href={`/quizes/${quizId}`}>Try Again</Link>
-              </GhostButton>
+              </Button>
             </div>
           );
         })}

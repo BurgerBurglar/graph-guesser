@@ -7,29 +7,27 @@ import Link from "next/link";
 import { X } from "lucide-react";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+        primary: "border-green-800 bg-green-700 hover:bg-green-700 text-white",
+        secondary: "border-blue-800 bg-blue-700 hover:bg-blue-700 text-white",
+        destructive: "border-red-800 bg-red-700 hover:bg-red-700 text-white",
+        neutral: "border-gray-300 bg-gray-200 text-gray-900 hover:bg-gray-200",
+        ghost: "border-none",
+        link: "border-none hover:underline",
       },
       size: {
-        default: "h-10 px-4 py-2",
+        default:
+          "text-md rounded-xl border-b-4 font-bold active:mt-1 active:border-b-0 px-6 py-3",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "primary",
       size: "default",
     },
   },
@@ -55,75 +53,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 Button.displayName = "Button";
 
-const PrimaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : Button;
-    return (
-      <Comp
-        ref={ref}
-        className={cn(
-          buttonVariants({ variant, size, className }),
-          "text-md px- h-max rounded-xl border-b-4 border-green-800 bg-green-700 p-3  font-bold hover:bg-green-700 active:mt-1 active:border-b-0",
-        )}
-        {...props}
-      />
-    );
-  },
-);
-PrimaryButton.displayName = "PrimaryButton";
-
-const SecondaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : Button;
-    return (
-      <Comp
-        ref={ref}
-        className={cn(
-          buttonVariants({ variant, size, className }),
-          "text-md h-max rounded-xl border-b-4 border-blue-800 bg-blue-700 p-3 px-6 font-bold hover:bg-blue-700 active:mt-1 active:border-b-0",
-        )}
-        {...props}
-      />
-    );
-  },
-);
-SecondaryButton.displayName = "SecondaryButton";
-
-const NeutralButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : Button;
-    return (
-      <Comp
-        ref={ref}
-        className={cn(
-          buttonVariants({ variant, size, className }),
-          "text-md px- h-max rounded-xl border-b-4 border-gray-300 bg-gray-200 p-3  font-bold text-gray-900 hover:bg-gray-200 active:mt-1 active:border-b-0",
-        )}
-        {...props}
-      />
-    );
-  },
-);
-NeutralButton.displayName = "NeutralButton";
-
-const GhostButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : Button;
-    return (
-      <Comp
-        ref={ref}
-        variant="ghost"
-        className={cn(
-          buttonVariants({ variant: "ghost", size, className }),
-          "h-max rounded-xl p-3 px-6  font-bold",
-        )}
-        {...props}
-      />
-    );
-  },
-);
-GhostButton.displayName = "GhostButton";
-
 const CloseButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, size, ...props }, ref) => {
     return (
@@ -146,12 +75,4 @@ const CloseButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 CloseButton.displayName = "CloseButton";
 
-export {
-  Button,
-  buttonVariants,
-  PrimaryButton,
-  SecondaryButton,
-  NeutralButton,
-  GhostButton,
-  CloseButton,
-};
+export { Button, buttonVariants, CloseButton };
