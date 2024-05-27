@@ -2,6 +2,7 @@
 
 import type { NextPage } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { useIsClient } from "usehooks-ts";
 import ResultDisplay from "~/app/results/ResultsDisplay";
 import {
@@ -57,7 +58,9 @@ const Results: NextPage = () => {
         </div>
         <div className="flex w-full flex-col items-stretch gap-2 md:flex-row">
           <NeutralButton className="grow">SHARE</NeutralButton>
-          <NeutralButton className="grow">SEE RESULTS</NeutralButton>
+          <NeutralButton asChild className="grow">
+            <Link href="/results/details">SEE RESULTS</Link>
+          </NeutralButton>
           <PrimaryButton className="grow" onClick={() => playRandomGame(false)}>
             PLAY AGAIN
           </PrimaryButton>
