@@ -12,7 +12,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "~/components/ui/alert-dialog";
-import { Button } from "~/components/ui/button";
+import { Button, buttonVariants } from "~/components/ui/button";
 import { useDeck } from "~/context/DeckContext";
 import type { Quiz } from "~/data";
 import { useResults } from "~/hooks";
@@ -54,12 +54,7 @@ const ResultAlert: React.FC<ResultAlertProps> = ({
               {isUserCorrect ? "CORRECT" : "INCORRECT"}
             </div>
           </AlertDialogTitle>
-          <AlertDialogDescription
-            className={cn(
-              "flex flex-col items-start gap-2 text-start",
-              isUserCorrect ? "text-green-700" : "text-red-700",
-            )}
-          >
+          <AlertDialogDescription className="flex flex-col items-start gap-2 text-start text-inherit">
             {!isUserCorrect && (
               <div>
                 <div className="text-lg font-medium">Correct answer:</div>
@@ -71,10 +66,7 @@ const ResultAlert: React.FC<ResultAlertProps> = ({
               <Link
                 href={source}
                 target="_blank"
-                className={cn(
-                  "text-[1rem] underline underline-offset-2",
-                  isUserCorrect ? "hover:text-green-600" : "hover:text-red-600",
-                )}
+                className="text-[1rem] underline underline-offset-2"
               >
                 {description}
               </Link>
@@ -84,10 +76,11 @@ const ResultAlert: React.FC<ResultAlertProps> = ({
         <AlertDialogFooter>
           <AlertDialogAction
             className={cn(
-              "h-max rounded-2xl border-b-4 p-3  font-bold active:mt-1 active:border-b-0",
-              isUserCorrect
-                ? "border-green-800 bg-green-700 hover:bg-green-500"
-                : "border-red-800 bg-red-700 hover:bg-red-500",
+              buttonVariants({
+                variant: isUserCorrect ? "primary" : "destructive",
+                className:
+                  "h-max rounded-2xl border-b-4 p-3  font-bold active:mt-1 active:border-b-0",
+              }),
             )}
             onClick={handleNext}
           >
