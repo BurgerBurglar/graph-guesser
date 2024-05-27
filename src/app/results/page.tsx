@@ -19,8 +19,8 @@ const Results: NextPage = () => {
   const isClient = useIsClient();
 
   return (
-    <div className="bg-gradient-to-b from-green-100 to-green-50">
-      <main className="container relative flex h-[100dvh] min-h-[511px] flex-col items-center justify-between gap-6 bg-gradient-to-b px-4 pb-6 pt-16">
+    <div>
+      <main className="container relative flex h-[100dvh] min-h-[511px] flex-col items-center justify-between gap-6 px-4 pb-6 pt-16">
         <CloseButton />
         <div className="flex min-h-[141.6px] grow flex-col items-center gap-2">
           <div className="relative max-h-[350px] min-h-[100px] w-full max-w-[350px] basis-[350px]">

@@ -4,8 +4,8 @@ import Link from "next/link";
 import { Button, CloseButton } from "~/components/ui/button";
 const NotFound: NextPage = () => {
   return (
-    <div className="flex flex-col justify-end bg-gradient-to-b from-green-100 to-green-50">
-      <main className="container relative flex h-[100dvh] flex-col items-center justify-end gap-6 bg-gradient-to-b px-4 pb-6 pt-16">
+    <div className="flex flex-col justify-end">
+      <main className="container relative flex h-[100dvh] flex-col items-center justify-end gap-6 px-4 pb-6 pt-16">
         <CloseButton />
         <div className="flex max-h-[500px] min-h-[200px] grow flex-col gap-4">
           <div className="flex min-h-[141.6px] grow flex-col items-center gap-4">
