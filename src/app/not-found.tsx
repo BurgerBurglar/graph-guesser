@@ -13,7 +13,7 @@ const NotFound: NextPage = () => {
         </div>
         <div className="text-4xl font-bold text-green-700">{`ERROR 404`}</div>
         <div className="text-center font-medium">
-          {`Sorry, the page you're looking for doesn't exist`}
+          {`Sorry, the page you're looking for doesn't exist.`}
         </div>
       </div>
       <div className="flex w-full flex-col items-stretch gap-2 md:flex-row">
