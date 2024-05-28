@@ -29,12 +29,12 @@ export const DeckContextProvider = ({
 }) => {
   const [deck, setDeck] = useLocalStorage("deck", defaultDeck.deck);
 
-  const { results } = useResults();
+  const { quizeIdsPlayed } = useResults();
   const initializeRandomDeck = (canPlayOld = false) => {
     const allQuizIds = [...DATA.keys()];
     const quizIdsToShuffle = canPlayOld
       ? [...allQuizIds]
-      : allQuizIds.filter((quizId) => !Object.keys(results).includes(quizId));
+      : allQuizIds.filter((quizId) => !quizeIdsPlayed.includes(quizId));
     const quizIds = shuffle(quizIdsToShuffle).slice(0, NUM_QUIZES_PER_PLAY);
     setDeck({
       quizIds,

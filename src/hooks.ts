@@ -3,7 +3,8 @@
 import { useRouter } from "next/navigation";
 import { useLocalStorage } from "usehooks-ts";
 import { useDeck } from "~/context/DeckContext";
-import type { Results } from "~/types";
+import { DATA } from "~/data";
+import type { QuizResultRecord } from "~/types";
 
 export const usePlay = () => {
   const router = useRouter();
@@ -20,8 +21,16 @@ export const usePlay = () => {
   return { playRandomGame };
 };
 
+const quizIds = Array.from(DATA).map(([quizId]) => quizId);
+const initialResults: QuizResultRecord = Object.fromEntries(
+  quizIds.map((quizId) => [quizId, { isCorrect: undefined }]),
+);
+
 export const useResults = () => {
-  const [results, saveResults] = useLocalStorage<Results>("results", {});
+  const [results, saveResults] = useLocalStorage<QuizResultRecord>(
+    "results",
+    initialResults,
+  );
   const { deck } = useDeck();
 
   const numCorrectResultsInDeck = Object.entries(results).filter(
@@ -30,7 +39,11 @@ export const useResults = () => {
   const numCorrectResults = Object.entries(results).filter(
     ([_, { isCorrect }]) => isCorrect,
   ).length;
-  const numResults = Object.entries(results).length;
+
+  const quizeIdsPlayed = Object.entries(results)
+    .filter(([_, { isCorrect }]) => isCorrect !== undefined)
+    .map(([quizId]) => quizId);
+  const numQuizesPlayed = quizeIdsPlayed.length;
 
   const setResult = ({
     quizId,
@@ -47,8 +60,9 @@ export const useResults = () => {
   return {
     results,
     setResult,
+    quizeIdsPlayed,
     numCorrectResultsInDeck,
     numCorrectResults,
-    numResults,
+    numQuizesPlayed,
   };
 };

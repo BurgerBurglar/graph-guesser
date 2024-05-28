@@ -3,12 +3,12 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useIsClient } from "usehooks-ts";
-import QuizOverview from "~/app/results/details/QuizOverview";
+import QuizOverview from "~/components/QuizOverview";
 import { Button } from "~/components/ui/button";
 import { useDeck } from "~/context/DeckContext";
 import { useResults } from "~/hooks";
 
-const Page: NextPage = () => {
+const ResultsDetails: NextPage = () => {
   const isClient = useIsClient();
   const {
     deck: { quizIds },
@@ -38,4 +38,4 @@ const Page: NextPage = () => {
     </main>
   );
 };
-export default Page;
+export default ResultsDetails;

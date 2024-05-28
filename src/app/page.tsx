@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "~/components/ui/button";
 import { usePlay } from "~/hooks";
+import { DISPLAY_EXPORE_BUTTON } from "~/utils";
 
 export default function HomePage() {
   const { playRandomGame } = usePlay();
@@ -19,13 +21,16 @@ export default function HomePage() {
           <p>{`We have the plots.`}</p>
           <p>{`You can guess what they mean.`}</p>
         </div>
-        <Button
-          variant="primary"
-          className="text-2xl font-bold"
-          onClick={() => playRandomGame(false)}
-        >
-          {`LET'S GUESS`}
-        </Button>
+        <div className="flex w-full flex-col gap-2">
+          <Button variant="primary" onClick={() => playRandomGame(false)}>
+            {`LET'S GUESS`}
+          </Button>
+          {DISPLAY_EXPORE_BUTTON && (
+            <Button asChild variant="neutral">
+              <Link href="/explore">EXPLORE</Link>
+            </Button>
+          )}
+        </div>
       </div>
     </main>
   );

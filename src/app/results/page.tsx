@@ -13,7 +13,7 @@ const Results: NextPage = () => {
   const {
     deck: { quizIds },
   } = useDeck();
-  const { numCorrectResultsInDeck, numCorrectResults, numResults } =
+  const { numCorrectResultsInDeck, numCorrectResults, numQuizesPlayed } =
     useResults();
   const { playRandomGame } = usePlay();
   const isClient = useIsClient();
@@ -43,11 +43,11 @@ const Results: NextPage = () => {
                 numTotal={quizIds.length}
               />
             )}
-            {isClient && !!numResults && (
+            {isClient && !!numQuizesPlayed && (
               <ResultDisplay
                 header="OVERALL"
                 numCorrect={numCorrectResults}
-                numTotal={numResults}
+                numTotal={numQuizesPlayed}
               />
             )}
           </div>

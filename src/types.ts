@@ -1,6 +1,6 @@
-export type Results = Record<
+export type QuizResultRecord = Record<
   string,
   {
-    isCorrect: boolean;
+    isCorrect?: boolean;
   }
 >;

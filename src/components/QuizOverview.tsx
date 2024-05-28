@@ -7,11 +7,12 @@ import { cn } from "~/lib/utils";
 
 interface QuizOverviewProps {
   quizId: string;
-  isRight: boolean;
+  isRight?: boolean;
 }
 
 const QuizOverview: React.FC<QuizOverviewProps> = ({ quizId, isRight }) => {
   const ResultIcon = isRight ? CheckCircle : CircleX;
+  const hasResult = isRight !== undefined;
   const prompt = isRight ? "You got it right!" : "That wasn't quite right";
   return (
     <div
@@ -21,15 +22,17 @@ const QuizOverview: React.FC<QuizOverviewProps> = ({ quizId, isRight }) => {
       )}
     >
       <Graph quizId={quizId} />
-      <div
-        className={cn(
-          "flex justify-center gap-2 font-medium",
-          isRight ? "text-green-700" : "text-red-700",
-        )}
-      >
-        <ResultIcon />
-        <span>{prompt}</span>
-      </div>
+      {hasResult && (
+        <div
+          className={cn(
+            "flex justify-center gap-2 font-medium",
+            isRight ? "text-green-700" : "text-red-700",
+          )}
+        >
+          <ResultIcon />
+          <span>{prompt}</span>
+        </div>
+      )}
       <Button variant="outline" className="gap-2">
         <Link href={`/quizes/${quizId}`}>TRY AGAIN</Link>
       </Button>
