@@ -4,6 +4,8 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import { Button, CloseButton } from "~/components/ui/button";
 import { usePlay } from "~/hooks";
+import { RWebShare } from "react-web-share";
+
 const AllDone: NextPage = () => {
   const { playRandomGame } = usePlay();
 
@@ -19,9 +21,18 @@ const AllDone: NextPage = () => {
         </div>
       </div>
       <div className="flex flex-col gap-2 md:flex-row">
-        <Button variant="neutral" className="grow">
-          SHARE
-        </Button>
+        <RWebShare
+          data={{
+            title: "Graph Guesser",
+            text: "Guess what the plots mean!",
+            url:
+              process.env.SHARE_URL ?? "https://graph-guesser-8964.vercel.app/",
+          }}
+        >
+          <Button variant="neutral" className="grow">
+            SHARE
+          </Button>
+        </RWebShare>
         <Button
           variant="primary"
           className="grow"

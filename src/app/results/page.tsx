@@ -3,6 +3,7 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { RWebShare } from "react-web-share";
 import { useIsClient } from "usehooks-ts";
 import ResultDisplay from "~/app/results/ResultsDisplay";
 import { Button, CloseButton } from "~/components/ui/button";
@@ -53,9 +54,19 @@ const Results: NextPage = () => {
           </div>
         </div>
         <div className="flex w-full flex-col items-stretch gap-2 md:flex-row">
-          <Button variant="neutral" className="grow">
-            SHARE
-          </Button>
+          <RWebShare
+            data={{
+              title: "Graph Guesser",
+              text: "Guess what the plots mean!",
+              url:
+                process.env.SHARE_URL ??
+                "https://graph-guesser-8964.vercel.app/",
+            }}
+          >
+            <Button variant="neutral" className="grow">
+              SHARE
+            </Button>
+          </RWebShare>
           <Button variant="neutral" asChild className="grow">
             <Link href="/results/details">SEE RESULTS</Link>
           </Button>
