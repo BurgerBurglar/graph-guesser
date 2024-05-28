@@ -28,14 +28,14 @@ const Header: React.FC = () => {
   const percentage = (currentQuizIndexForHumans / (total + 1)) * 100;
 
   return (
-    <div className="sticky top-0 flex items-center gap-4 pt-2">
+    <div className="sticky top-0 flex items-center gap-4 bg-white py-2">
       <AlertDialog>
         <AlertDialogTrigger asChild>
           <Button variant="ghost" className="p-0">
             <X />
           </Button>
         </AlertDialogTrigger>
-        <AlertDialogContent className="flex flex-col gap-8 bg-blue-100">
+        <AlertDialogContent className="flex flex-col gap-8 bg-gray-100">
           <AlertDialogTitle className="text-center text-xl font-bold">
             Are you sure you want to leave?
           </AlertDialogTitle>
