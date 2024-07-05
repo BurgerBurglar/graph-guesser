@@ -267,4 +267,74 @@ export const DATA = new Map<string, Quiz>([
       source: "https://ourworldindata.org/grapher/biological-weapons",
     },
   ],
+  [
+    "7u4MW",
+    {
+      correctChoice: "Average alcohol consumption in liters",
+      wrongChoices: [
+        "Average Pork consumption in kilograms",
+        "Percentage of people who believe in god",
+        "Obesity rate",
+      ],
+      description:
+        "Kuwait, Saudi Arabia, Mauritania, and Somalia are the only 4 countries with 0 average alcohol consumption.",
+      source:
+        "https://ourworldindata.org/grapher/total-alcohol-consumption-per-capita-litres-of-pure-alcohol",
+    },
+  ],
+  [
+    "3TpFT",
+    {
+      correctChoice: "Alcohol-attributable fraction of mortality",
+      wrongChoices: [
+        "Percentage of Orthodox Christians",
+        "Corruption Perception Index",
+        "Sunflower production in million tons",
+      ],
+      description:
+        "In Moldova, 26.1% of deaths will disappear if alcohol were removed.",
+      source:
+        "https://ourworldindata.org/grapher/alcohol-attributable-fraction-of-mortality",
+    },
+  ],
+  [
+    "jm8fg",
+    {
+      correctChoice: "Alcohol-attributable fraction of mortality",
+      wrongChoices: [
+        "Fentanyl and other Synthetic opiods",
+        "Methamphetamine",
+        "Amphetamine",
+      ],
+      description:
+        "The dosage of 42% of the fentanyl pills are higher than lethal threshold.",
+      source: "https://ourworldindata.org/grapher/drug-overdose-death-rates",
+    },
+  ],
+  [
+    "9JfQ3",
+    {
+      correctChoice: "Drug use disorder deaths per 100,000 people",
+      wrongChoices: [
+        "National defense budget in trillion USD",
+        "Fossile fule export in million tons",
+        "Percentage of cancer patients",
+      ],
+      description:
+        "United States, Canada, and Australia are the top 3 countries in drug related death rate.",
+      source:
+        "https://ourworldindata.org/grapher/death-rates-from-drug-use-disorders-who",
+    },
+  ],
+  [
+    "p7M81",
+    {
+      correctChoice: "Australia",
+      wrongChoices: ["Spain", "South Korea", "Vietnam"],
+      description:
+        "In 2019, Australia has the highest burdern of disease from mental illness, while Vietnam has the lowest.",
+      source:
+        "https://ourworldindata.org/grapher/death-rates-from-drug-use-disorders-who",
+    },
+  ],
 ]);
