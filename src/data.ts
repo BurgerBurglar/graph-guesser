@@ -334,7 +334,136 @@ export const DATA = new Map<string, Quiz>([
       description:
         "In 2019, Australia has the highest burdern of disease from mental illness, while Vietnam has the lowest.",
       source:
-        "https://ourworldindata.org/grapher/death-rates-from-drug-use-disorders-who",
+        "https://ourworldindata.org/grapher/burden-disease-from-each-mental-illness",
+    },
+  ],
+  [
+    "5UN0T",
+    {
+      correctChoice: "Human Rights Index",
+      wrongChoices: [
+        "GDP increase percentage",
+        "Birth rate",
+        "Daily meat consumption in kg",
+      ],
+      description:
+        "The Human Rights Index dropped from 0.554 in 2020 to 0.06 in 2022.",
+      source: "https://ourworldindata.org/grapher/human-rights-index-vdem",
+    },
+  ],
+  [
+    "5UN0T",
+    {
+      correctChoice: "Human Rights Index",
+      wrongChoices: [
+        "GDP increase percentage",
+        "Birth rate",
+        "Daily meat consumption in kg",
+      ],
+      description:
+        "The Human Rights Index dropped from 0.554 in 2020 to 0.06 in 2022.",
+      source: "https://ourworldindata.org/grapher/human-rights-index-vdem",
+    },
+  ],
+  [
+    "bxlQQ",
+    {
+      correctChoice: "Malawi",
+      wrongChoices: ["Ethiopia", "Sri Lanka", "Indonesia"],
+      description:
+        "Malawi's Human Rights Index is increased from 0.16 in 1993 to 0.59 in 1995",
+      source: "https://ourworldindata.org/grapher/human-rights-index-vdem",
+    },
+  ],
+  [
+    "gdaEo",
+    {
+      correctChoice: "Share of population with access to electricity",
+      wrongChoices: [
+        "Share of population with clean water",
+        "Literacy rate",
+        "Human right index",
+      ],
+      description:
+        "In Burundi, only 10.2% of the population has access to electricity providing basic lighting in 2021.",
+      source:
+        "https://ourworldindata.org/grapher/share-of-the-population-with-access-to-electricity",
+    },
+  ],
+  [
+    "VTgzS",
+    {
+      correctChoice: "Biofuels",
+      wrongChoices: ["Wood", "Geothermal", "Ocean"],
+      description:
+        "The most common biofuels are corn ethanol, biodiesel, and biogas from organic byproducts.",
+      source: "https://ourworldindata.org/grapher/global-energy-substitution",
+    },
+  ],
+  [
+    "fqk1x",
+    {
+      correctChoice: "Energy Consumption per Capita in kWh",
+      wrongChoices: [
+        "Oil exports in barrel",
+        "GDP per capita in USD",
+        "Average price of water per ton in USD",
+      ],
+      description:
+        "Average energy consumption per capita in Trinidad and Tobago is 6 times higher than in South America due to its energy-intensive industries (ammonia, methanol, fertilizers, and aluminium).",
+      source: "https://ourworldindata.org/grapher/per-capita-energy-use",
+    },
+  ],
+  [
+    "bM0MF",
+    {
+      correctChoice: "Nuclear energy consumption percentage",
+      wrongChoices: [
+        "Percentage of people who own personal computers",
+        "Pork consumption per capita in kg",
+        "Lead exposure in children in mg/dL",
+      ],
+      description:
+        "In 2009, Lithuania closed all nuclear power plants, switching from being an exporter to an importer of electricity.",
+      source: "https://ourworldindata.org/grapher/nuclear-primary-energy",
+    },
+  ],
+  [
+    "7Du94",
+    {
+      correctChoice: "India",
+      wrongChoices: ["South Korea", "Taiwan", "France"],
+      description:
+        "The installed solar energy capacity in China increased from 6.72GW to 393.03GW in 2022.",
+      source: "https://ourworldindata.org/grapher/installed-solar-pv-capacity",
+    },
+  ],
+  [
+    "M0OkF",
+    {
+      correctChoice: "Plastic waste emitted to the ocean in tons",
+      wrongChoices: [
+        "Rice production in 1000 tonnes",
+        "Population affected by hurricane disasters",
+        "Education expenditure in USD",
+      ],
+      description:
+        "Philippines emits 3.3kg plastic waste into the ocean per capita, the highest in the world in 2019.",
+      source: "https://ourworldindata.org/plastic-pollution",
+    },
+  ],
+  [
+    "iLR2B",
+    {
+      correctChoice: "Fish catch in tonnes",
+      wrongChoices: [
+        "Steel production in tonnes",
+        "Dairy consumption in tonnes",
+        "Number of sheep in stock",
+      ],
+      description:
+        "Due to overfishing, the fish catch in the UK in 2017 was lower than 1941 when the country was at war.",
+      source: "https://ourworldindata.org/grapher/fish-catch-uk",
     },
   ],
 ]);
