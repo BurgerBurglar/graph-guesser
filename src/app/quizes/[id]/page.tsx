@@ -20,7 +20,7 @@ const Visualization: NextPage<{ params: Params }> = ({ params: { id } }) => {
   const choices = shuffle([...wrongChoices, correctChoice]);
 
   return (
-    <div className="flex min-h-[100svh] flex-col gap-4 bg-white px-4 pb-6">
+    <div className="flex h-[100svh] flex-col gap-4 bg-white px-4 pb-6">
       <Header />
       <Graph quizId={id} />
       <OptionsResults

@@ -9,7 +9,7 @@ const Graph: React.FC<GraphProps> = ({ quizId }) => {
 
   return (
     <figure
-      className="flex min-h-[300px] grow flex-col"
+      className="flex min-h-[200px] grow flex-col"
       dangerouslySetInnerHTML={{
         __html: html,
       }}

@@ -1,5 +1,5 @@
 "use client";
-import { CheckCircle, CircleX } from "lucide-react";
+import { CheckCircle, CircleX, Link as LinkIcon } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState, type ChangeEvent } from "react";
@@ -66,8 +66,9 @@ const ResultAlert: React.FC<ResultAlertProps> = ({
               <Link
                 href={source}
                 target="_blank"
-                className="text-[1rem] underline underline-offset-2"
+                className="text-[1rem] underline-offset-2 hover:underline"
               >
+                <LinkIcon className="me-1 inline h-4 w-4" />
                 {description}
               </Link>
             </div>
@@ -161,7 +162,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
               <label
                 htmlFor={`answer-${index}`}
                 className={cn(
-                  "inline-flex w-full cursor-pointer items-center justify-center rounded-xl border-2 border-b-4 border-gray-200 bg-white px-4 py-3  text-center font-medium active:mt-[2.4px] active:border-b-2 peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-600",
+                  "inline-flex w-full cursor-pointer items-center justify-center rounded-xl border-2 border-b-4 border-gray-200 bg-white px-4 py-3  text-center font-medium active:mt-[2.4px] active:border-b-2 peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-700",
                   {
                     "hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-gray-300":
                       status === "pending",
