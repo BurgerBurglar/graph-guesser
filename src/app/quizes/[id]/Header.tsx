@@ -31,7 +31,7 @@ const Header: React.FC = () => {
     <div className="sticky top-0 flex items-center gap-4 bg-white py-2">
       <AlertDialog>
         <AlertDialogTrigger asChild>
-          <Button variant="ghost" className="p-0">
+          <Button variant="ghost" className="p-1">
             <X />
           </Button>
         </AlertDialogTrigger>
