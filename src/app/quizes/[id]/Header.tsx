@@ -39,7 +39,7 @@ const Header: React.FC = () => {
           <AlertDialogTitle className="text-center text-xl font-bold">
             Are you sure you want to leave?
           </AlertDialogTitle>
-          <div className="flex w-full flex-col gap-2 sm:max-w-md sm:flex-row-reverse">
+          <div className="flex w-full flex-col gap-2 sm:max-w-lg sm:flex-row-reverse">
             <AlertDialogCancel asChild>
               <Button variant="secondary" className="w-full">
                 STAY

@@ -27,11 +27,11 @@ const ResultsDetails: NextPage = () => {
             <QuizOverview key={quizId} quizId={quizId} isRight={isRight} />
           );
         })}
-      <div className="flex flex-col gap-2">
-        <Button variant="neutral" asChild>
+      <div className="mx-auto flex w-full max-w-lg flex-col justify-center gap-2 sm:flex-row">
+        <Button variant="neutral" asChild className="grow">
           <Link href="/results">BACK</Link>
         </Button>
-        <Button asChild>
+        <Button asChild className="grow">
           <Link href="/">CONTINUE</Link>
         </Button>
       </div>
