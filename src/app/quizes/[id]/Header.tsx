@@ -35,17 +35,21 @@ const Header: React.FC = () => {
             <X />
           </Button>
         </AlertDialogTrigger>
-        <AlertDialogContent className="flex flex-col gap-8 bg-gray-100">
+        <AlertDialogContent className="flex flex-col items-center gap-8">
           <AlertDialogTitle className="text-center text-xl font-bold">
             Are you sure you want to leave?
           </AlertDialogTitle>
-          <div className="flex flex-col gap-2">
-            <Button variant="secondary" asChild>
-              <Link href="/">LEAVE</Link>
-            </Button>
+          <div className="flex w-full flex-col gap-2 sm:max-w-md sm:flex-row-reverse">
             <AlertDialogCancel asChild>
-              <Button variant="ghost">STAY</Button>
+              <Button variant="secondary" className="w-full">
+                STAY
+              </Button>
             </AlertDialogCancel>
+            <Button variant="outline" asChild>
+              <Link href="/" className="w-full">
+                LEAVE
+              </Link>
+            </Button>
           </div>
         </AlertDialogContent>
       </AlertDialog>

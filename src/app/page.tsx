@@ -22,7 +22,7 @@ export default function HomePage() {
           <p>{`You can guess what they mean.`}</p>
         </div>
       </div>
-      <div className="flex w-full flex-col gap-2">
+      <div className="flex w-full max-w-md flex-col gap-2">
         <Button variant="primary" onClick={() => playRandomGame(false)}>
           {`LET'S GUESS`}
         </Button>

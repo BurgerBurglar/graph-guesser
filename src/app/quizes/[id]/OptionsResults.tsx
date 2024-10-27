@@ -5,18 +5,15 @@ import { useRouter } from "next/navigation";
 import React, { useState, type ChangeEvent } from "react";
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogContent,
   AlertDialogDescription,
-  AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
 } from "~/components/ui/alert-dialog";
-import { Button, buttonVariants } from "~/components/ui/button";
+import { Button } from "~/components/ui/button";
 import { useDeck } from "~/context/DeckContext";
 import type { Quiz } from "~/data";
 import { useResults } from "~/hooks";
-import { cn } from "~/lib/utils";
 
 type QuizStatus = "pending" | "submitted";
 
@@ -47,47 +44,42 @@ const ResultAlert: React.FC<ResultAlertProps> = ({
             : "bg-red-100 text-red-700"
         }
       >
-        <AlertDialogHeader>
-          <AlertDialogTitle>
-            <div className="flex items-center gap-2 text-xl font-bold">
-              <ResultIcon size={32} />
-              {isUserCorrect ? "CORRECT" : "INCORRECT"}
-            </div>
-          </AlertDialogTitle>
-          <AlertDialogDescription className="flex flex-col items-start gap-2 text-start text-inherit">
-            {!isUserCorrect && (
-              <div>
-                <div className="text-lg font-medium">Correct answer:</div>
-                <div className="text-[1rem]">{correctChoice}</div>
+        <div className="mx-auto flex w-full max-w-screen-lg flex-col items-center justify-between gap-4 sm:flex-row">
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              <div className="flex items-center gap-2 text-xl font-bold">
+                <ResultIcon size={32} />
+                {isUserCorrect ? "CORRECT" : "INCORRECT"}
               </div>
-            )}
-            <div>
-              <div className="text-lg font-medium">Did you know?</div>
-              <Link
-                href={source}
-                target="_blank"
-                className="text-[1rem] underline-offset-2 hover:underline"
-              >
-                <LinkIcon className="me-1 inline h-4 w-4" />
-                {description}
-              </Link>
-            </div>
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogAction
-            className={cn(
-              buttonVariants({
-                variant: isUserCorrect ? "primary" : "destructive",
-                className:
-                  "h-max rounded-2xl border-b-4 p-3  font-bold active:mt-1 active:border-b-0",
-              }),
-            )}
+            </AlertDialogTitle>
+            <AlertDialogDescription className="flex flex-col items-start gap-2 text-start text-inherit">
+              {!isUserCorrect && (
+                <div>
+                  <div className="text-lg font-medium">Correct answer:</div>
+                  <div className="text-[1rem]">{correctChoice}</div>
+                </div>
+              )}
+              <div>
+                <div className="text-lg font-medium">Did you know?</div>
+                <Link
+                  href={source}
+                  target="_blank"
+                  className="text-[1rem] underline-offset-2 hover:underline"
+                >
+                  <LinkIcon className="me-1 inline h-4 w-4" />
+                  {description}
+                </Link>
+              </div>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <Button
+            variant={isUserCorrect ? "primary" : "destructive"}
+            className="w-full rounded-2xl sm:max-w-40 sm:grow-0"
             onClick={handleNext}
           >
             {isUserCorrect ? "CONTINUE" : "GOT IT"}
-          </AlertDialogAction>
-        </AlertDialogFooter>
+          </Button>
+        </div>
       </AlertDialogContent>
     </AlertDialog>
   );
@@ -159,18 +151,14 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
                 checked={isSelected}
                 onChange={handleChange}
               />
-              <label
-                htmlFor={`answer-${index}`}
-                className={cn(
-                  "inline-flex w-full cursor-pointer items-center justify-center rounded-xl border-2 border-b-4 border-gray-200 bg-white px-4 py-3  text-center font-medium active:mt-[2.4px] active:border-b-2 peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-700",
-                  {
-                    "hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-gray-300":
-                      status === "pending",
-                  },
-                )}
-              >
-                {choice}
-              </label>
+              <Button asChild variant="outline">
+                <label
+                  htmlFor={`answer-${index}`}
+                  className="w-full text-center font-medium peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-700"
+                >
+                  {choice}
+                </label>
+              </Button>
             </li>
           );
         })}
@@ -186,7 +174,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
       <Button
         variant="primary"
         disabled={!selectedChoice}
-        className="w-full"
+        className="mx-auto w-full sm:mt-2 sm:max-w-60"
         onClick={handleCheck}
       >
         {selectedChoice ? "CHECK" : "SELECT"}

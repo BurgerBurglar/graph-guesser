@@ -33,7 +33,7 @@ const QuizOverview: React.FC<QuizOverviewProps> = ({ quizId, isRight }) => {
           <span>{prompt}</span>
         </div>
       )}
-      <Button variant="outline" className="gap-2">
+      <Button variant="outline">
         <Link href={`/quizes/${quizId}`}>TRY AGAIN</Link>
       </Button>
     </div>
