@@ -173,7 +173,7 @@ export const DATA = new Map<string, Quiz>([
         "Immigration",
       ],
       description:
-        "In the US, the women were granted the consitutional right to vote in 1920.",
+        "In the US, women were granted the consitutional right to vote in 1920.",
       source:
         "https://ourworldindata.org/grapher/countries-with-universal-right-to-vote-lexical",
     },
