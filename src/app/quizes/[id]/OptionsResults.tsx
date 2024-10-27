@@ -135,7 +135,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   };
 
   return (
-    <div className="flex flex-col justify-end gap-2">
+    <div className="mt-4 flex flex-col justify-end gap-4">
       <ul className="grid w-full gap-2 md:grid-cols-2">
         {choices.map((choice, index) => {
           const isSelected = selectedChoice === choice;
