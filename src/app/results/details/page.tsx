@@ -17,9 +17,6 @@ const ResultsDetails: NextPage = () => {
 
   return (
     <main className="container relative flex min-h-screen flex-col justify-start gap-4 px-4 py-6">
-      <h2 className="text-center text-xl font-bold">
-        Want to go back and do these again?
-      </h2>
       {isClient &&
         quizIds.map((quizId) => {
           const isRight = results[quizId]?.isCorrect ?? false;
