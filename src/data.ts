@@ -352,27 +352,13 @@ export const DATA = new Map<string, Quiz>([
     },
   ],
   [
-    "5UN0T",
-    {
-      correctChoice: "Human Rights Index",
-      wrongChoices: [
-        "GDP increase percentage",
-        "Birth rate",
-        "Daily meat consumption in kg",
-      ],
-      description:
-        "The Human Rights Index dropped from 0.554 in 2020 to 0.06 in 2022.",
-      source: "https://ourworldindata.org/grapher/human-rights-index-vdem",
-    },
-  ],
-  [
     "bxlQQ",
     {
-      correctChoice: "Malawi",
-      wrongChoices: ["Ethiopia", "Sri Lanka", "Indonesia"],
+      correctChoice: "Brazil",
+      wrongChoices: ["Uganda", "India", "China"],
       description:
-        "Malawi's Human Rights Index is increased from 0.16 in 1993 to 0.59 in 1995",
-      source: "https://ourworldindata.org/grapher/human-rights-index-vdem",
+        "Vietnam's coffee production increased from 4,100t in 1961 to 2.0 million tons in 2022",
+      source: "https://ourworldindata.org/grapher/coffee-bean-production",
     },
   ],
   [
