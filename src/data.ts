@@ -434,7 +434,7 @@ export const DATA = new Map<string, Quiz>([
         "Education expenditure in USD",
       ],
       description:
-        "Philippines emits 3.3kg plastic waste into the ocean per capita, the highest in the world in 2019.",
+        "The Philippines emits 3.3kg plastic waste into the ocean per capita, the highest in the world in 2019.",
       source: "https://ourworldindata.org/plastic-pollution",
     },
   ],
