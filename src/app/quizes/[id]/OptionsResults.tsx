@@ -64,9 +64,9 @@ const ResultAlert: React.FC<ResultAlertProps> = ({
                 <Link
                   href={source}
                   target="_blank"
-                  className="text-[1rem] underline-offset-2 hover:underline"
+                  className="text-[1rem] underline underline-offset-2"
                 >
-                  <LinkIcon className="me-1 inline h-4 w-4" />
+                  <LinkIcon className="me-1 inline size-5" />
                   {description}
                 </Link>
               </div>
@@ -154,7 +154,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
               <Button asChild variant="outline">
                 <label
                   htmlFor={`answer-${index}`}
-                  className="w-full text-center font-medium peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-700"
+                  className="size-full text-center font-medium peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-700"
                 >
                   {choice}
                 </label>
