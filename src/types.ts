@@ -5,6 +5,8 @@ export type QuizResultRecord = Record<
   }
 >;
 
+export type Difficulty = "easy" | "medium" | "hard";
+
 export type QuizPageSearchParams = {
-  difficulty: "easy" | "medium" | "hard";
+  difficulty: Difficulty;
 };

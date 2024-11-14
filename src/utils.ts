@@ -1,4 +1,4 @@
-import type { QuizPageSearchParams } from "./types";
+import type { Difficulty, QuizPageSearchParams } from "./types";
 
 export function shuffle<T>(array: T[]): T[] {
   let currentIndex = array.length,
@@ -33,4 +33,25 @@ export const validateSearchParams = (searchParams: QuizPageSearchParams) => {
   const difficulty = searchParams.difficulty;
   if (!difficulty) return false;
   return ["easy", "medium", "hard"].includes(difficulty);
+};
+
+export const getSavedDifficulty = () => {
+  const localDifficulty = localStorage.getItem("difficulty");
+  // change this to a Zod schema
+  const savedDifficulty = (
+    ["easy", "medium", "hard"].includes(localDifficulty ?? "")
+      ? localDifficulty
+      : "easy"
+  ) as Difficulty;
+  return savedDifficulty;
+};
+
+export const getQuizLink = (quizId: string, difficulty?: Difficulty) => {
+  if (!difficulty) {
+    difficulty = getSavedDifficulty();
+  }
+  const searchParams = new URLSearchParams({
+    difficulty,
+  });
+  return `/quizes/${quizId}?${searchParams}`;
 };

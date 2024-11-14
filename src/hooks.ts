@@ -4,19 +4,32 @@ import { useRouter } from "next/navigation";
 import { useLocalStorage } from "usehooks-ts";
 import { useDeck } from "~/context/DeckContext";
 import { DATA } from "~/data";
-import type { QuizResultRecord } from "~/types";
+import type { Difficulty, QuizResultRecord } from "~/types";
+import { getQuizLink } from "./utils";
 
 export const usePlay = () => {
   const router = useRouter();
   const { initializeRandomDeck } = useDeck();
 
-  const playRandomGame = (canPlayOld = false) => {
+  const playRandomGame = ({
+    canPlayOld = false,
+    difficulty,
+  }: {
+    canPlayOld?: boolean;
+    difficulty?: Difficulty;
+  }) => {
+    if (difficulty) {
+      localStorage.setItem("difficulty", difficulty);
+    }
+
     const newQuizIds = initializeRandomDeck(canPlayOld);
-    if (newQuizIds.length === 0) {
+
+    const newQuizId = newQuizIds[0];
+    if (newQuizId === undefined) {
       router.push("/all-done");
       return;
     }
-    void router.push(`quizes/${newQuizIds[0]}`);
+    void router.push(getQuizLink(newQuizId, difficulty));
   };
   return { playRandomGame };
 };

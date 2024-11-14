@@ -15,7 +15,14 @@ const ButtonGroups: React.FC = () => {
       <Button asChild variant="neutral">
         <Link href="/">HOME</Link>
       </Button>
-      <Button variant="primary" onClick={() => playRandomGame(false)}>
+      <Button
+        variant="primary"
+        onClick={() =>
+          playRandomGame({
+            canPlayOld: false,
+          })
+        }
+      >
         {`LET'S GUESS`}
       </Button>
     </div>

@@ -1,14 +1,10 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "~/components/ui/button";
-import { usePlay } from "~/hooks";
 import { DISPLAY_EXPORE_BUTTON } from "~/utils";
+import LetsGuess from "./LetsGuess";
 
 export default function HomePage() {
-  const { playRandomGame } = usePlay();
-
   return (
     <main className="container flex min-h-[100dvh] flex-col items-center justify-end px-4 py-8">
       <div className="flex grow flex-col items-center justify-center gap-6">
@@ -23,9 +19,7 @@ export default function HomePage() {
         </div>
       </div>
       <div className="flex w-full max-w-md flex-col gap-2">
-        <Button variant="primary" onClick={() => playRandomGame(false)}>
-          {`LET'S GUESS`}
-        </Button>
+        <LetsGuess />
         {DISPLAY_EXPORE_BUTTON && (
           <Button asChild variant="neutral">
             <Link href="/explore">EXPLORE</Link>

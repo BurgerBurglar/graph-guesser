@@ -37,7 +37,11 @@ const AllDone: NextPage = () => {
         <Button
           variant="primary"
           className="grow"
-          onClick={() => playRandomGame(true)}
+          onClick={() =>
+            playRandomGame({
+              canPlayOld: true,
+            })
+          }
         >
           CONTINUE
         </Button>

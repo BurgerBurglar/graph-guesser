@@ -4,6 +4,7 @@ import React from "react";
 import Graph from "~/app/quizes/[id]/Graph";
 import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
+import { getQuizLink } from "~/utils";
 
 interface QuizOverviewProps {
   quizId: string;
@@ -34,7 +35,7 @@ const QuizOverview: React.FC<QuizOverviewProps> = ({ quizId, isRight }) => {
         </div>
       )}
       <Button variant="outline" className="border-b-2 active:mt-0">
-        <Link href={`/quizes/${quizId}`}>TRY AGAIN</Link>
+        <Link href={getQuizLink(quizId)}>TRY AGAIN</Link>
       </Button>
     </div>
   );

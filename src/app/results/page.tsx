@@ -74,7 +74,11 @@ const Results: NextPage = () => {
         <Button
           variant="primary"
           className="grow"
-          onClick={() => playRandomGame(false)}
+          onClick={() =>
+            playRandomGame({
+              canPlayOld: false,
+            })
+          }
         >
           PLAY AGAIN
         </Button>

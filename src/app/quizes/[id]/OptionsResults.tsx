@@ -14,6 +14,7 @@ import { Button } from "~/components/ui/button";
 import { useDeck } from "~/context/DeckContext";
 import type { Quiz } from "~/data";
 import { useResults } from "~/hooks";
+import { getQuizLink } from "~/utils";
 
 type QuizStatus = "pending" | "submitted";
 
@@ -23,7 +24,7 @@ interface ResultAlertProps {
   correctChoice: Quiz["correctChoice"];
   description: Quiz["description"];
   source: Quiz["source"];
-  handleNext: () => void;
+  nextPageLink: string;
 }
 
 const ResultAlert: React.FC<ResultAlertProps> = ({
@@ -32,7 +33,7 @@ const ResultAlert: React.FC<ResultAlertProps> = ({
   correctChoice,
   source,
   description,
-  handleNext,
+  nextPageLink,
 }) => {
   const ResultIcon = isUserCorrect ? CheckCircle : CircleX;
   return (
@@ -73,11 +74,13 @@ const ResultAlert: React.FC<ResultAlertProps> = ({
             </AlertDialogDescription>
           </AlertDialogHeader>
           <Button
+            asChild
             variant={isUserCorrect ? "primary" : "destructive"}
             className="w-full rounded-2xl sm:max-w-40 sm:grow-0"
-            onClick={handleNext}
           >
-            {isUserCorrect ? "CONTINUE" : "GOT IT"}
+            <Link href={nextPageLink}>
+              {isUserCorrect ? "CONTINUE" : "GOT IT"}
+            </Link>
           </Button>
         </div>
       </AlertDialogContent>
@@ -126,11 +129,11 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
     setStatus("submitted");
     setResult({ quizId, isCorrect: isUserCorrect });
   };
-  const handleNext = () => {
+  const getNextPageLink = () => {
     if (nextQuizId) {
-      router.push(`/quizes/${nextQuizId}`);
+      return getQuizLink(nextQuizId);
     } else {
-      router.push("/results");
+      return "/results";
     }
   };
 
@@ -169,7 +172,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
         correctChoice={correctChoice}
         source={source}
         description={description}
-        handleNext={handleNext}
+        nextPageLink={getNextPageLink()}
       />
       <Button
         variant="primary"
