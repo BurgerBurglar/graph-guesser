@@ -1,3 +1,5 @@
+import type { QuizPageSearchParams } from "./types";
+
 export function shuffle<T>(array: T[]): T[] {
   let currentIndex = array.length,
     randomIndex;
@@ -21,3 +23,14 @@ export function shuffle<T>(array: T[]): T[] {
 export const NUM_QUIZES_PER_PLAY = 5;
 
 export const DISPLAY_EXPORE_BUTTON = false;
+
+// replace this with a Zod schema
+export const validateSearchParams = (searchParams: QuizPageSearchParams) => {
+  const keys = Array.from(Object.keys(searchParams));
+  if (keys.length !== 1) return false;
+  if (!keys.includes("difficulty")) return false;
+
+  const difficulty = searchParams.difficulty;
+  if (!difficulty) return false;
+  return ["easy", "medium", "hard"].includes(difficulty);
+};

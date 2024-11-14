@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import Graph from "~/app/quizes/[id]/Graph";
 import OptionsResults from "~/app/quizes/[id]/OptionsResults";
 import { DATA } from "~/data";
-import { shuffle } from "~/utils";
+import type { QuizPageSearchParams } from "~/types";
+import { shuffle, validateSearchParams } from "~/utils";
 const Header = dynamic(() => import("~/app/quizes/[id]/Header"), {
   ssr: false,
 });
@@ -13,11 +14,29 @@ type Params = {
   id: string;
 };
 
-const Visualization: NextPage<{ params: Params }> = ({ params: { id } }) => {
+const Visualization: NextPage<{
+  params: Params;
+  searchParams: QuizPageSearchParams;
+}> = ({ params: { id }, searchParams }) => {
+  const isValidSearchParams = validateSearchParams(searchParams);
+  if (!isValidSearchParams) notFound();
+
   const quiz = DATA.get(id);
   if (!quiz) notFound();
   const { correctChoice, wrongChoices, description, source } = quiz;
-  const choices = shuffle([...wrongChoices, correctChoice]);
+
+  const { difficulty } = searchParams;
+  const getNumWrongChoices = () => {
+    if (difficulty === "easy") return 1;
+    if (difficulty === "medium") return 2;
+    return 3;
+  };
+
+  // for some reason the wrong choices are shuffled in random order
+  const wrongChoicesForDifficulty = wrongChoices
+    .sort()
+    .slice(0, getNumWrongChoices());
+  const choices = shuffle([...wrongChoicesForDifficulty, correctChoice]);
 
   return (
     <div className="mx-auto flex h-[100svh] w-full max-w-screen-lg flex-col px-4 pb-6">

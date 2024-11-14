@@ -4,3 +4,7 @@ export type QuizResultRecord = Record<
     isCorrect?: boolean;
   }
 >;
+
+export type QuizPageSearchParams = {
+  difficulty: "easy" | "medium" | "hard";
+};
