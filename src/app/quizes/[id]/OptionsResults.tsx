@@ -64,7 +64,7 @@ const ResultAlert: React.FC<ResultAlertProps> = ({
                 <Link
                   href={source}
                   target="_blank"
-                  className="text-[1rem] underline underline-offset-2"
+                  className="text-[1rem] underline"
                 >
                   <LinkIcon className="me-1 inline size-5" />
                   {description}
