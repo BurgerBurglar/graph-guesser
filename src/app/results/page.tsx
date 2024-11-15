@@ -74,6 +74,9 @@ const Results: NextPage = () => {
         <Button variant="neutral" asChild className="grow">
           <Link href="/results/details">SEE RESULTS</Link>
         </Button>
+        <Button variant="neutral" asChild className="grow">
+          <Link href="/">CHANGE DIFFICULTY</Link>
+        </Button>
         <Button
           variant="primary"
           className="grow"
