@@ -115,7 +115,7 @@ const Options: React.FC<OptionsProps> = ({
             <Button asChild variant="outline">
               <label
                 htmlFor={`answer-${index}`}
-                className="size-full text-center font-medium peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-700"
+                className="size-full text-center font-medium"
               >
                 {choice}
               </label>

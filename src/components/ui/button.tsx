@@ -7,18 +7,21 @@ import Link from "next/link";
 import { X } from "lucide-react";
 
 const buttonVariants = cva(
-  "cursor-pointer inline-flex items-center justify-center ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-b-4 active:border-b-0 active:mt-1",
+  "cursor-pointer inline-flex items-center justify-center ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        primary: "border-green-900 bg-green-700 hover:bg-green-800 text-white",
-        secondary: "border-blue-900 bg-blue-700 hover:bg-blue-800 text-white",
-        destructive: "border-red-900 bg-red-700 hover:bg-red-800 text-white",
-        neutral: "border-gray-300 bg-gray-100 text-gray-900 hover:bg-gray-200",
+        primary:
+          "bg-green-700 hover:bg-green-800 text-white shadow-bottom-primary active:shadow-none active:translate-y-1",
+        secondary:
+          "bg-blue-700 hover:bg-blue-800 text-white shadow-bottom-secondary active:shadow-none active:translate-y-1",
+        destructive:
+          "bg-red-700 hover:bg-red-800 text-white shadow-bottom-destructive active:shadow-none active:translate-y-1",
+        neutral: "bg-gray-100 text-gray-900 hover:bg-gray-200",
         outline:
-          "border-2 border-b-4 border-gray-200 bg-white active:mt-0.5 active:border-b-2 hover:bg-gray-50",
-        ghost: "border-none hover:bg-gray-100 active:mt-0",
-        link: "border-none hover:underline",
+          "border-2 border-gray-200 bg-white hover:bg-gray-50 shadow-bottom-muted active:shadow-none peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-700 peer-checked:shadow-bottom-sky active:peer-checked:shadow-none active:translate-y-0.5",
+        ghost: "hover:bg-gray-100",
+        link: "underline",
       },
       size: {
         default: "text-md rounded-xl font-bold px-4 py-3",
