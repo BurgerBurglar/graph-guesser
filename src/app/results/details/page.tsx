@@ -5,15 +5,14 @@ import Link from "next/link";
 import { useIsClient } from "usehooks-ts";
 import QuizOverview from "~/components/QuizOverview";
 import { Button } from "~/components/ui/button";
-import { useDeck } from "~/context/DeckContext";
-import { useResults } from "~/hooks";
+import { useDeckStore } from "~/lib/zustand";
 
 const ResultsDetails: NextPage = () => {
   const isClient = useIsClient();
   const {
     deck: { quizIds },
-  } = useDeck();
-  const { results } = useResults();
+    results,
+  } = useDeckStore();
 
   return (
     <main className="container relative flex min-h-screen flex-col justify-start gap-4 px-4 py-6">

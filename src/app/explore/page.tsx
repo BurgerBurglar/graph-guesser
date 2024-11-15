@@ -6,7 +6,8 @@ import React from "react";
 import { useIsClient } from "usehooks-ts";
 import QuizOverview from "~/components/QuizOverview";
 import { Button } from "~/components/ui/button";
-import { usePlay, useResults } from "~/hooks";
+import { usePlay } from "~/hooks";
+import { useDeckStore } from "~/lib/zustand";
 
 const ButtonGroups: React.FC = () => {
   const { playRandomGame } = usePlay();
@@ -31,7 +32,7 @@ const ButtonGroups: React.FC = () => {
 
 const Explore: NextPage = () => {
   const isClient = useIsClient();
-  const { results } = useResults();
+  const { results } = useDeckStore();
   const quizIds = Object.entries(results)
     .sort((a, _) => {
       if (a[1].isCorrect === undefined) return 1;

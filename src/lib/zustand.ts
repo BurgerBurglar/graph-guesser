@@ -88,20 +88,20 @@ export const useDeckStore = create<DeckStore>(
   ) as StateCreator<DeckStore>,
 );
 
-export const numCorrectResultsInDeck = () => {
+export const getNumCorrectResultsInDeck = () => {
   const { results, deck } = useDeckStore.getState();
   return Object.entries(results).filter(
     ([quizId, { isCorrect }]) => deck.quizIds.includes(quizId) && isCorrect,
   ).length;
 };
 
-export const numCorrectResults = () => {
+export const getNumCorrectResults = () => {
   const { results } = useDeckStore.getState();
   return Object.entries(results).filter(([_, { isCorrect }]) => isCorrect)
     .length;
 };
 
-export const numQuizesPlayed = () => {
+export const getNumQuizesPlayed = () => {
   const { results } = useDeckStore.getState();
   return Object.entries(results)
     .filter(([_, { isCorrect }]) => isCorrect !== undefined)

@@ -3,12 +3,12 @@
 import { type NextPage } from "next";
 import Link from "next/link";
 import { DATA } from "~/data";
-import { useResults } from "~/hooks";
+import { useDeckStore } from "~/lib/zustand";
 import { getQuizLink } from "~/utils";
 
 const Overview: NextPage = () => {
   const allQuizIds = [...DATA.keys()];
-  const { results } = useResults();
+  const { results } = useDeckStore();
   const quizIdsNotFinished = allQuizIds.filter((id) => !results[id]);
 
   return (

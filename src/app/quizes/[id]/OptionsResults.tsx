@@ -10,9 +10,8 @@ import {
   AlertDialogTitle,
 } from "~/components/ui/alert-dialog";
 import { Button } from "~/components/ui/button";
-import { useDeck } from "~/context/DeckContext";
 import type { Quiz } from "~/data";
-import { useResults } from "~/hooks";
+import { useDeckStore } from "~/lib/zustand";
 import { getQuizLink } from "~/utils";
 
 type QuizStatus = "pending" | "submitted";
@@ -145,10 +144,10 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
 }) => {
   const {
     deck: { quizIds },
-  } = useDeck();
+    setResult,
+  } = useDeckStore();
   const [selectedChoice, setSelectedChoice] = useState<string>();
   const [status, setStatus] = useState<QuizStatus>("pending");
-  const { setResult } = useResults();
 
   const isUserCorrect = selectedChoice === correctChoice;
 

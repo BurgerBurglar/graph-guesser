@@ -7,15 +7,18 @@ import { RWebShare } from "react-web-share";
 import { useIsClient } from "usehooks-ts";
 import ResultDisplay from "~/app/results/ResultsDisplay";
 import { Button, CloseButton } from "~/components/ui/button";
-import { useDeck } from "~/context/DeckContext";
-import { usePlay, useResults } from "~/hooks";
+import { usePlay } from "~/hooks";
+import {
+  getNumCorrectResults,
+  getNumCorrectResultsInDeck,
+  getNumQuizesPlayed,
+  useDeckStore,
+} from "~/lib/zustand";
 
 const Results: NextPage = () => {
   const {
     deck: { quizIds },
-  } = useDeck();
-  const { numCorrectResultsInDeck, numCorrectResults, numQuizesPlayed } =
-    useResults();
+  } = useDeckStore();
   const { playRandomGame } = usePlay();
   const isClient = useIsClient();
 
@@ -42,15 +45,15 @@ const Results: NextPage = () => {
           {isClient && !!quizIds.length && (
             <ResultDisplay
               header="JUST NOW"
-              numCorrect={numCorrectResultsInDeck}
+              numCorrect={getNumCorrectResultsInDeck()}
               numTotal={quizIds.length}
             />
           )}
-          {isClient && !!numQuizesPlayed && (
+          {isClient && !!getNumQuizesPlayed() && (
             <ResultDisplay
               header="OVERALL"
-              numCorrect={numCorrectResults}
-              numTotal={numQuizesPlayed}
+              numCorrect={getNumCorrectResults()}
+              numTotal={getNumQuizesPlayed()}
             />
           )}
         </div>
