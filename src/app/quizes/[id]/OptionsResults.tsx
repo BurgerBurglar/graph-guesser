@@ -11,6 +11,7 @@ import {
 } from "~/components/ui/alert-dialog";
 import { Button } from "~/components/ui/button";
 import type { Quiz } from "~/data";
+import { cn } from "~/lib/utils";
 import { useDeckStore } from "~/lib/zustand";
 import { getQuizLink } from "~/utils";
 
@@ -97,8 +98,12 @@ const Options: React.FC<OptionsProps> = ({
   selectedChoice,
   handleChange,
 }) => {
+  const gridCols =
+    choices.length === 4 || choices.length === 2
+      ? "md:grid-cols-2"
+      : "md:grid-cols-3";
   return (
-    <ul className="grid w-full gap-2 md:grid-cols-2">
+    <ul className={cn("grid w-full gap-2", gridCols)}>
       {choices.map((choice, index) => {
         const isSelected = selectedChoice === choice;
         return (
