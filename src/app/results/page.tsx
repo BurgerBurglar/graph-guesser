@@ -37,7 +37,7 @@ const Results: NextPage = () => {
         <div className="text-center text-4xl font-bold text-green-700">
           YOU DID GREAT
         </div>
-        <div className="text-center font-medium">
+        <div className="text-center text-lg font-medium">
           <p>You learned so much about the world today!</p>
           <p>Wanna learn more?</p>
         </div>

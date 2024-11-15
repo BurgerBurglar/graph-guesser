@@ -13,6 +13,7 @@ type DeckStore = {
   initializeRandomDeck: (canPlayOld?: boolean) => void;
   results: QuizResultRecord;
   quizeIdsPlayed: () => string[];
+  resestResults: () => void;
   setResult: ({
     quizId,
     isCorrect,
@@ -54,6 +55,12 @@ export const useDeckStore = create<DeckStore>(
           }),
 
         results: initialResults,
+
+        resestResults: () => {
+          set({
+            results: initialResults,
+          });
+        },
 
         quizeIdsPlayed: () => {
           const { results } = get();
