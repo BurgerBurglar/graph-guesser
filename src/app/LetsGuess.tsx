@@ -9,7 +9,8 @@ import { DIFFICULTIES } from "~/utils";
 const LetsGuess = () => {
   const { playRandomGame } = usePlay();
 
-  const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty>();
+  const [selectedDifficulty, setSelectedDifficulty] =
+    useState<Difficulty>("easy");
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedDifficulty(event.target.value as Difficulty);
