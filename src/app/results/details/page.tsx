@@ -24,7 +24,7 @@ const ResultsDetails: NextPage = () => {
           );
         })}
       <div className="mx-auto flex w-full max-w-lg flex-col justify-center gap-2 sm:flex-row">
-        <Button variant="neutral" asChild className="grow">
+        <Button variant="outline" asChild className="grow">
           <Link href="/results">BACK</Link>
         </Button>
         <Button asChild className="grow">
