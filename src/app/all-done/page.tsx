@@ -2,9 +2,10 @@
 
 import type { NextPage } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { RWebShare } from "react-web-share";
 import { Button, CloseButton } from "~/components/ui/button";
 import { usePlay } from "~/hooks";
-import { RWebShare } from "react-web-share";
 
 const AllDone: NextPage = () => {
   const { playRandomGame } = usePlay();
@@ -21,7 +22,7 @@ const AllDone: NextPage = () => {
           <p>Want to play the old ones again?</p>
         </div>
       </div>
-      <div className="flex w-full flex-col items-stretch gap-2 md:flex-row">
+      <div className="flex w-full flex-col items-stretch gap-2 sm:flex-row">
         <RWebShare
           data={{
             title: "Graph Guesser",
@@ -30,13 +31,16 @@ const AllDone: NextPage = () => {
               process.env.SHARE_URL ?? "https://graph-guesser-8964.vercel.app/",
           }}
         >
-          <Button variant="outline" className="grow">
+          <Button variant="outline" className="flex-1">
             SHARE
           </Button>
         </RWebShare>
+        <Button variant="outline" className="flex-1" asChild>
+          <Link href="/">CHANGE DIFFICULTY</Link>
+        </Button>
         <Button
           variant="primary"
-          className="grow"
+          className="flex-1"
           onClick={() =>
             playRandomGame({
               canPlayOld: true,
