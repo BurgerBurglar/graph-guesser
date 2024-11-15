@@ -23,8 +23,6 @@ export function shuffle<T>(array: T[]): T[] {
 
 export const NUM_QUIZES_PER_PLAY = 5;
 
-export const DISPLAY_EXPORE_BUTTON = false;
-
 export const DIFFICULTIES = ["easy", "medium", "hard"] as const;
 
 export const validateSearchParams = (searchParams: QuizPageSearchParams) => {

@@ -1,7 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Button } from "~/components/ui/button";
-import { DISPLAY_EXPORE_BUTTON } from "~/utils";
 import LetsGuess from "./LetsGuess";
 
 export default function HomePage() {
@@ -20,11 +17,6 @@ export default function HomePage() {
       </div>
       <div className="flex w-full max-w-md flex-col gap-2">
         <LetsGuess />
-        {DISPLAY_EXPORE_BUTTON && (
-          <Button asChild variant="neutral">
-            <Link href="/explore">EXPLORE</Link>
-          </Button>
-        )}
       </div>
     </main>
   );
