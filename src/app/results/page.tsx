@@ -12,13 +12,10 @@ import {
   getNumCorrectResults,
   getNumCorrectResultsInDeck,
   getNumQuizesPlayed,
-  useDeckStore,
+  getNumResultsInDeck,
 } from "~/lib/zustand";
 
 const Results: NextPage = () => {
-  const {
-    deck: { quizIds },
-  } = useDeckStore();
   const { playRandomGame } = usePlay();
   const isClient = useIsClient();
 
@@ -42,11 +39,11 @@ const Results: NextPage = () => {
           <p>Wanna learn more?</p>
         </div>
         <div className="flex justify-center gap-4">
-          {isClient && !!quizIds.length && (
+          {isClient && !!getNumResultsInDeck() && (
             <ResultDisplay
               header="JUST NOW"
               numCorrect={getNumCorrectResultsInDeck()}
-              numTotal={quizIds.length}
+              numTotal={getNumResultsInDeck()}
             />
           )}
           {isClient && !!getNumQuizesPlayed() && (

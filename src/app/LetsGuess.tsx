@@ -3,12 +3,12 @@
 import { type ChangeEvent } from "react";
 import { Button } from "~/components/ui/button";
 import { usePlay } from "~/hooks";
-import { useDeckStore } from "~/lib/zustand";
+import { useAppStore } from "~/lib/zustand";
 import type { Difficulty } from "~/types";
 import { DIFFICULTIES } from "~/utils";
 
 const LetsGuess = () => {
-  const { difficulty, setDifficulty } = useDeckStore();
+  const { difficulty, setDifficulty } = useAppStore();
   const { playRandomGame } = usePlay();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

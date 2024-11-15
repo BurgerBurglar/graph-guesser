@@ -1,4 +1,4 @@
-import { useDeckStore } from "~/lib/zustand";
+import { useAppStore } from "~/lib/zustand";
 import type { QuizPageSearchParams } from "./types";
 
 export function shuffle<T>(array: T[]): T[] {
@@ -36,7 +36,7 @@ export const validateSearchParams = (searchParams: QuizPageSearchParams) => {
 };
 
 export const getQuizLink = (quizId: string) => {
-  const difficulty = useDeckStore.getState().difficulty ?? "easy";
+  const difficulty = useAppStore.getState().difficulty ?? "easy";
 
   const searchParams = new URLSearchParams({
     difficulty,

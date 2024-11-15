@@ -1,16 +1,16 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useDeckStore } from "~/lib/zustand";
+import { useAppStore } from "~/lib/zustand";
 import { getQuizLink } from "./utils";
 
 export const usePlay = () => {
   const router = useRouter();
-  const { initializeRandomDeck } = useDeckStore();
+  const { initializeRandomDeck } = useAppStore();
 
   const playRandomGame = ({ canPlayOld = false }: { canPlayOld?: boolean }) => {
     initializeRandomDeck(canPlayOld);
-    const newDeck = useDeckStore.getState().deck;
+    const newDeck = useAppStore.getState().deck;
 
     const firstQuizId = newDeck.quizIds[0];
     if (firstQuizId === undefined) {

@@ -12,7 +12,7 @@ import {
 import { Button } from "~/components/ui/button";
 import type { Quiz } from "~/data";
 import { cn } from "~/lib/utils";
-import { useDeckStore } from "~/lib/zustand";
+import { useAppStore } from "~/lib/zustand";
 import { getQuizLink } from "~/utils";
 
 type QuizStatus = "pending" | "submitted";
@@ -150,7 +150,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   const {
     deck: { quizIds },
     setResult,
-  } = useDeckStore();
+  } = useAppStore();
   const [selectedChoice, setSelectedChoice] = useState<string>();
   const [status, setStatus] = useState<QuizStatus>("pending");
 

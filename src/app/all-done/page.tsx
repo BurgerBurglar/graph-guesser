@@ -6,12 +6,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button, CloseButton } from "~/components/ui/button";
 import { usePlay } from "~/hooks";
-import { useDeckStore } from "~/lib/zustand";
+import { useAppStore } from "~/lib/zustand";
 
 const AllDone: NextPage = () => {
   const router = useRouter();
   const { playRandomGame } = usePlay();
-  const { resestResults } = useDeckStore();
+  const { resestResults } = useAppStore();
   return (
     <main className="container relative flex h-[100dvh] min-h-[511px] flex-col items-stretch justify-between gap-6 px-4 pb-6 pt-16">
       <CloseButton />

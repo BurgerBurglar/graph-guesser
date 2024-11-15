@@ -12,12 +12,12 @@ import {
 } from "~/components/ui/alert-dialog";
 import { Button } from "~/components/ui/button";
 import { Progress } from "~/components/ui/progress";
-import { useDeckStore } from "~/lib/zustand";
+import { useAppStore } from "~/lib/zustand";
 
 const Header: React.FC = () => {
   const {
     deck: { quizIds },
-  } = useDeckStore();
+  } = useAppStore();
   const params = useParams();
 
   const total = quizIds.length || 1;
