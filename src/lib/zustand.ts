@@ -21,7 +21,7 @@ type DeckStore = {
     quizId: string;
     isCorrect: boolean;
   }) => void;
-  difficulty: Difficulty;
+  difficulty?: Difficulty;
   setDifficulty: (difficulty: Difficulty) => void;
 };
 
@@ -79,7 +79,7 @@ export const useDeckStore = create<DeckStore>(
           }));
         },
 
-        difficulty: "easy",
+        difficulty: undefined,
 
         setDifficulty: (difficulty) => {
           set((state) => ({

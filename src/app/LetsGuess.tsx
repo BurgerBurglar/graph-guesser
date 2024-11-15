@@ -1,26 +1,25 @@
 "use client";
 
-import { type ChangeEvent, useState } from "react";
+import { type ChangeEvent } from "react";
 import { Button } from "~/components/ui/button";
 import { usePlay } from "~/hooks";
+import { useDeckStore } from "~/lib/zustand";
 import type { Difficulty } from "~/types";
 import { DIFFICULTIES } from "~/utils";
 
 const LetsGuess = () => {
+  const { difficulty, setDifficulty } = useDeckStore();
   const { playRandomGame } = usePlay();
 
-  const [selectedDifficulty, setSelectedDifficulty] =
-    useState<Difficulty>("easy");
-
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedDifficulty(event.target.value as Difficulty);
+    setDifficulty(event.target.value as Difficulty);
   };
 
   return (
     <>
       <ul className="grid w-full gap-2 sm:grid-cols-3">
         {DIFFICULTIES.map((choice, index) => {
-          const isSelected = selectedDifficulty === choice;
+          const isSelected = difficulty === choice;
           return (
             <li key={index}>
               <input
@@ -50,7 +49,6 @@ const LetsGuess = () => {
         onClick={() =>
           playRandomGame({
             canPlayOld: false,
-            selectedDifficulty,
           })
         }
       >
