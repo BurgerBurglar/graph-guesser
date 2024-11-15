@@ -30,7 +30,7 @@ const AllDone: NextPage = () => {
               process.env.SHARE_URL ?? "https://graph-guesser-8964.vercel.app/",
           }}
         >
-          <Button variant="neutral" className="grow">
+          <Button variant="outline" className="grow">
             SHARE
           </Button>
         </RWebShare>

@@ -17,7 +17,7 @@ const LetsGuess = () => {
 
   return (
     <>
-      <ul className="grid w-full gap-2 md:grid-cols-3">
+      <ul className="grid w-full gap-2 sm:grid-cols-3">
         {DIFFICULTIES.map((choice, index) => {
           const isSelected = selectedDifficulty === choice;
           return (

@@ -58,7 +58,7 @@ const Results: NextPage = () => {
           )}
         </div>
       </div>
-      <div className="flex w-full flex-col items-stretch gap-2 md:flex-row">
+      <div className="mx-auto flex w-full max-w-md flex-col items-stretch gap-2">
         <RWebShare
           data={{
             title: "Graph Guesser",
@@ -67,19 +67,16 @@ const Results: NextPage = () => {
               process.env.SHARE_URL ?? "https://graph-guesser-8964.vercel.app/",
           }}
         >
-          <Button variant="neutral" className="grow">
-            SHARE
-          </Button>
+          <Button variant="outline">SHARE</Button>
         </RWebShare>
-        <Button variant="neutral" asChild className="grow">
+        <Button variant="outline" asChild>
           <Link href="/results/details">SEE RESULTS</Link>
         </Button>
-        <Button variant="neutral" asChild className="grow">
+        <Button variant="outline" asChild>
           <Link href="/">CHANGE DIFFICULTY</Link>
         </Button>
         <Button
           variant="primary"
-          className="grow"
           onClick={() =>
             playRandomGame({
               canPlayOld: false,
