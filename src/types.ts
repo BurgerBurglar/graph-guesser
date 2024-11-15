@@ -1,3 +1,5 @@
+import type { DIFFICULTIES } from "~/utils";
+
 export type QuizResultRecord = Record<
   string,
   {
@@ -5,7 +7,7 @@ export type QuizResultRecord = Record<
   }
 >;
 
-export type Difficulty = "easy" | "medium" | "hard";
+export type Difficulty = (typeof DIFFICULTIES)[number];
 
 export type QuizPageSearchParams = {
   difficulty: Difficulty;

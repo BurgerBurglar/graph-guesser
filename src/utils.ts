@@ -24,6 +24,8 @@ export const NUM_QUIZES_PER_PLAY = 5;
 
 export const DISPLAY_EXPORE_BUTTON = false;
 
+export const DIFFICULTIES = ["easy", "medium", "hard"] as const;
+
 // replace this with a Zod schema
 export const validateSearchParams = (searchParams: QuizPageSearchParams) => {
   const keys = Array.from(Object.keys(searchParams));
@@ -32,14 +34,14 @@ export const validateSearchParams = (searchParams: QuizPageSearchParams) => {
 
   const difficulty = searchParams.difficulty;
   if (!difficulty) return false;
-  return ["easy", "medium", "hard"].includes(difficulty);
+  return DIFFICULTIES.includes(difficulty);
 };
 
-export const getSavedDifficulty = () => {
+export const getSavedDifficulty = (): Difficulty => {
   const localDifficulty = localStorage.getItem("difficulty");
   // change this to a Zod schema
   const savedDifficulty = (
-    ["easy", "medium", "hard"].includes(localDifficulty ?? "")
+    (DIFFICULTIES as unknown as string[]).includes(localDifficulty ?? "")
       ? localDifficulty
       : "easy"
   ) as Difficulty;
@@ -53,5 +55,5 @@ export const getQuizLink = (quizId: string, difficulty?: Difficulty) => {
   const searchParams = new URLSearchParams({
     difficulty,
   });
-  return `/quizes/${quizId}?${searchParams}`;
+  return `/quizes/${quizId}?${searchParams.toString()}`;
 };

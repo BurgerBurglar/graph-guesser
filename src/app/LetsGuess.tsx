@@ -1,9 +1,10 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
+import { type ChangeEvent, useState } from "react";
 import { Button } from "~/components/ui/button";
 import { usePlay } from "~/hooks";
-import { Difficulty } from "~/types";
+import type { Difficulty } from "~/types";
+import { DIFFICULTIES } from "~/utils";
 
 const LetsGuess = () => {
   const { playRandomGame } = usePlay();
@@ -17,7 +18,7 @@ const LetsGuess = () => {
   return (
     <>
       <ul className="grid w-full gap-2 md:grid-cols-3">
-        {["easy", "medium", "hard"].map((choice, index) => {
+        {DIFFICULTIES.map((choice, index) => {
           const isSelected = selectedDifficulty === choice;
           return (
             <li key={index}>
