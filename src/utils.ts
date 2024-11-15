@@ -1,3 +1,4 @@
+import { useDeckStore } from "~/lib/zustand";
 import type { Difficulty, QuizPageSearchParams } from "./types";
 
 export function shuffle<T>(array: T[]): T[] {
@@ -26,7 +27,6 @@ export const DISPLAY_EXPORE_BUTTON = false;
 
 export const DIFFICULTIES = ["easy", "medium", "hard"] as const;
 
-// replace this with a Zod schema
 export const validateSearchParams = (searchParams: QuizPageSearchParams) => {
   const keys = Array.from(Object.keys(searchParams));
   if (keys.length !== 1) return false;
@@ -37,20 +37,9 @@ export const validateSearchParams = (searchParams: QuizPageSearchParams) => {
   return DIFFICULTIES.includes(difficulty);
 };
 
-export const getSavedDifficulty = (): Difficulty => {
-  const localDifficulty = localStorage.getItem("difficulty");
-  // change this to a Zod schema
-  const savedDifficulty = (
-    (DIFFICULTIES as unknown as string[]).includes(localDifficulty ?? "")
-      ? localDifficulty
-      : "easy"
-  ) as Difficulty;
-  return savedDifficulty;
-};
-
 export const getQuizLink = (quizId: string, difficulty?: Difficulty) => {
   if (!difficulty) {
-    difficulty = getSavedDifficulty();
+    difficulty = useDeckStore.getState().difficulty;
   }
   const searchParams = new URLSearchParams({
     difficulty,

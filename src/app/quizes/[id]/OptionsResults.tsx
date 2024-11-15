@@ -1,7 +1,6 @@
 "use client";
 import { CheckCircle, CircleX, Link as LinkIcon } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React, { useState, type ChangeEvent } from "react";
 import {
   AlertDialog,
@@ -103,7 +102,6 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   description,
   source,
 }) => {
-  const router = useRouter();
   const {
     deck: { quizIds },
   } = useDeck();
@@ -125,10 +123,12 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedChoice(event.target.value);
   };
+
   const handleCheck = () => {
     setStatus("submitted");
     setResult({ quizId, isCorrect: isUserCorrect });
   };
+
   const getNextPageLink = () => {
     if (nextQuizId) {
       return getQuizLink(nextQuizId);

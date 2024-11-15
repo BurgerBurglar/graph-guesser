@@ -48,7 +48,7 @@ const LetsGuess = () => {
         onClick={() =>
           playRandomGame({
             canPlayOld: false,
-            difficulty: selectedDifficulty,
+            selectedDifficulty,
           })
         }
       >
