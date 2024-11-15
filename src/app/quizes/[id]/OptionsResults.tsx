@@ -87,6 +87,47 @@ const ResultAlert: React.FC<ResultAlertProps> = ({
   );
 };
 
+interface OptionsProps {
+  choices: string[];
+  selectedChoice?: string;
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
+
+const Options: React.FC<OptionsProps> = ({
+  choices,
+  selectedChoice,
+  handleChange,
+}) => {
+  return (
+    <ul className="grid w-full gap-2 md:grid-cols-2">
+      {choices.map((choice, index) => {
+        const isSelected = selectedChoice === choice;
+        return (
+          <li key={index}>
+            <input
+              type="radio"
+              id={`answer-${index}`}
+              name="hosting"
+              className="peer hidden"
+              value={choice}
+              checked={isSelected}
+              onChange={handleChange}
+            />
+            <Button asChild variant="outline">
+              <label
+                htmlFor={`answer-${index}`}
+                className="size-full text-center font-medium peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-700"
+              >
+                {choice}
+              </label>
+            </Button>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
 interface OptionsResultsProps {
   quizId: string;
   choices: string[];
@@ -139,33 +180,11 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
 
   return (
     <div className="mt-4 flex flex-col justify-end gap-4">
-      <ul className="grid w-full gap-2 md:grid-cols-2">
-        {choices.map((choice, index) => {
-          const isSelected = selectedChoice === choice;
-          return (
-            <li key={index}>
-              <input
-                type="radio"
-                id={`answer-${index}`}
-                name="hosting"
-                className="peer hidden"
-                disabled={status === "submitted"}
-                value={choice}
-                checked={isSelected}
-                onChange={handleChange}
-              />
-              <Button asChild variant="outline">
-                <label
-                  htmlFor={`answer-${index}`}
-                  className="size-full text-center font-medium peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-700"
-                >
-                  {choice}
-                </label>
-              </Button>
-            </li>
-          );
-        })}
-      </ul>
+      <Options
+        choices={choices}
+        selectedChoice={selectedChoice}
+        handleChange={handleChange}
+      />
       <ResultAlert
         status={status}
         isUserCorrect={isUserCorrect}
