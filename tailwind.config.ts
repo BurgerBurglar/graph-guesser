@@ -60,7 +60,7 @@ const config = {
       },
       boxShadow: {
         "bottom-primary": '0 4px 0 0 theme("colors.green.800")',
-        "bottom-secondary": '0 4px 0 0 theme("colors.blue.800")',
+        "bottom-secondary": '0 4px 0 0 theme("colors.sky.800")',
         "bottom-destructive": '0 4px 0 0 theme("colors.red.800")',
         "bottom-muted": '0 2px 0 0 theme("colors.gray.200")',
         "bottom-sky": '0 2px 0 0 theme("colors.sky.300")',

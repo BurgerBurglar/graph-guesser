@@ -7,7 +7,7 @@ export default function HomePage() {
       <div className="flex grow flex-col items-center justify-center gap-6">
         <Image src="/front-page.webp" alt="logo" width={250} height={250} />
         <h1 className="tracking-tightsm:text-[5rem] text-5xl font-extrabold">
-          <div className="-translate-x-6 text-blue-700">GRAPH</div>
+          <div className="-translate-x-6 text-sky-700">GRAPH</div>
           <div className="translate-x-6 text-green-700">GUESSER</div>
         </h1>
         <div className="text-center text-xl font-medium text-black">
