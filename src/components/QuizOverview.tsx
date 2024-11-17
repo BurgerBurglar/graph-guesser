@@ -1,7 +1,7 @@
-import { CircleCheck, CircleX } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import Graph from "~/app/quizes/[id]/Graph";
+import { Correct, Error } from "~/components/icons";
 import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 import { getQuizLink } from "~/utils";
@@ -12,7 +12,7 @@ interface QuizOverviewProps {
 }
 
 const QuizOverview: React.FC<QuizOverviewProps> = ({ quizId, isRight }) => {
-  const ResultIcon = isRight ? CircleCheck : CircleX;
+  const ResultIcon = isRight ? Correct : Error;
   const hasResult = isRight !== undefined;
   const prompt = isRight ? "You got it right!" : "That wasn't quite right";
   return (
@@ -26,11 +26,11 @@ const QuizOverview: React.FC<QuizOverviewProps> = ({ quizId, isRight }) => {
       {hasResult && (
         <div
           className={cn(
-            "flex justify-center gap-2 font-medium",
+            "flex items-center justify-center gap-2 font-medium",
             isRight ? "text-green-700" : "text-red-700",
           )}
         >
-          <ResultIcon />
+          <ResultIcon size={24} />
           <span>{prompt}</span>
         </div>
       )}

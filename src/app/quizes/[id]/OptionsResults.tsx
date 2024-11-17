@@ -1,7 +1,8 @@
 "use client";
-import { Check, Link as LinkIcon, X } from "lucide-react";
+import { Link as LinkIcon } from "lucide-react";
 import Link from "next/link";
 import React, { useState, type ChangeEvent } from "react";
+import { Correct, Error } from "~/components/icons";
 import {
   AlertDialog,
   AlertDialogContent,
@@ -34,19 +35,7 @@ const ResultAlert: React.FC<ResultAlertProps> = ({
   description,
   nextPageLink,
 }) => {
-  const resultIcon = isUserCorrect ? (
-    <Check
-      size={32}
-      strokeWidth={3}
-      className="rounded-full bg-green-700 p-1.5 text-green-100"
-    />
-  ) : (
-    <X
-      size={32}
-      strokeWidth={3}
-      className="rounded-full bg-red-700 p-1.5 text-red-100"
-    />
-  );
+  const ResultIcon = isUserCorrect ? Correct : Error;
 
   return (
     <AlertDialog open={status === "submitted"}>
@@ -61,7 +50,7 @@ const ResultAlert: React.FC<ResultAlertProps> = ({
           <AlertDialogHeader>
             <AlertDialogTitle>
               <div className="flex items-center gap-2 text-xl font-bold">
-                {resultIcon}
+                <ResultIcon />
                 {isUserCorrect ? "CORRECT" : "INCORRECT"}
               </div>
             </AlertDialogTitle>
