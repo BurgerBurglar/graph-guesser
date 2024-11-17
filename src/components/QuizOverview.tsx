@@ -1,4 +1,4 @@
-import { CheckCircle, CircleX } from "lucide-react";
+import { CircleCheck, CircleX } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import Graph from "~/app/quizes/[id]/Graph";
@@ -12,7 +12,7 @@ interface QuizOverviewProps {
 }
 
 const QuizOverview: React.FC<QuizOverviewProps> = ({ quizId, isRight }) => {
-  const ResultIcon = isRight ? CheckCircle : CircleX;
+  const ResultIcon = isRight ? CircleCheck : CircleX;
   const hasResult = isRight !== undefined;
   const prompt = isRight ? "You got it right!" : "That wasn't quite right";
   return (
