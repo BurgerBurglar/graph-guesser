@@ -31,7 +31,7 @@ const Results: NextPage = () => {
             objectFit="contain"
           />
         </div>
-        <div className="text-center text-4xl font-bold text-sky-700">
+        <div className="text-center text-4xl font-bold text-green-700">
           YOU DID GREAT
         </div>
         <div className="text-center text-lg font-medium">
@@ -42,6 +42,7 @@ const Results: NextPage = () => {
           {isClient && !!getNumResultsInDeck() && (
             <ResultDisplay
               header="JUST NOW"
+              colorPallete="sky"
               numCorrect={getNumCorrectResultsInDeck()}
               numTotal={getNumResultsInDeck()}
             />
@@ -49,6 +50,7 @@ const Results: NextPage = () => {
           {isClient && !!getNumQuizesPlayed() && (
             <ResultDisplay
               header="OVERALL"
+              colorPallete="green"
               numCorrect={getNumCorrectResults()}
               numTotal={getNumQuizesPlayed()}
             />
