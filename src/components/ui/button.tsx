@@ -12,11 +12,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-green-700 hover:bg-green-800 text-white shadow-bottom-primary active:shadow-none active:translate-y-1",
+          "bg-green-700 hover:bg-green-600 text-white shadow-bottom-primary active:shadow-none active:translate-y-1",
         secondary:
-          "bg-blue-700 hover:bg-blue-800 text-white shadow-bottom-secondary active:shadow-none active:translate-y-1",
+          "bg-blue-700 hover:bg-blue-600 text-white shadow-bottom-secondary active:shadow-none active:translate-y-1",
         destructive:
-          "bg-red-700 hover:bg-red-800 text-white shadow-bottom-destructive active:shadow-none active:translate-y-1",
+          "bg-red-700 hover:bg-red-600 text-white shadow-bottom-destructive active:shadow-none active:translate-y-1",
         neutral: "bg-gray-100 text-gray-900 hover:bg-gray-200",
         outline:
           "border-2 border-gray-200 bg-white hover:bg-gray-50 shadow-bottom-muted active:shadow-none peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-700 peer-checked:shadow-bottom-sky active:peer-checked:shadow-none active:translate-y-0.5",

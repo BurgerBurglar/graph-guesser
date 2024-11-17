@@ -59,9 +59,9 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        "bottom-primary": '0 4px 0 0 theme("colors.green.900")',
-        "bottom-secondary": '0 4px 0 0 theme("colors.blue.900")',
-        "bottom-destructive": '0 4px 0 0 theme("colors.red.900")',
+        "bottom-primary": '0 4px 0 0 theme("colors.green.800")',
+        "bottom-secondary": '0 4px 0 0 theme("colors.blue.800")',
+        "bottom-destructive": '0 4px 0 0 theme("colors.red.800")',
         "bottom-muted": '0 2px 0 0 theme("colors.gray.200")',
         "bottom-sky": '0 2px 0 0 theme("colors.sky.300")',
       },
