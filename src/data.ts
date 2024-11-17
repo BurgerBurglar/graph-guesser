@@ -41,7 +41,7 @@ export const DATA = new Map<string, Quiz>([
         "Government spending on infrastructure in USD",
       ],
       description:
-        "In India, death rate from unsafe water in 2022 is 24% of what it was in 1990.",
+        "In India, death rate from unsafe water dropped by 76% from 1990 to 2022.",
       source: "https://ourworldindata.org/grapher/death-rates-unsafe-water",
     },
   ],
@@ -114,7 +114,7 @@ export const DATA = new Map<string, Quiz>([
         "Infectious and parasitic diseases",
       ],
       description:
-        "In the US, in 2021, 118% more people died from neuropsychiatric conditions and drug use disorders compared to 1950.",
+        "In the US, deaths from neuropsychiatric conditions and drug use disorders increased by 118% from 1950 to 2021.",
       source: "https://ourworldindata.org/grapher/death-rate-by-cause-who-mdb",
     },
   ],
@@ -124,7 +124,7 @@ export const DATA = new Map<string, Quiz>([
       correctChoice: "Chad",
       wrongChoices: ["Bhutan", "Kenya", "North Korea"],
       description:
-        "72.7% of Chadians aged 15+ cannot read or write at a basic level.",
+        "In 2022, 72.7% of Chadians aged 15+ cannot read or write at a basic level.",
       source:
         "https://ourworldindata.org/grapher/literate-and-illiterate-world-population",
     },
@@ -135,7 +135,7 @@ export const DATA = new Map<string, Quiz>([
       correctChoice: "Lesotho",
       wrongChoices: ["Liberia", "Laos", "Ukraine"],
       description:
-        "Lesotho's life expectancy is rapidly decreasing due to HIV/AIDS epidemic.",
+        "Lesotho's life expectancy rapidly decreased from 1990 to 2006 due to HIV/AIDS epidemic.",
       source: "https://ourworldindata.org/grapher/life-expectancy-undp",
     },
   ],
@@ -159,7 +159,7 @@ export const DATA = new Map<string, Quiz>([
         "Prostitution",
       ],
       description:
-        "In the US, as of 2024, marriage under 18 is legal in 41 states. In California, a child can marry at any age with parental consent and judicial approval.",
+        "In the US, as of 2024, marriage under 18 is legal in 41 states.",
       source: "https://ourworldindata.org/grapher/laws-on-child-marriage",
     },
   ],
@@ -249,7 +249,7 @@ export const DATA = new Map<string, Quiz>([
       correctChoice: "Saudi Arabia",
       wrongChoices: ["Italy", "Japan", "Turkey"],
       description:
-        "In 2015 Saudi Arabia is the Asian country with the most immigrants, primarily from India, Indonesia, Pakistan, and Bangladesh.",
+        "In 2015 Saudi Arabia has the most immigrants in Asia, primarily from India, Indonesia, Pakistan, and Bangladesh.",
       source: "https://ourworldindata.org/grapher/migrant-stock-total",
     },
   ],
@@ -300,12 +300,8 @@ export const DATA = new Map<string, Quiz>([
   [
     "jm8fg",
     {
-      correctChoice: "Alcohol-attributable fraction of mortality",
-      wrongChoices: [
-        "Fentanyl and other Synthetic opiods",
-        "Methamphetamine",
-        "Amphetamine",
-      ],
+      correctChoice: "Fentanyl and other Synthetic opiods",
+      wrongChoices: ["Cocaine", "Methamphetamine", "Heroin"],
       description:
         "The dosage of 42% of the fentanyl pills are higher than lethal threshold.",
       source: "https://ourworldindata.org/grapher/drug-overdose-death-rates",
@@ -321,7 +317,7 @@ export const DATA = new Map<string, Quiz>([
         "Percentage of cancer patients",
       ],
       description:
-        "United States, Canada, and Australia are the top 3 countries in drug related death rate.",
+        "United States, Canada, and United Kingdom are the top 3 countries in drug related death rate.",
       source:
         "https://ourworldindata.org/grapher/death-rates-from-drug-use-disorders-who",
     },
@@ -347,7 +343,7 @@ export const DATA = new Map<string, Quiz>([
         "Daily meat consumption in kg",
       ],
       description:
-        "The Human Rights Index dropped from 0.554 in 2020 to 0.06 in 2022.",
+        "In Afghanistan, the Human Rights Index dropped from 0.554 in 2020 to 0.06 in 2022.",
       source: "https://ourworldindata.org/grapher/human-rights-index-vdem",
     },
   ],
@@ -420,7 +416,7 @@ export const DATA = new Map<string, Quiz>([
       correctChoice: "India",
       wrongChoices: ["South Korea", "Taiwan", "France"],
       description:
-        "The installed solar energy capacity in China increased from 6.72GW to 393.03GW in 2022.",
+        "The installed solar energy capacity in China increased from 6.72GW in  2012 to 393.03GW in 2022.",
       source: "https://ourworldindata.org/grapher/installed-solar-pv-capacity",
     },
   ],
