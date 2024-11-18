@@ -16,7 +16,7 @@ export const DATA = new Map<string, Quiz>([
         "Iron ore export in USD (millions)",
       ],
       description:
-        "In 2022, 102,860 people died in Ethiopia due to armed conflicts.",
+        "The Tigray war from 2020 to 2022 in Ethiopia has caused more than 100,000 casualties.",
       source: "https://ourworldindata.org/explorers/countries-in-conflict-data",
     },
   ],
@@ -202,7 +202,7 @@ export const DATA = new Map<string, Quiz>([
         "Software engineers per 100,000 people",
       ],
       description:
-        "In Nigeria, especially in the south, children trafficking in prevalent for exploitation in sex and forced labor.",
+        "In Nigeria, especially in the south, children trafficking in prevalent for sex exploitation and forced labor.",
       source:
         "https://ourworldindata.org/grapher/human-trafficking-victims-under-18-years-old-male-vs-female",
     },
@@ -301,7 +301,7 @@ export const DATA = new Map<string, Quiz>([
     "jm8fg",
     {
       correctChoice: "Fentanyl and other Synthetic opiods",
-      wrongChoices: ["Cocaine", "Methamphetamine", "Heroin"],
+      wrongChoices: ["Amphetamine", "Methamphetamine", "Ketamine"],
       description:
         "The dosage of 42% of the fentanyl pills are higher than lethal threshold.",
       source: "https://ourworldindata.org/grapher/drug-overdose-death-rates",
@@ -313,7 +313,7 @@ export const DATA = new Map<string, Quiz>([
       correctChoice: "Drug use disorder deaths per 100,000 people",
       wrongChoices: [
         "National defense budget in trillion USD",
-        "Fossile fule export in million tons",
+        "Fossile fuel export in million tons",
         "Percentage of cancer patients",
       ],
       description:
@@ -446,6 +446,21 @@ export const DATA = new Map<string, Quiz>([
       description:
         "Due to overfishing, the fish catch in the UK in 2017 was lower than 1941 when the country was at war.",
       source: "https://ourworldindata.org/grapher/fish-catch-uk",
+    },
+  ],
+  [
+    "lAWX8",
+    {
+      correctChoice: "Net migrants per 1,000 people",
+      wrongChoices: [
+        "GDP growth rate",
+        "Population growth rate",
+        "Environmental performance index",
+      ],
+      description:
+        "The net migration rate in Hong Kong in 1964 was 357.14 per 1,000 people, the highest in the history ever recorded.",
+      source:
+        "https://ourworldindata.org/countries-measure-immigration-accurate-data",
     },
   ],
 ]);
