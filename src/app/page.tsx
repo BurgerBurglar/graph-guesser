@@ -6,7 +6,7 @@ export default function HomePage() {
     <main className="container flex min-h-[100dvh] flex-col items-center justify-end px-4 py-8">
       <div className="flex grow flex-col items-center justify-center gap-6">
         <Image src="/front-page.webp" alt="logo" width={250} height={250} />
-        <h1 className="tracking-tightsm:text-[5rem] text-5xl font-extrabold">
+        <h1 className="font-title text-5xl font-bold tracking-tight sm:text-[5rem]">
           <div className="-translate-x-6 text-sky-700">GRAPH</div>
           <div className="translate-x-6 text-green-700">GUESSER</div>
         </h1>
