@@ -463,4 +463,43 @@ export const DATA = new Map<string, Quiz>([
         "https://ourworldindata.org/countries-measure-immigration-accurate-data",
     },
   ],
+  [
+    "LjuO1",
+    {
+      correctChoice: "Percentage of people living in urban areas",
+      wrongChoices: [
+        "Percentage of people with internet access",
+        "Percentage of people who have more than 9 years of education",
+        "Percentage of people who support gay marriage",
+      ],
+      description:
+        "Monaco, Kuwait, Nauru, and Singapore are the only countries with 100% urbanization rate.",
+      source: "https://ourworldindata.org/grapher/share-of-population-urban",
+    },
+  ],
+  [
+    "ERnRS",
+    {
+      correctChoice: "Percentage of urban population living in slums",
+      wrongChoices: [
+        "Percentage of people in extreme poverty",
+        "Asylumn seekers in thousands",
+        "Murder deaths per 100,000 people",
+      ],
+      description:
+        "Rapid urbanization and post civil war population growth result in a rapid increase of slum dwellers.",
+      source:
+        "https://ourworldindata.org/grapher/share-of-urban-population-living-in-slums",
+    },
+  ],
+  [
+    "gs1PV",
+    {
+      correctChoice: "Nigeria",
+      wrongChoices: ["Vietnam", "Angola", "Haiti"],
+      description:
+        "In Lagos, Nigeria, 10 million people, or 66% of the population, live in slums in extreme poverty with limited clean water and poor sanitation.",
+      source: "https://ourworldindata.org/grapher/urban-pop-in-out-of-slums",
+    },
+  ],
 ]);
