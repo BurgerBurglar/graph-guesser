@@ -1,5 +1,5 @@
 "use client";
-import { Link as LinkIcon } from "lucide-react";
+import { Flag, Link as LinkIcon, Share } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { Correct, Error } from "~/components/icons";
@@ -12,6 +12,7 @@ import {
 } from "~/components/ui/alert-dialog";
 import { Button } from "~/components/ui/button";
 import type { Quiz } from "~/data";
+import { cn } from "~/lib/utils";
 import type { QuizStatus } from "~/types";
 
 interface ResultAlertProps {
@@ -44,10 +45,40 @@ const QuizResult: React.FC<ResultAlertProps> = ({
       >
         <div className="mx-auto flex w-full max-w-screen-lg flex-col items-center justify-between gap-4 sm:flex-row">
           <AlertDialogHeader>
-            <AlertDialogTitle>
+            <AlertDialogTitle className="flex justify-between">
               <div className="flex items-center gap-2 text-xl font-bold">
                 <ResultIcon />
                 {isUserCorrect ? "CORRECT" : "INCORRECT"}
+              </div>
+              <div className="flex h-8 items-stretch">
+                <Button
+                  variant="none"
+                  size="none"
+                  className={cn(
+                    "flex gap-1.5 px-2 text-sm",
+                    isUserCorrect
+                      ? "hover:text-green-600"
+                      : "hover:text-red-600",
+                  )}
+                  aria-label="share"
+                >
+                  <Share size={20} />
+                  <span className="hidden md:inline">SHARE</span>
+                </Button>
+                <Button
+                  variant="none"
+                  size="none"
+                  className={cn(
+                    "flex gap-1.5 px-2 text-sm",
+                    isUserCorrect
+                      ? "hover:text-green-600"
+                      : "hover:text-red-600",
+                  )}
+                  aria-label="report"
+                >
+                  <Flag size={20} />
+                  <span className="hidden md:inline">REPORT</span>
+                </Button>
               </div>
             </AlertDialogTitle>
             <AlertDialogDescription className="flex flex-col items-start gap-2 text-start text-inherit">

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { X } from "lucide-react";
 
 const buttonVariants = cva(
-  "cursor-pointer inline-flex items-center justify-center ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "cursor-pointer inline-flex font-bold items-center justify-center ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
@@ -21,13 +21,15 @@ const buttonVariants = cva(
         outline:
           "border-2 border-gray-200 bg-white hover:bg-gray-50 shadow-bottom-muted active:shadow-none peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-700 peer-checked:shadow-bottom-sky active:peer-checked:shadow-none active:translate-y-0.5",
         ghost: "hover:bg-gray-100",
+        none: "",
         link: "underline",
       },
       size: {
-        default: "text-md font-bold rounded-xl px-4 py-3",
-        sm: "h-9 rounded-md px-3",
+        default: "rounded-xl px-4 py-3",
+        sm: "h-6 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        icon: "h-10 w-10 rounded-md",
+        none: "",
       },
     },
     defaultVariants: {
