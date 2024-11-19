@@ -12,3 +12,5 @@ export type Difficulty = (typeof DIFFICULTIES)[number];
 export type QuizPageSearchParams = {
   difficulty: Difficulty;
 };
+
+export type QuizStatus = "pending" | "submitted";
