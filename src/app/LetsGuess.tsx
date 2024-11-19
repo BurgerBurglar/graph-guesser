@@ -25,7 +25,7 @@ const LetsGuess = () => {
               <input
                 type="radio"
                 id={`answer-${index}`}
-                name="hosting"
+                name="difficulty"
                 className="peer hidden"
                 value={choice}
                 checked={isSelected}

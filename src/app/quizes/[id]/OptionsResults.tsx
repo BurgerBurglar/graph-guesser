@@ -113,7 +113,7 @@ const Options: React.FC<OptionsProps> = ({
             <input
               type="radio"
               id={`answer-${index}`}
-              name="hosting"
+              name="answer"
               className="peer hidden"
               value={choice}
               checked={isSelected}
