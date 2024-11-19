@@ -317,7 +317,7 @@ export const DATA = new Map<string, Quiz>([
         "Percentage of cancer patients",
       ],
       description:
-        "United States, Canada, and United Kingdom are the top 3 countries in drug related death rate.",
+        "United States, Canada, and United Kingdom are the top 3 countries in drug related death rate in 2021.",
       source:
         "https://ourworldindata.org/grapher/death-rates-from-drug-use-disorders-who",
     },
@@ -487,7 +487,7 @@ export const DATA = new Map<string, Quiz>([
         "Murder deaths per 100,000 people",
       ],
       description:
-        "Rapid urbanization and post civil war population growth result in a rapid increase of slum dwellers.",
+        "Rapid urbanization and post civil war population growth result in a rapid increase of slum dwellers in Angola in the 2000s.",
       source:
         "https://ourworldindata.org/grapher/share-of-urban-population-living-in-slums",
     },
