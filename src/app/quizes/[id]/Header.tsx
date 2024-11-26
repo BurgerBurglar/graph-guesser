@@ -1,4 +1,5 @@
 "use client";
+
 import { AlertDialogCancel } from "@radix-ui/react-alert-dialog";
 import { X } from "lucide-react";
 import Link from "next/link";
@@ -17,14 +18,22 @@ import { useAppStore } from "~/lib/zustand";
 const Header: React.FC = () => {
   const {
     deck: { quizIds },
+    isDeckDone,
   } = useAppStore();
   const params = useParams();
 
-  const total = quizIds.length || 1;
+  let total = quizIds.length || 1;
   const currentQuizId = params.id as string;
   const currentQuizIndex = quizIds.indexOf(currentQuizId);
-  const currentQuizIndexForHumans =
+  let currentQuizIndexForHumans =
     currentQuizIndex === -1 ? 1 : currentQuizIndex + 1;
+
+  // if the deck is done, only one quiz will be played
+  if (isDeckDone) {
+    total = 1;
+    currentQuizIndexForHumans = 1;
+  }
+
   const percentage = (currentQuizIndexForHumans / (total + 1)) * 100;
 
   return (

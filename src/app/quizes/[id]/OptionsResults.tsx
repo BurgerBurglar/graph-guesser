@@ -25,6 +25,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
 }) => {
   const {
     deck: { quizIds },
+    isDeckDone,
     setResult,
   } = useAppStore();
   const [selectedChoice, setSelectedChoice] = useState<string>();
@@ -35,11 +36,18 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   const currentQuizIndex = quizIds.indexOf(quizId);
   const NOT_FOUND_INDEX = -1;
   const LAST_INDEX = quizIds.length - 1;
+
+  // undefined means it's the last one
   const nextQuizIndex = [NOT_FOUND_INDEX, LAST_INDEX].includes(currentQuizIndex)
     ? undefined
     : currentQuizIndex + 1;
+
+  // undefined means it's the last one
   const nextQuizId =
-    nextQuizIndex === undefined ? undefined : quizIds[nextQuizIndex];
+    // if the deck is done, only one quiz will be played
+    isDeckDone || nextQuizIndex === undefined
+      ? undefined
+      : quizIds[nextQuizIndex];
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedChoice(event.target.value);

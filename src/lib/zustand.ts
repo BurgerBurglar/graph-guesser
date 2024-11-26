@@ -10,7 +10,10 @@ type DeckState = {
 
 type AppStore = {
   deck: DeckState;
+  clearDeck: () => void;
   initializeRandomDeck: (canPlayOld?: boolean) => void;
+  isDeckDone: boolean;
+  setIsDeckDone: (isDeckDone: boolean) => void;
   results: QuizResultRecord;
   quizeIdsPlayed: () => string[];
   resestResults: () => void;
@@ -32,6 +35,14 @@ export const useAppStore = create<AppStore>(
     (set, get) => ({
       deck: { quizIds: [] },
 
+      clearDeck: () => {
+        set({
+          deck: {
+            quizIds: [],
+          },
+        });
+      },
+
       initializeRandomDeck: (canPlayOld = false) =>
         set((state) => {
           const allQuizIds = [...DATA.keys()];
@@ -52,6 +63,13 @@ export const useAppStore = create<AppStore>(
             },
           };
         }),
+
+      // if deck is done, we don't want do all the quizes again when we try again.
+      isDeckDone: false,
+
+      setIsDeckDone(isDeckDone) {
+        set({ isDeckDone });
+      },
 
       results: initialResults,
 
