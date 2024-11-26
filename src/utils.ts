@@ -43,3 +43,6 @@ export const getQuizLink = (quizId: string) => {
   });
   return `/quizes/${quizId}?${searchParams.toString()}`;
 };
+
+export const sleep = (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms));

@@ -1,7 +1,10 @@
 "use client";
 import { Flag, Link as LinkIcon, Share } from "lucide-react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import React from "react";
+import { RWebShare } from "react-web-share";
+import ActionButton from "~/app/quizes/[id]/ActionButton";
 import { Correct, Error } from "~/components/icons";
 import {
   AlertDialog,
@@ -12,7 +15,6 @@ import {
 } from "~/components/ui/alert-dialog";
 import { Button } from "~/components/ui/button";
 import type { Quiz } from "~/data";
-import { cn } from "~/lib/utils";
 import type { QuizStatus } from "~/types";
 
 interface ResultAlertProps {
@@ -32,6 +34,8 @@ const QuizResult: React.FC<ResultAlertProps> = ({
   description,
   nextPageLink,
 }) => {
+  const { id: quizId } = useParams();
+  if (!quizId || Array.isArray(quizId)) return null;
   const ResultIcon = isUserCorrect ? Correct : Error;
 
   return (
@@ -51,34 +55,23 @@ const QuizResult: React.FC<ResultAlertProps> = ({
                 {isUserCorrect ? "CORRECT" : "INCORRECT"}
               </div>
               <div className="flex h-8 items-stretch">
-                <Button
-                  variant="none"
-                  size="none"
-                  className={cn(
-                    "flex gap-1.5 px-2 text-sm",
-                    isUserCorrect
-                      ? "hover:text-green-600"
-                      : "hover:text-red-600",
-                  )}
-                  aria-label="share"
+                <RWebShare
+                  data={{
+                    title: "Graph Guesser",
+                    text: "Guess what this plot means on Graph Guesser!",
+                    url:
+                      (process.env.SHARE_URL ??
+                        "https://graph-guesser-8964.vercel.app/") +
+                      `quizes/${quizId}?difficulty=easy`,
+                  }}
                 >
-                  <Share size={20} />
-                  <span className="hidden md:inline">SHARE</span>
-                </Button>
-                <Button
-                  variant="none"
-                  size="none"
-                  className={cn(
-                    "flex gap-1.5 px-2 text-sm",
-                    isUserCorrect
-                      ? "hover:text-green-600"
-                      : "hover:text-red-600",
-                  )}
-                  aria-label="report"
-                >
-                  <Flag size={20} />
-                  <span className="hidden md:inline">REPORT</span>
-                </Button>
+                  <ActionButton isUserCorrect={isUserCorrect} Icon={Share}>
+                    SHARE
+                  </ActionButton>
+                </RWebShare>
+                <ActionButton isUserCorrect={isUserCorrect} Icon={Flag}>
+                  REPORT
+                </ActionButton>
               </div>
             </AlertDialogTitle>
             <AlertDialogDescription className="flex flex-col items-start gap-2 text-start text-inherit">
