@@ -22,7 +22,7 @@ const buttonVariants = cva(
           "border-2 border-gray-200 bg-white hover:bg-gray-50 shadow-bottom-muted active:shadow-none peer-checked:border-sky-300 peer-checked:bg-sky-100 peer-checked:text-sky-700 peer-checked:shadow-bottom-sky active:peer-checked:shadow-none active:translate-y-0.5",
         ghost: "hover:bg-gray-100",
         none: "",
-        link: "underline",
+        link: "font-normal hover:underline",
       },
       size: {
         default: "rounded-xl px-4 py-3",
