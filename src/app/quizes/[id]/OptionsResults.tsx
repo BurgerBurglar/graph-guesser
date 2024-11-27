@@ -1,11 +1,14 @@
 "use client";
+
+import { useSearchParams } from "next/navigation";
 import React, { useState, type ChangeEvent } from "react";
 import QuizOptions from "~/app/quizes/[id]/QuizOptions";
 import QuizResult from "~/app/quizes/[id]/QuizResult";
+import ResponsiveDrawer from "~/components/ResponsiveDrawer";
 import { Button } from "~/components/ui/button";
 import type { Quiz } from "~/data";
 import { useAppStore } from "~/lib/zustand";
-import type { QuizStatus } from "~/types";
+import type { Difficulty, QuizStatus } from "~/types";
 import { getQuizLink } from "~/utils";
 
 interface OptionsResultsProps {
@@ -30,6 +33,8 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   } = useAppStore();
   const [selectedChoice, setSelectedChoice] = useState<string>();
   const [status, setStatus] = useState<QuizStatus>("pending");
+  const searchParams = useSearchParams();
+  const difficulty = searchParams.get("difficulty") as Difficulty;
 
   const isUserCorrect = selectedChoice === correctChoice;
 
@@ -49,6 +54,14 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
       ? undefined
       : quizIds[nextQuizIndex];
 
+  // max height to have a drawer
+  const drawerBreakpointHeight =
+    difficulty === "easy"
+      ? "550px"
+      : difficulty === "medium"
+        ? "630px"
+        : "690px";
+
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedChoice(event.target.value);
   };
@@ -67,29 +80,31 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   };
 
   return (
-    <div className="mt-4 flex flex-col justify-end gap-4">
-      <QuizOptions
-        choices={choices}
-        selectedChoice={selectedChoice}
-        handleChange={handleChange}
-      />
-      <QuizResult
-        status={status}
-        isUserCorrect={isUserCorrect}
-        correctChoice={correctChoice}
-        source={source}
-        description={description}
-        nextPageLink={getNextPageLink()}
-      />
-      <Button
-        variant="primary"
-        disabled={!selectedChoice}
-        className="mx-auto w-full sm:mt-2 sm:max-w-60"
-        onClick={handleCheck}
-      >
-        {selectedChoice ? "CHECK" : "SELECT"}
-      </Button>
-    </div>
+    <ResponsiveDrawer maxHeight={drawerBreakpointHeight}>
+      <div className="flex flex-col justify-end gap-4">
+        <QuizOptions
+          choices={choices}
+          selectedChoice={selectedChoice}
+          handleChange={handleChange}
+        />
+        <QuizResult
+          status={status}
+          isUserCorrect={isUserCorrect}
+          correctChoice={correctChoice}
+          source={source}
+          description={description}
+          nextPageLink={getNextPageLink()}
+        />
+        <Button
+          variant="primary"
+          disabled={!selectedChoice}
+          className="mx-auto w-full sm:mt-2 sm:max-w-60"
+          onClick={handleCheck}
+        >
+          {selectedChoice ? "CHECK" : "SELECT"}
+        </Button>
+      </div>
+    </ResponsiveDrawer>
   );
 };
 
