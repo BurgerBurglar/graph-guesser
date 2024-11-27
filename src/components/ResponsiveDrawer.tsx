@@ -1,6 +1,6 @@
 import { Fragment, type ReactNode } from "react";
 import { useMediaQuery } from "usehooks-ts";
-import { DialogTitle } from "~/components/ui/dialog";
+import { DialogDescription } from "~/components/ui/dialog";
 import {
   Drawer,
   DrawerContent,
@@ -14,7 +14,7 @@ const BottomDrawer = ({ trigger, children }: BottomDrawerType) => {
     <Drawer>
       <DrawerTrigger asChild>{trigger}</DrawerTrigger>
       <DrawerContent>
-        <DialogTitle className="sr-only">Options</DialogTitle>
+        <DialogDescription className="sr-only">Options</DialogDescription>
         <DrawerHeader>{children}</DrawerHeader>
       </DrawerContent>
     </Drawer>

@@ -17,7 +17,12 @@ const AllDone: NextPage = () => {
       <CloseButton />
       <div className="flex min-h-[141.6px] grow flex-col items-center gap-5">
         <div className="relative max-h-[250px] min-h-[100px] w-full basis-[350px]">
-          <Image src="/all-done.webp" alt="all-done" fill objectFit="contain" />
+          <Image
+            src="/all-done.webp"
+            alt="all-done"
+            fill
+            className="object-contain"
+          />
         </div>
         <div className="text-4xl font-bold text-green-700">ALL DONE</div>
         <div className="text-center text-lg font-medium">

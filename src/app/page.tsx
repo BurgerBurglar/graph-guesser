@@ -8,7 +8,12 @@ export default function HomePage() {
     <main className="container flex min-h-[100dvh] flex-col items-center justify-end gap-4 px-4 py-8">
       <div className="flex grow flex-col items-center gap-6">
         <div className="relative max-h-[265px] min-h-[141.6px] w-full grow">
-          <Image src="/front-page.webp" alt="logo" fill objectFit="contain" />
+          <Image
+            src="/front-page.webp"
+            alt="logo"
+            fill
+            className="object-contain"
+          />
         </div>
         <h1 className="font-title text-5xl font-bold tracking-tight sm:text-[5rem]">
           <div className="-translate-x-6 text-sky-700">GRAPH</div>

@@ -20,7 +20,7 @@ const ResultsDetails: NextPage = () => {
   // so that we don't do all the quizes again
   useEffect(() => {
     setIsDeckDone(true);
-  }, []);
+  }, [setIsDeckDone]);
 
   return (
     <main className="container relative flex min-h-screen flex-col justify-start gap-4 px-4 py-6">

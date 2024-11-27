@@ -28,7 +28,7 @@ const Results: NextPage = () => {
             src="/you-did-great.webp"
             alt="you did great!"
             fill
-            objectFit="contain"
+            className="object-contain"
           />
         </div>
         <div className="text-center text-4xl font-bold text-green-700">

@@ -9,7 +9,12 @@ const NotFound: NextPage = () => {
       <CloseButton />
       <div className="flex min-h-[141.6px] grow flex-col items-center gap-5">
         <div className="relative max-h-[250px] min-h-0 w-full max-w-[350px] basis-[350px]">
-          <Image src="/404.webp" alt="not found" fill objectFit="contain" />
+          <Image
+            src="/404.webp"
+            alt="not found"
+            fill
+            className="object-contain"
+          />
         </div>
         <div className="text-4xl font-bold text-green-700">{`ERROR 404`}</div>
         <div className="text-center font-medium">
