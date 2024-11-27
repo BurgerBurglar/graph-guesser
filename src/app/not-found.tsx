@@ -13,7 +13,8 @@ const NotFound: NextPage = () => {
             src="/404.webp"
             alt="not found"
             fill
-            className="object-contain"
+            className="w-auto object-contain"
+            priority
           />
         </div>
         <div className="text-4xl font-bold text-green-700">{`ERROR 404`}</div>

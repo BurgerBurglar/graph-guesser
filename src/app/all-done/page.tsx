@@ -21,7 +21,8 @@ const AllDone: NextPage = () => {
             src="/all-done.webp"
             alt="all-done"
             fill
-            className="object-contain"
+            className="w-auto object-contain"
+            priority
           />
         </div>
         <div className="text-4xl font-bold text-green-700">ALL DONE</div>

@@ -16,7 +16,8 @@ export default function HomePage() {
             src="/front-page.webp"
             alt="logo"
             fill
-            className="object-contain"
+            className="w-auto object-contain"
+            priority
           />
         </div>
         <h1 className="font-title text-5xl font-bold tracking-tight sm:text-[5rem]">
