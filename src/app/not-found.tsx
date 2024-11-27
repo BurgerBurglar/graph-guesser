@@ -21,8 +21,8 @@ const NotFound: NextPage = () => {
           {`Sorry, the page you're looking for doesn't exist.`}
         </div>
       </div>
-      <div className="flex w-full flex-col items-stretch gap-2 md:flex-row">
-        <Button asChild variant="primary">
+      <div className="mx-auto flex w-full max-w-md flex-col gap-2">
+        <Button asChild variant="primary" className="">
           <Link href="/">GO HOME</Link>
         </Button>
       </div>
