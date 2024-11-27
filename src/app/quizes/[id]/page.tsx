@@ -24,14 +24,9 @@ type Params = {
 };
 
 const Visualization: NextPage<{
-  params: Promise<Params>;
-  searchParams: Promise<QuizPageSearchParams>;
-}> = async (props) => {
-  const searchParams = await props.searchParams;
-  const params = await props.params;
-
-  const { id } = params;
-
+  params: Params;
+  searchParams: QuizPageSearchParams;
+}> = ({ params: { id }, searchParams }) => {
   const isValidSearchParams = validateSearchParams(searchParams);
   if (!isValidSearchParams) notFound();
 
