@@ -1,24 +1,15 @@
-"use client";
-
 import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useIsClient } from "usehooks-ts";
-import ResultDisplay from "~/app/results/ResultsDisplay";
+import ButtonLoading from "~/app/quizes/[id]/ButtonLoading";
+import ResultDisplayList from "~/app/results/ResultDisplayList";
 import { CloseButton } from "~/components/ui/button";
-import {
-  getNumCorrectResults,
-  getNumCorrectResultsInDeck,
-  getNumQuizesPlayed,
-  getNumResultsInDeck,
-} from "~/lib/zustand";
 const ResultsActions = dynamic(() => import("./ResultsActions"), {
   ssr: false,
+  loading: ButtonLoading,
 });
 
 const Results: NextPage = () => {
-  const isClient = useIsClient();
-
   return (
     <main className="container relative flex h-[100dvh] min-h-[511px] flex-col items-stretch justify-between gap-6 px-4 pb-6 pt-16">
       <CloseButton />
@@ -38,24 +29,7 @@ const Results: NextPage = () => {
           <p>You learned so much about the world today!</p>
           <p>Wanna learn more?</p>
         </div>
-        <div className="flex justify-center gap-4">
-          {isClient && !!getNumResultsInDeck() && (
-            <ResultDisplay
-              header="JUST NOW"
-              colorPallete="sky"
-              numCorrect={getNumCorrectResultsInDeck()}
-              numTotal={getNumResultsInDeck()}
-            />
-          )}
-          {isClient && !!getNumQuizesPlayed() && (
-            <ResultDisplay
-              header="OVERALL"
-              colorPallete="green"
-              numCorrect={getNumCorrectResults()}
-              numTotal={getNumQuizesPlayed()}
-            />
-          )}
-        </div>
+        <ResultDisplayList />
       </div>
       <ResultsActions />
     </main>

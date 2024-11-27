@@ -1,7 +1,9 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import ButtonLoading from "~/app/quizes/[id]/ButtonLoading";
 const LetsGuess = dynamic(() => import("./LetsGuess"), {
   ssr: false,
+  loading: ButtonLoading,
 });
 export default function HomePage() {
   return (

@@ -84,7 +84,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
       maxHeight={drawerBreakpointHeight}
       trigger={<Button>OPTIONS</Button>}
     >
-      <div className="flex flex-col justify-end gap-4">
+      <div className="mt-2 flex flex-col justify-end gap-4">
         <QuizOptions
           choices={choices}
           selectedChoice={selectedChoice}

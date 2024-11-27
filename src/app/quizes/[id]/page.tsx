@@ -1,19 +1,21 @@
 import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
+import ButtonLoading from "~/app/quizes/[id]/ButtonLoading";
+import Graph from "~/app/quizes/[id]/Graph";
+import HeaderLoading from "~/app/quizes/[id]/HeaderLoading";
 import { DATA } from "~/data";
 import type { QuizPageSearchParams } from "~/types";
 import { shuffle, validateSearchParams } from "~/utils";
-const Graph = dynamic(() => import("~/app/quizes/[id]/Graph"), {
-  ssr: false,
-});
 const Header = dynamic(() => import("~/app/quizes/[id]/Header"), {
   ssr: false,
+  loading: HeaderLoading,
 });
 const OptionsResults = dynamic(
   () => import("~/app/quizes/[id]/OptionsResults"),
   {
     ssr: false,
+    loading: ButtonLoading,
   },
 );
 

@@ -13,6 +13,9 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({
   numTotal,
   colorPallete,
 }) => {
+  // do not display 0/0
+  if (!numTotal) return null;
+
   return (
     <div
       className={cn(
