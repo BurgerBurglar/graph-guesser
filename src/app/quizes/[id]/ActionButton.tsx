@@ -29,7 +29,7 @@ const ActionButton = ({
     >
       <div>
         <Icon size={20} />
-        <span className="hidden md:inline">{children}</span>
+        <span className="sr-only sm:not-sr-only">{children}</span>
       </div>
     </Button>
   );

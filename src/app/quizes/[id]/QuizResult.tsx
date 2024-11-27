@@ -1,4 +1,5 @@
 "use client";
+
 import { Flag, Link as LinkIcon, Share } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -15,7 +16,40 @@ import {
 } from "~/components/ui/alert-dialog";
 import { Button } from "~/components/ui/button";
 import type { Quiz } from "~/data";
+import { cn } from "~/lib/utils";
 import type { QuizStatus } from "~/types";
+
+const Actions = ({
+  quizId,
+  isUserCorrect,
+  className,
+}: {
+  quizId: string;
+  isUserCorrect: boolean;
+  className?: string;
+}) => {
+  return (
+    <div className={cn("flex h-8 items-stretch", className)}>
+      <RWebShare
+        data={{
+          title: "Graph Guesser",
+          text: "Guess what this plot means on Graph Guesser!",
+          url:
+            (process.env.SHARE_URL ??
+              "https://graph-guesser-8964.vercel.app/") +
+            `quizes/${quizId}?difficulty=easy`,
+        }}
+      >
+        <ActionButton isUserCorrect={isUserCorrect} Icon={Share}>
+          SHARE
+        </ActionButton>
+      </RWebShare>
+      <ActionButton isUserCorrect={isUserCorrect} Icon={Flag}>
+        REPORT
+      </ActionButton>
+    </div>
+  );
+};
 
 interface ResultAlertProps {
   status: QuizStatus;
@@ -54,25 +88,11 @@ const QuizResult: React.FC<ResultAlertProps> = ({
                 <ResultIcon />
                 {isUserCorrect ? "CORRECT" : "INCORRECT"}
               </div>
-              <div className="flex h-8 items-stretch">
-                <RWebShare
-                  data={{
-                    title: "Graph Guesser",
-                    text: "Guess what this plot means on Graph Guesser!",
-                    url:
-                      (process.env.SHARE_URL ??
-                        "https://graph-guesser-8964.vercel.app/") +
-                      `quizes/${quizId}?difficulty=easy`,
-                  }}
-                >
-                  <ActionButton isUserCorrect={isUserCorrect} Icon={Share}>
-                    SHARE
-                  </ActionButton>
-                </RWebShare>
-                <ActionButton isUserCorrect={isUserCorrect} Icon={Flag}>
-                  REPORT
-                </ActionButton>
-              </div>
+              <Actions
+                quizId={quizId}
+                isUserCorrect={isUserCorrect}
+                className="sm:hidden"
+              />
             </AlertDialogTitle>
             <AlertDialogDescription className="flex flex-col items-start gap-2 text-start text-inherit">
               {!isUserCorrect && (
@@ -92,6 +112,11 @@ const QuizResult: React.FC<ResultAlertProps> = ({
                   {description}
                 </Link>
               </div>
+              <Actions
+                quizId={quizId}
+                isUserCorrect={isUserCorrect}
+                className="hidden sm:flex sm:-translate-x-2"
+              />
             </AlertDialogDescription>
           </AlertDialogHeader>
           <Button
