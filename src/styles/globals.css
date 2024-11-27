@@ -74,3 +74,7 @@
     @apply bg-background text-foreground;
   }
 }
+body {
+  /* vaul drawer has a bug to change this to none first time loading the page */
+  pointer-events: all !important;
+}

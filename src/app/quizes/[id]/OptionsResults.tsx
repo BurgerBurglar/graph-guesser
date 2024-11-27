@@ -80,7 +80,10 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   };
 
   return (
-    <ResponsiveDrawer maxHeight={drawerBreakpointHeight}>
+    <ResponsiveDrawer
+      maxHeight={drawerBreakpointHeight}
+      trigger={<Button>OPTIONS</Button>}
+    >
       <div className="flex flex-col justify-end gap-4">
         <QuizOptions
           choices={choices}

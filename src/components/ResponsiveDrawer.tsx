@@ -1,6 +1,6 @@
 import { Fragment, type ReactNode } from "react";
 import { useMediaQuery } from "usehooks-ts";
-import { Button } from "~/components/ui/button";
+import { DialogTitle } from "~/components/ui/dialog";
 import {
   Drawer,
   DrawerContent,
@@ -8,13 +8,13 @@ import {
   DrawerTrigger,
 } from "~/components/ui/drawer";
 
-const BottomDrawer = ({ children }: { children: ReactNode }) => {
+type BottomDrawerType = { trigger: ReactNode; children: ReactNode };
+const BottomDrawer = ({ trigger, children }: BottomDrawerType) => {
   return (
     <Drawer>
-      <DrawerTrigger asChild>
-        <Button>OPTIONS</Button>
-      </DrawerTrigger>
+      <DrawerTrigger asChild>{trigger}</DrawerTrigger>
       <DrawerContent>
+        <DialogTitle className="sr-only">Options</DialogTitle>
         <DrawerHeader>{children}</DrawerHeader>
       </DrawerContent>
     </Drawer>
@@ -23,17 +23,17 @@ const BottomDrawer = ({ children }: { children: ReactNode }) => {
 
 const ResponsiveDrawer = ({
   maxHeight,
-  children,
+  trigger,
+  ...props
 }: {
   maxHeight: string;
-  children: ReactNode;
-}) => {
+} & BottomDrawerType) => {
   const isShortScreen = useMediaQuery(`(max-height: ${maxHeight})`);
 
   return isShortScreen ? (
-    <BottomDrawer>{children}</BottomDrawer>
+    <BottomDrawer trigger={trigger} {...props} />
   ) : (
-    <Fragment>{children}</Fragment>
+    <Fragment {...props} />
   );
 };
 
