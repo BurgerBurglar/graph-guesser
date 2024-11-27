@@ -1,6 +1,10 @@
-import { Poppins } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import { cn } from "~/lib/utils";
 import "~/styles/globals.css";
+
+const body = Inter({
+  subsets: ["latin"],
+});
 
 const title = Poppins({
   subsets: ["latin"],
@@ -20,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn(title.variable)}>
+    <html lang="en" className={cn(body.className, title.variable)}>
       <body>{children}</body>
     </html>
   );
