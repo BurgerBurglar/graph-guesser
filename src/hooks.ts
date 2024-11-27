@@ -6,9 +6,10 @@ import { getQuizLink } from "./utils";
 
 export const usePlay = () => {
   const router = useRouter();
-  const { initializeRandomDeck } = useAppStore();
+  const { initializeRandomDeck, setIsDeckDone } = useAppStore();
 
   const playRandomGame = ({ canPlayOld = false }: { canPlayOld?: boolean }) => {
+    setIsDeckDone(false);
     initializeRandomDeck(canPlayOld);
     const newDeck = useAppStore.getState().deck;
 
