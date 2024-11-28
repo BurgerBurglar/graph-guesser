@@ -1,6 +1,12 @@
 import type { NextPage } from "next"
 import Link from "next/link"
+import type { HTMLAttributes } from "react"
 import { Button } from "~/components/ui/button"
+import { cn } from "~/lib/utils"
+
+const H2 = ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
+  <h2 className={cn("pb-2 text-lg font-semibold", className)} {...props} />
+)
 
 const Results: NextPage = () => {
   return (
@@ -9,12 +15,12 @@ const Results: NextPage = () => {
         <div className="-translate-x-6 text-sky-700">GRAPH</div>
         <div className="translate-x-6 text-green-700">GUESSER</div>
       </h1>
-      <article className="article">
+      <article className="[&_a]hover:underline [&_a]:text-pink-600 [&_p]:pb-6 [&_ul]:list-inside [&_ul]:pb-6 [&_ul]:last:pb-0 [&_ul_li]:list-disc">
         <p className="text-center text-lg">
           A fun <span className="text-gray-500 line-through">for me</span> game
           to answer questions and learn more about the world.
         </p>
-        <h2>Please note</h2>
+        <H2>Please note</H2>
         <ul>
           <li>
             There isn&apos;t a universal agreement on what defines a country.
@@ -43,13 +49,13 @@ const Results: NextPage = () => {
             fun of them.
           </li>
         </ul>
-        <h2>Anti-cheat</h2>
+        <H2>Anti-cheat</H2>
         <p>
           There is none. Your results won&apos;t be stored on the database. You
           can go back to the previous questions after finishing a game. In fact,
           you can refresh the page after submitting your answer to do it again.
         </p>
-        <h2>Contribution</h2>
+        <H2>Contribution</H2>
         <p>
           If you find a bug, an inaccurate plot, a bad quiz, or an incorrect
           answer, please raise an issue{" "}
@@ -79,7 +85,7 @@ const Results: NextPage = () => {
             Quiz cannot be <em>too</em> difficult.
           </li>
         </ul>
-        <h2>Donation</h2>
+        <H2>Donation</H2>
         <p>
           Please don&apos;t donate to me. Play the game, see who needs help the
           most, and find a charity to support them.
