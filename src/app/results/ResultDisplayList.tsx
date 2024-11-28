@@ -1,17 +1,17 @@
-"use client"; // necessary to get numbers
+"use client" // necessary to get numbers
 
-import dynamic from "next/dynamic";
-import ResultsDisplayLoading from "~/app/results/ResultsDisplayLoading";
+import dynamic from "next/dynamic"
+import ResultsDisplayLoading from "~/app/results/ResultsDisplayLoading"
 import {
   getNumCorrectResults,
   getNumCorrectResultsInDeck,
   getNumQuizesPlayed,
   getNumResultsInDeck,
-} from "~/lib/zustand";
+} from "~/lib/zustand"
 const ResultsDisplay = dynamic(() => import("./ResultsDisplay"), {
   ssr: false,
   loading: ResultsDisplayLoading,
-});
+})
 
 const ResultDisplayList = () => {
   return (
@@ -29,7 +29,7 @@ const ResultDisplayList = () => {
         numTotal={getNumQuizesPlayed()}
       />
     </div>
-  );
-};
+  )
+}
 
-export default ResultDisplayList;
+export default ResultDisplayList

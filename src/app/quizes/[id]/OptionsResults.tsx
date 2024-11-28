@@ -1,22 +1,22 @@
-"use client";
+"use client"
 
-import { useSearchParams } from "next/navigation";
-import React, { useState, type ChangeEvent } from "react";
-import QuizAnswer from "~/app/quizes/[id]/QuizAnswer";
-import QuizOptions from "~/app/quizes/[id]/QuizOptions";
-import ResponsiveDrawer from "~/components/ResponsiveDrawer";
-import { Button } from "~/components/ui/button";
-import type { Quiz } from "~/data";
-import { useAppStore } from "~/lib/zustand";
-import type { Difficulty, QuizStatus } from "~/types";
-import { getQuizLink } from "~/utils";
+import { useSearchParams } from "next/navigation"
+import React, { useState, type ChangeEvent } from "react"
+import QuizAnswer from "~/app/quizes/[id]/QuizAnswer"
+import QuizOptions from "~/app/quizes/[id]/QuizOptions"
+import ResponsiveDrawer from "~/components/ResponsiveDrawer"
+import { Button } from "~/components/ui/button"
+import type { Quiz } from "~/data"
+import { useAppStore } from "~/lib/zustand"
+import type { Difficulty, QuizStatus } from "~/types"
+import { getQuizLink } from "~/utils"
 
 interface OptionsResultsProps {
-  quizId: string;
-  choices: string[];
-  correctChoice: Quiz["correctChoice"];
-  description: Quiz["description"];
-  source: Quiz["source"];
+  quizId: string
+  choices: string[]
+  correctChoice: Quiz["correctChoice"]
+  description: Quiz["description"]
+  source: Quiz["source"]
 }
 
 const OptionsResults: React.FC<OptionsResultsProps> = ({
@@ -30,29 +30,29 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
     deck: { quizIds },
     isDeckDone,
     setResult,
-  } = useAppStore();
-  const [selectedChoice, setSelectedChoice] = useState<string>();
-  const [status, setStatus] = useState<QuizStatus>("pending");
-  const searchParams = useSearchParams();
-  const difficulty = searchParams.get("difficulty") as Difficulty;
+  } = useAppStore()
+  const [selectedChoice, setSelectedChoice] = useState<string>()
+  const [status, setStatus] = useState<QuizStatus>("pending")
+  const searchParams = useSearchParams()
+  const difficulty = searchParams.get("difficulty") as Difficulty
 
-  const isUserCorrect = selectedChoice === correctChoice;
+  const isUserCorrect = selectedChoice === correctChoice
 
-  const currentQuizIndex = quizIds.indexOf(quizId);
-  const NOT_FOUND_INDEX = -1;
-  const LAST_INDEX = quizIds.length - 1;
+  const currentQuizIndex = quizIds.indexOf(quizId)
+  const NOT_FOUND_INDEX = -1
+  const LAST_INDEX = quizIds.length - 1
 
   // undefined means it's the last one
   const nextQuizIndex = [NOT_FOUND_INDEX, LAST_INDEX].includes(currentQuizIndex)
     ? undefined
-    : currentQuizIndex + 1;
+    : currentQuizIndex + 1
 
   // undefined means it's the last one
   const nextQuizId =
     // if the deck is done, only one quiz will be played
     isDeckDone || nextQuizIndex === undefined
       ? undefined
-      : quizIds[nextQuizIndex];
+      : quizIds[nextQuizIndex]
 
   // max height to have a drawer
   const drawerBreakpointHeight =
@@ -60,24 +60,24 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
       ? "550px"
       : difficulty === "medium"
         ? "630px"
-        : "690px";
+        : "690px"
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedChoice(event.target.value);
-  };
+    setSelectedChoice(event.target.value)
+  }
 
   const handleCheck = () => {
-    setStatus("submitted");
-    setResult({ quizId, isCorrect: isUserCorrect });
-  };
+    setStatus("submitted")
+    setResult({ quizId, isCorrect: isUserCorrect })
+  }
 
   const getNextPageLink = () => {
     if (nextQuizId) {
-      return getQuizLink(nextQuizId);
+      return getQuizLink(nextQuizId)
     } else {
-      return "/results";
+      return "/results"
     }
-  };
+  }
 
   return (
     <ResponsiveDrawer
@@ -108,7 +108,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
         </Button>
       </div>
     </ResponsiveDrawer>
-  );
-};
+  )
+}
 
-export default OptionsResults;
+export default OptionsResults

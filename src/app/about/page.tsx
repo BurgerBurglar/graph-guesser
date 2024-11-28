@@ -1,6 +1,6 @@
-import type { NextPage } from "next";
-import Link from "next/link";
-import { Button } from "~/components/ui/button";
+import type { NextPage } from "next"
+import Link from "next/link"
+import { Button } from "~/components/ui/button"
 
 const Results: NextPage = () => {
   return (
@@ -89,6 +89,6 @@ const Results: NextPage = () => {
         <Link href="/">GO HOME</Link>
       </Button>
     </main>
-  );
-};
-export default Results;
+  )
+}
+export default Results

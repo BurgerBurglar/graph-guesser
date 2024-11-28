@@ -1,15 +1,15 @@
-import type { NextPage } from "next";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import QuizOverviewListLoading from "~/app/results/details/QuizOverviewListLoading";
-import { Button } from "~/components/ui/button";
+import type { NextPage } from "next"
+import dynamic from "next/dynamic"
+import Link from "next/link"
+import QuizOverviewListLoading from "~/app/results/details/QuizOverviewListLoading"
+import { Button } from "~/components/ui/button"
 const QuizOverviewList = dynamic(
   () => import("~/app/results/details/QuizOverviewList"),
   {
     ssr: false,
     loading: QuizOverviewListLoading,
   },
-);
+)
 
 const ResultsDetails: NextPage = () => {
   return (
@@ -24,6 +24,6 @@ const ResultsDetails: NextPage = () => {
         </Button>
       </div>
     </main>
-  );
-};
-export default ResultsDetails;
+  )
+}
+export default ResultsDetails

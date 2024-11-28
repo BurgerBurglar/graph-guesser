@@ -1,11 +1,11 @@
-import type { ChangeEvent } from "react";
-import { Button } from "~/components/ui/button";
-import { cn } from "~/lib/utils";
+import type { ChangeEvent } from "react"
+import { Button } from "~/components/ui/button"
+import { cn } from "~/lib/utils"
 
 interface OptionsProps {
-  choices: string[];
-  selectedChoice?: string;
-  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  choices: string[]
+  selectedChoice?: string
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
 const QuizOptions: React.FC<OptionsProps> = ({
@@ -16,11 +16,11 @@ const QuizOptions: React.FC<OptionsProps> = ({
   const gridCols =
     choices.length === 4 || choices.length === 2
       ? "md:grid-cols-2"
-      : "md:grid-cols-3";
+      : "md:grid-cols-3"
   return (
     <ul className={cn("grid w-full gap-2", gridCols)}>
       {choices.map((choice, index) => {
-        const isSelected = selectedChoice === choice;
+        const isSelected = selectedChoice === choice
         return (
           <li key={index}>
             <input
@@ -41,10 +41,10 @@ const QuizOptions: React.FC<OptionsProps> = ({
               </label>
             </Button>
           </li>
-        );
+        )
       })}
     </ul>
-  );
-};
+  )
+}
 
-export default QuizOptions;
+export default QuizOptions

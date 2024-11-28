@@ -1,11 +1,11 @@
-import dynamic from "next/dynamic";
-import Image from "next/image";
-import NavLinks from "~/app/NavLinks";
-import ButtonLoading from "~/app/quizes/[id]/ButtonLoading";
+import dynamic from "next/dynamic"
+import Image from "next/image"
+import NavLinks from "~/app/NavLinks"
+import ButtonLoading from "~/app/quizes/[id]/ButtonLoading"
 const LetsGuess = dynamic(() => import("./LetsGuess"), {
   ssr: false,
   loading: ButtonLoading,
-});
+})
 export default function HomePage() {
   return (
     <main className="container flex min-h-[100dvh] flex-col items-center justify-end gap-4 p-4 pb-6">
@@ -33,5 +33,5 @@ export default function HomePage() {
         <LetsGuess />
       </div>
     </main>
-  );
+  )
 }

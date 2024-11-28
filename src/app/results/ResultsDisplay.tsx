@@ -1,10 +1,10 @@
-import { cn } from "~/lib/utils";
+import { cn } from "~/lib/utils"
 
 interface ResultDisplayProps {
-  header: string;
-  numCorrect: number;
-  numTotal: number;
-  colorPallete: "sky" | "green";
+  header: string
+  numCorrect: number
+  numTotal: number
+  colorPallete: "sky" | "green"
 }
 
 const ResultDisplay: React.FC<ResultDisplayProps> = ({
@@ -14,7 +14,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({
   colorPallete,
 }) => {
   // do not display 0/0
-  if (!numTotal) return null;
+  if (!numTotal) return null
 
   return (
     <div
@@ -55,7 +55,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({
         {numCorrect}/{numTotal}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ResultDisplay;
+export default ResultDisplay

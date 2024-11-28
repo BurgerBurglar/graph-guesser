@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import { type LucideIcon } from "lucide-react";
-import type { MouseEventHandler, ReactNode } from "react";
-import { Button } from "~/components/ui/button";
-import { cn } from "~/lib/utils";
+import { type LucideIcon } from "lucide-react"
+import type { MouseEventHandler, ReactNode } from "react"
+import { Button } from "~/components/ui/button"
+import { cn } from "~/lib/utils"
 
 const ActionButton = ({
   children,
@@ -11,10 +11,10 @@ const ActionButton = ({
   isUserCorrect,
   onClick,
 }: {
-  children: ReactNode;
-  Icon: LucideIcon;
-  isUserCorrect: boolean;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
+  children: ReactNode
+  Icon: LucideIcon
+  isUserCorrect: boolean
+  onClick?: MouseEventHandler<HTMLButtonElement>
 }) => {
   return (
     <Button
@@ -32,7 +32,7 @@ const ActionButton = ({
         <span className="sr-only sm:not-sr-only">{children}</span>
       </div>
     </Button>
-  );
-};
+  )
+}
 
-export default ActionButton;
+export default ActionButton

@@ -1,16 +1,16 @@
-import type { DIFFICULTIES } from "~/utils";
+import type { DIFFICULTIES } from "~/utils"
 
 export type QuizResultRecord = Record<
   string,
   {
-    isCorrect?: boolean;
+    isCorrect?: boolean
   }
->;
+>
 
-export type Difficulty = (typeof DIFFICULTIES)[number];
+export type Difficulty = (typeof DIFFICULTIES)[number]
 
 export type QuizPageSearchParams = {
-  difficulty: Difficulty;
-};
+  difficulty: Difficulty
+}
 
-export type QuizStatus = "pending" | "submitted";
+export type QuizStatus = "pending" | "submitted"

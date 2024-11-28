@@ -1,13 +1,13 @@
-import type { NextPage } from "next";
-import dynamic from "next/dynamic";
-import Image from "next/image";
-import ButtonLoading from "~/app/quizes/[id]/ButtonLoading";
-import ResultDisplayList from "~/app/results/ResultDisplayList";
-import { CloseButton } from "~/components/ui/button";
+import type { NextPage } from "next"
+import dynamic from "next/dynamic"
+import Image from "next/image"
+import ButtonLoading from "~/app/quizes/[id]/ButtonLoading"
+import ResultDisplayList from "~/app/results/ResultDisplayList"
+import { CloseButton } from "~/components/ui/button"
 const ResultsActions = dynamic(() => import("./ResultsActions"), {
   ssr: false,
   loading: ButtonLoading,
-});
+})
 
 const Results: NextPage = () => {
   return (
@@ -34,6 +34,6 @@ const Results: NextPage = () => {
       </div>
       <ResultsActions />
     </main>
-  );
-};
-export default Results;
+  )
+}
+export default Results

@@ -1,4 +1,4 @@
-import { Skeleton } from "~/components/ui/skeleton";
+import { Skeleton } from "~/components/ui/skeleton"
 
 const QuizOverviewListLoading = () => {
   return (
@@ -9,7 +9,7 @@ const QuizOverviewListLoading = () => {
       <Skeleton className="h-[316.8px] w-full rounded-xl" />
       <Skeleton className="h-[316.8px] w-full rounded-xl" />
     </div>
-  );
-};
+  )
+}
 
-export default QuizOverviewListLoading;
+export default QuizOverviewListLoading

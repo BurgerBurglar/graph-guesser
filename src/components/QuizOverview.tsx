@@ -1,20 +1,20 @@
-import Link from "next/link";
-import React from "react";
-import Graph from "~/app/quizes/[id]/Graph";
-import { Correct, Error } from "~/components/icons";
-import { Button } from "~/components/ui/button";
-import { cn } from "~/lib/utils";
-import { getQuizLink } from "~/utils";
+import Link from "next/link"
+import React from "react"
+import Graph from "~/app/quizes/[id]/Graph"
+import { Correct, Error } from "~/components/icons"
+import { Button } from "~/components/ui/button"
+import { cn } from "~/lib/utils"
+import { getQuizLink } from "~/utils"
 
 interface QuizOverviewProps {
-  quizId: string;
-  isRight?: boolean;
+  quizId: string
+  isRight?: boolean
 }
 
 const QuizOverview: React.FC<QuizOverviewProps> = ({ quizId, isRight }) => {
-  const ResultIcon = isRight ? Correct : Error;
-  const hasResult = isRight !== undefined;
-  const prompt = isRight ? "You got it right!" : "That wasn't quite right";
+  const ResultIcon = isRight ? Correct : Error
+  const hasResult = isRight !== undefined
+  const prompt = isRight ? "You got it right!" : "That wasn't quite right"
   return (
     <div
       key={quizId}
@@ -38,6 +38,7 @@ const QuizOverview: React.FC<QuizOverviewProps> = ({ quizId, isRight }) => {
         <Link href={getQuizLink(quizId)}>TRY AGAIN</Link>
       </Button>
     </div>
-  );
-};
-export default QuizOverview;
+  )
+}
+
+export default QuizOverview

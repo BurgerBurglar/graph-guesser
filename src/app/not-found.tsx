@@ -1,7 +1,7 @@
-import type { NextPage } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { Button, CloseButton } from "~/components/ui/button";
+import type { NextPage } from "next"
+import Image from "next/image"
+import Link from "next/link"
+import { Button, CloseButton } from "~/components/ui/button"
 
 const NotFound: NextPage = () => {
   return (
@@ -28,6 +28,6 @@ const NotFound: NextPage = () => {
         </Button>
       </div>
     </main>
-  );
-};
-export default NotFound;
+  )
+}
+export default NotFound

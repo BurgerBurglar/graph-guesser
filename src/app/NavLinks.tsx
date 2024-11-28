@@ -1,6 +1,6 @@
-import { Info, Github } from "lucide-react";
-import Link from "next/link";
-import { Button } from "~/components/ui/button";
+import { Info, Github } from "lucide-react"
+import Link from "next/link"
+import { Button } from "~/components/ui/button"
 
 const NavLinks = () => {
   return (
@@ -19,7 +19,7 @@ const NavLinks = () => {
         </Link>
       </Button>
     </nav>
-  );
-};
+  )
+}
 
-export default NavLinks;
+export default NavLinks

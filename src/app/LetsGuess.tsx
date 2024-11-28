@@ -1,26 +1,26 @@
-"use client";
+"use client"
 
-import { type ChangeEvent } from "react";
-import ResponsiveDrawer from "~/components/ResponsiveDrawer";
-import { Button } from "~/components/ui/button";
-import { usePlay } from "~/hooks";
-import { useAppStore } from "~/lib/zustand";
-import type { Difficulty } from "~/types";
-import { DIFFICULTIES } from "~/utils";
+import { type ChangeEvent } from "react"
+import ResponsiveDrawer from "~/components/ResponsiveDrawer"
+import { Button } from "~/components/ui/button"
+import { usePlay } from "~/hooks"
+import { useAppStore } from "~/lib/zustand"
+import type { Difficulty } from "~/types"
+import { DIFFICULTIES } from "~/utils"
 
 const LetsGuess = () => {
-  const { difficulty, setDifficulty } = useAppStore();
-  const { playRandomGame } = usePlay();
+  const { difficulty, setDifficulty } = useAppStore()
+  const { playRandomGame } = usePlay()
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setDifficulty(event.target.value as Difficulty);
-  };
+    setDifficulty(event.target.value as Difficulty)
+  }
 
   return (
     <ResponsiveDrawer maxHeight="650px" trigger={<Button>PLAY</Button>}>
       <ul className="grid w-full gap-2 sm:grid-cols-3">
         {DIFFICULTIES.map((choice, index) => {
-          const isSelected = difficulty === choice;
+          const isSelected = difficulty === choice
           return (
             <li key={index}>
               <input
@@ -41,7 +41,7 @@ const LetsGuess = () => {
                 </label>
               </Button>
             </li>
-          );
+          )
         })}
       </ul>
       <Button
@@ -56,7 +56,7 @@ const LetsGuess = () => {
         {`LET'S GUESS`}
       </Button>
     </ResponsiveDrawer>
-  );
-};
+  )
+}
 
-export default LetsGuess;
+export default LetsGuess

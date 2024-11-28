@@ -1,9 +1,9 @@
 export type Quiz = {
-  correctChoice: string;
-  wrongChoices: string[];
-  description: string;
-  source: string;
-};
+  correctChoice: string
+  wrongChoices: string[]
+  description: string
+  source: string
+}
 
 export const DATA = new Map<string, Quiz>([
   [
@@ -502,4 +502,4 @@ export const DATA = new Map<string, Quiz>([
       source: "https://ourworldindata.org/grapher/urban-pop-in-out-of-slums",
     },
   ],
-]);
+])

@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Dialog,
@@ -7,35 +7,35 @@ import {
   DialogTitle,
   DialogDescription,
   DialogClose,
-} from "~/components/ui/dialog";
-import { Flag, Link as LinkIcon, Share } from "lucide-react";
-import Link from "next/link";
-import { useParams } from "next/navigation";
-import React from "react";
-import { RWebShare } from "react-web-share";
-import ActionButton from "~/app/quizes/[id]/ActionButton";
-import { Correct, Error } from "~/components/icons";
+} from "~/components/ui/dialog"
+import { Flag, Link as LinkIcon, Share } from "lucide-react"
+import Link from "next/link"
+import { useParams } from "next/navigation"
+import React from "react"
+import { RWebShare } from "react-web-share"
+import ActionButton from "~/app/quizes/[id]/ActionButton"
+import { Correct, Error } from "~/components/icons"
 import {
   AlertDialog,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "~/components/ui/alert-dialog";
-import { Button } from "~/components/ui/button";
-import { DialogHeader } from "~/components/ui/dialog";
-import type { Quiz } from "~/data";
-import { cn } from "~/lib/utils";
-import type { QuizStatus } from "~/types";
+} from "~/components/ui/alert-dialog"
+import { Button } from "~/components/ui/button"
+import { DialogHeader } from "~/components/ui/dialog"
+import type { Quiz } from "~/data"
+import { cn } from "~/lib/utils"
+import type { QuizStatus } from "~/types"
 
 const Actions = ({
   quizId,
   isUserCorrect,
   className,
 }: {
-  quizId: string;
-  isUserCorrect: boolean;
-  className?: string;
+  quizId: string
+  isUserCorrect: boolean
+  className?: string
 }) => {
   return (
     <div className={cn("flex h-8 items-stretch", className)}>
@@ -85,16 +85,16 @@ const Actions = ({
         </DialogContent>
       </Dialog>
     </div>
-  );
-};
+  )
+}
 
 interface ResultAlertProps {
-  status: QuizStatus;
-  isUserCorrect: boolean;
-  correctChoice: Quiz["correctChoice"];
-  description: Quiz["description"];
-  source: Quiz["source"];
-  nextPageLink: string;
+  status: QuizStatus
+  isUserCorrect: boolean
+  correctChoice: Quiz["correctChoice"]
+  description: Quiz["description"]
+  source: Quiz["source"]
+  nextPageLink: string
 }
 
 const QuizAnswer: React.FC<ResultAlertProps> = ({
@@ -105,9 +105,9 @@ const QuizAnswer: React.FC<ResultAlertProps> = ({
   description,
   nextPageLink,
 }) => {
-  const { id: quizId } = useParams();
-  if (!quizId || Array.isArray(quizId)) return null;
-  const ResultIcon = isUserCorrect ? Correct : Error;
+  const { id: quizId } = useParams()
+  if (!quizId || Array.isArray(quizId)) return null
+  const ResultIcon = isUserCorrect ? Correct : Error
 
   return (
     <AlertDialog open={status === "submitted"}>
@@ -168,7 +168,7 @@ const QuizAnswer: React.FC<ResultAlertProps> = ({
         </div>
       </AlertDialogContent>
     </AlertDialog>
-  );
-};
+  )
+}
 
-export default QuizAnswer;
+export default QuizAnswer
