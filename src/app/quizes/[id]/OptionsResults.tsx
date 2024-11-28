@@ -67,8 +67,15 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   }
 
   const handleCheck = () => {
+    if (status === "submitted") return
     setStatus("submitted")
     setResult({ quizId, isCorrect: isUserCorrect })
+  }
+
+  const getButtonText = () => {
+    if (status === "submitted") return "VIEW ANSWER"
+    if (!selectedChoice) return "SELECT"
+    return "CHECK"
   }
 
   const getNextPageLink = () => {
@@ -86,26 +93,29 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
     >
       <div className="mt-2 flex flex-col justify-end gap-4">
         <QuizOptions
+          status={status}
+          correctChoice={correctChoice}
           choices={choices}
           selectedChoice={selectedChoice}
           handleChange={handleChange}
         />
         <QuizAnswer
-          status={status}
+          trigger={
+            <Button
+              variant="primary"
+              disabled={!selectedChoice}
+              className="mx-auto w-full sm:mt-2 sm:max-w-60"
+              onClick={handleCheck}
+            >
+              {getButtonText()}
+            </Button>
+          }
           isUserCorrect={isUserCorrect}
           correctChoice={correctChoice}
           source={source}
           description={description}
           nextPageLink={getNextPageLink()}
         />
-        <Button
-          variant="primary"
-          disabled={!selectedChoice}
-          className="mx-auto w-full sm:mt-2 sm:max-w-60"
-          onClick={handleCheck}
-        >
-          {selectedChoice ? "CHECK" : "SELECT"}
-        </Button>
       </div>
     </ResponsiveDrawer>
   )

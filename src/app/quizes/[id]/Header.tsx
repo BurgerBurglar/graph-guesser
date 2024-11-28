@@ -1,17 +1,18 @@
 "use client"
 
-import { AlertDialogCancel } from "@radix-ui/react-alert-dialog"
 import { X } from "lucide-react"
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import React from "react"
-import {
-  AlertDialog,
-  AlertDialogContent,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "~/components/ui/alert-dialog"
 import { Button } from "~/components/ui/button"
+import {
+  Drawer,
+  DrawerTrigger,
+  DrawerContent,
+  DrawerTitle,
+  DrawerClose,
+  DrawerDescription,
+} from "~/components/ui/drawer"
 import { Progress } from "~/components/ui/progress"
 import { useAppStore } from "~/lib/zustand"
 
@@ -38,30 +39,34 @@ const Header: React.FC = () => {
 
   return (
     <header className="sticky top-0 flex items-center gap-4 bg-white py-2">
-      <AlertDialog>
-        <AlertDialogTrigger asChild>
+      <Drawer>
+        <DrawerTrigger asChild>
           <Button variant="ghost" className="p-1">
             <X />
           </Button>
-        </AlertDialogTrigger>
-        <AlertDialogContent className="flex flex-col items-center gap-8 bg-sky-50">
-          <AlertDialogTitle className="text-center text-xl font-bold">
+        </DrawerTrigger>
+        <DrawerContent
+          hasHandle={false}
+          className="flex flex-col items-center gap-8 rounded-none bg-sky-50 p-6"
+        >
+          <DrawerTitle className="text-center text-xl font-bold">
             Are you sure you want to leave?
-          </AlertDialogTitle>
+          </DrawerTitle>
+          <DrawerDescription className="sr-only">Leave game</DrawerDescription>
           <div className="flex w-full flex-col gap-2 sm:max-w-lg sm:flex-row-reverse">
-            <AlertDialogCancel asChild>
+            <DrawerClose asChild>
               <Button variant="secondary" className="w-full">
                 STAY
               </Button>
-            </AlertDialogCancel>
+            </DrawerClose>
             <Button variant="outline" asChild>
               <Link href="/" className="w-full">
                 LEAVE
               </Link>
             </Button>
           </div>
-        </AlertDialogContent>
-      </AlertDialog>
+        </DrawerContent>
+      </Drawer>
       <Progress value={percentage} className="flex-1" />
       <div className="w-[40px] text-center font-medium text-green-700">
         {currentQuizIndexForHumans}/{total}

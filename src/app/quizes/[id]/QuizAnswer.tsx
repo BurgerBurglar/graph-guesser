@@ -1,32 +1,31 @@
 "use client"
 
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-  DialogClose,
-} from "~/components/ui/dialog"
 import { Flag, Link as LinkIcon, Share } from "lucide-react"
 import Link from "next/link"
 import { useParams } from "next/navigation"
-import React from "react"
+import React, { type ReactNode } from "react"
 import { RWebShare } from "react-web-share"
 import ActionButton from "~/app/quizes/[id]/ActionButton"
 import { Correct, Error } from "~/components/icons"
-import {
-  AlertDialog,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "~/components/ui/alert-dialog"
 import { Button } from "~/components/ui/button"
-import { DialogHeader } from "~/components/ui/dialog"
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "~/components/ui/dialog"
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerTitle,
+  DrawerTrigger,
+} from "~/components/ui/drawer"
 import type { Quiz } from "~/data"
 import { cn } from "~/lib/utils"
-import type { QuizStatus } from "~/types"
 
 const Actions = ({
   quizId,
@@ -89,7 +88,7 @@ const Actions = ({
 }
 
 interface ResultAlertProps {
-  status: QuizStatus
+  trigger: ReactNode
   isUserCorrect: boolean
   correctChoice: Quiz["correctChoice"]
   description: Quiz["description"]
@@ -98,7 +97,7 @@ interface ResultAlertProps {
 }
 
 const QuizAnswer: React.FC<ResultAlertProps> = ({
-  status,
+  trigger,
   isUserCorrect,
   correctChoice,
   source,
@@ -110,64 +109,65 @@ const QuizAnswer: React.FC<ResultAlertProps> = ({
   const ResultIcon = isUserCorrect ? Correct : Error
 
   return (
-    <AlertDialog open={status === "submitted"}>
-      <AlertDialogContent
-        className={
+    <Drawer>
+      <DrawerTrigger asChild>{trigger}</DrawerTrigger>
+      <DrawerContent
+        hasHandle={false}
+        className={cn(
+          "mx-auto flex w-full max-w-screen-lg flex-col items-center justify-between gap-4 rounded-none p-6 sm:flex-row",
           isUserCorrect
             ? "bg-green-100 text-green-700"
-            : "bg-red-100 text-red-700"
-        }
+            : "bg-red-100 text-red-700",
+        )}
       >
-        <div className="mx-auto flex w-full max-w-screen-lg flex-col items-center justify-between gap-4 sm:flex-row">
-          <AlertDialogHeader>
-            <AlertDialogTitle className="flex justify-between">
-              <div className="flex items-center gap-2 text-xl font-bold">
-                <ResultIcon />
-                {isUserCorrect ? "CORRECT" : "INCORRECT"}
-              </div>
-              <Actions
-                quizId={quizId}
-                isUserCorrect={isUserCorrect}
-                className="sm:hidden"
-              />
-            </AlertDialogTitle>
-            <AlertDialogDescription className="flex flex-col items-start gap-2 text-start text-inherit">
-              {!isUserCorrect && (
-                <div>
-                  <div className="text-lg font-medium">Correct answer:</div>
-                  <div className="text-[1rem]">{correctChoice}</div>
-                </div>
-              )}
+        <div className="flex flex-col gap-2">
+          <DrawerTitle className="flex justify-between">
+            <div className="flex items-center gap-2 text-xl font-bold">
+              <ResultIcon />
+              {isUserCorrect ? "CORRECT" : "INCORRECT"}
+            </div>
+            <Actions
+              quizId={quizId}
+              isUserCorrect={isUserCorrect}
+              className="sm:hidden"
+            />
+          </DrawerTitle>
+          <DrawerDescription className="flex flex-col items-start gap-2 text-start text-inherit">
+            {!isUserCorrect && (
               <div>
-                <div className="text-lg font-medium">Did you know?</div>
-                <Link
-                  href={source}
-                  target="_blank"
-                  className="text-[1rem] underline"
-                >
-                  <LinkIcon className="me-1 inline size-5" />
-                  {description}
-                </Link>
+                <div className="text-lg font-medium">Correct answer:</div>
+                <div className="text-[1rem]">{correctChoice}</div>
               </div>
-              <Actions
-                quizId={quizId}
-                isUserCorrect={isUserCorrect}
-                className="hidden sm:flex sm:-translate-x-2"
-              />
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <Button
-            asChild
-            variant={isUserCorrect ? "primary" : "destructive"}
-            className="w-full rounded-2xl sm:max-w-40 sm:grow-0"
-          >
-            <Link href={nextPageLink}>
-              {isUserCorrect ? "CONTINUE" : "GOT IT"}
-            </Link>
-          </Button>
+            )}
+            <div>
+              <div className="text-lg font-medium">Did you know?</div>
+              <Link
+                href={source}
+                target="_blank"
+                className="text-[1rem] underline"
+              >
+                <LinkIcon className="me-1 inline size-5" />
+                {description}
+              </Link>
+            </div>
+            <Actions
+              quizId={quizId}
+              isUserCorrect={isUserCorrect}
+              className="hidden sm:flex sm:-translate-x-2"
+            />
+          </DrawerDescription>
         </div>
-      </AlertDialogContent>
-    </AlertDialog>
+        <Button
+          asChild
+          variant={isUserCorrect ? "primary" : "destructive"}
+          className="w-full rounded-2xl sm:max-w-40 sm:grow-0"
+        >
+          <Link href={nextPageLink}>
+            {isUserCorrect ? "CONTINUE" : "GOT IT"}
+          </Link>
+        </Button>
+      </DrawerContent>
+    </Drawer>
   )
 }
 
