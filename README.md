@@ -1,11 +1,11 @@
 # Graph Guesser
 
-A fun (for me) game to answer questions and learn about the world.
+A fun (for me) game to answer questions and learn more about the world.
 
 ## Notice
 
 - There isn't a universal agreement on what defines a country. This game uses data from [Our World In Data](https://ourworldindata.org/), and I don't personally agree or disagree with their interpretations.
-- Borders are not agreed upon everywhere. This game uses maps from [Our World In Data](https://app.datawrapper.de/), and I don't personally agree or disagree with their maps. , and I do not agree or disagree with their maps personally.
+- Borders are not agreed upon everywhere. This game uses maps from [Datawrapper](https://app.datawrapper.de/), and I don't personally agree or disagree with their maps, and I do not agree or disagree with their maps personally.
 - The game reflects the world as it is, which might include things some people find uncomfortable. Please use it thoughtfully.
 - Be respectful to all countries and don't use this game to make fun of them.
 

@@ -78,3 +78,27 @@ body {
   /* vaul drawer has a bug to change this to none first time loading the page */
   pointer-events: all !important;
 }
+
+.article {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply pb-2 font-semibold;
+  }
+  h2 {
+    @apply text-lg;
+  }
+
+  p,
+  ul {
+    @apply list-inside pb-6 last:pb-0;
+    li {
+      @apply list-disc;
+    }
+  }
+  a {
+    @apply font-medium text-sky-700 hover:underline;
+  }
+}

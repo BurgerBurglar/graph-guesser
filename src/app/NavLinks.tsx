@@ -11,7 +11,10 @@ const NavLinks = () => {
         </Link>
       </Button>
       <Button asChild variant="link" size="icon">
-        <Link href="https://github.com/BurgerBurglar/graph-guesser">
+        <Link
+          href="https://github.com/BurgerBurglar/graph-guesser"
+          target="_blank"
+        >
           <Github /> <span className="sr-only">Source</span>
         </Link>
       </Button>
