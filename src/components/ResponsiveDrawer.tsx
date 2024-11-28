@@ -15,7 +15,7 @@ const BottomDrawer = ({ trigger, children }: BottomDrawerType) => {
       <DrawerTrigger asChild>{trigger}</DrawerTrigger>
       <DrawerContent>
         <DialogDescription className="sr-only">Options</DialogDescription>
-        <DrawerHeader>{children}</DrawerHeader>
+        <DrawerHeader className="pb-6">{children}</DrawerHeader>
       </DrawerContent>
     </Drawer>
   )
