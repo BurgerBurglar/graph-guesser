@@ -18,12 +18,12 @@ import {
   DialogTrigger,
 } from "~/components/ui/dialog"
 import {
-  Drawer,
-  DrawerContent,
-  DrawerDescription,
-  DrawerTitle,
-  DrawerTrigger,
-} from "~/components/ui/drawer"
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "~/components/ui/sheet"
 import type { Quiz } from "~/data"
 import { cn } from "~/lib/utils"
 
@@ -109,65 +109,66 @@ const QuizAnswer: React.FC<ResultAlertProps> = ({
   const ResultIcon = isUserCorrect ? Correct : Error
 
   return (
-    <Drawer>
-      <DrawerTrigger asChild>{trigger}</DrawerTrigger>
-      <DrawerContent
-        hasHandle={false}
+    <Sheet>
+      <SheetTrigger asChild>{trigger}</SheetTrigger>
+      <SheetContent
         className={cn(
-          "mx-auto flex w-full max-w-screen-lg flex-col items-center justify-between gap-4 rounded-none p-6 sm:flex-row",
           isUserCorrect
             ? "bg-green-100 text-green-700"
             : "bg-red-100 text-red-700",
         )}
+        overlayClassName="bg-black/20"
       >
-        <div className="flex flex-col gap-2">
-          <DrawerTitle className="flex justify-between">
-            <div className="flex items-center gap-2 text-xl font-bold">
-              <ResultIcon />
-              {isUserCorrect ? "CORRECT" : "INCORRECT"}
-            </div>
-            <Actions
-              quizId={quizId}
-              isUserCorrect={isUserCorrect}
-              className="sm:hidden"
-            />
-          </DrawerTitle>
-          <DrawerDescription className="flex flex-col items-start gap-2 text-start text-inherit">
-            {!isUserCorrect && (
-              <div>
-                <div className="text-lg font-medium">Correct answer:</div>
-                <div className="text-[1rem]">{correctChoice}</div>
+        <div className="mx-auto flex w-full max-w-screen-lg flex-col items-center justify-between gap-4 rounded-none sm:flex-row">
+          <div className="flex flex-col gap-2">
+            <SheetTitle className="flex justify-between text-inherit">
+              <div className="flex items-center gap-2 text-xl font-bold">
+                <ResultIcon />
+                {isUserCorrect ? "CORRECT" : "INCORRECT"}
               </div>
-            )}
-            <div>
-              <div className="text-lg font-medium">Did you know?</div>
-              <Link
-                href={source}
-                target="_blank"
-                className="text-[1rem] underline"
-              >
-                <LinkIcon className="me-1 inline size-5" />
-                {description}
-              </Link>
-            </div>
-            <Actions
-              quizId={quizId}
-              isUserCorrect={isUserCorrect}
-              className="hidden sm:flex sm:-translate-x-2"
-            />
-          </DrawerDescription>
+              <Actions
+                quizId={quizId}
+                isUserCorrect={isUserCorrect}
+                className="sm:hidden"
+              />
+            </SheetTitle>
+            <SheetDescription className="flex flex-col items-start gap-2 text-start text-inherit">
+              {!isUserCorrect && (
+                <div>
+                  <div className="text-lg font-medium">Correct answer:</div>
+                  <div className="text-[1rem]">{correctChoice}</div>
+                </div>
+              )}
+              <div>
+                <div className="text-lg font-medium">Did you know?</div>
+                <Link
+                  href={source}
+                  target="_blank"
+                  className="text-[1rem] underline"
+                >
+                  <LinkIcon className="me-1 inline size-5" />
+                  {description}
+                </Link>
+              </div>
+              <Actions
+                quizId={quizId}
+                isUserCorrect={isUserCorrect}
+                className="hidden sm:flex sm:-translate-x-2"
+              />
+            </SheetDescription>
+          </div>
+          <Button
+            asChild
+            variant={isUserCorrect ? "primary" : "destructive"}
+            className="w-full rounded-2xl sm:max-w-40 sm:grow-0"
+          >
+            <Link href={nextPageLink}>
+              {isUserCorrect ? "CONTINUE" : "GOT IT"}
+            </Link>
+          </Button>
         </div>
-        <Button
-          asChild
-          variant={isUserCorrect ? "primary" : "destructive"}
-          className="w-full rounded-2xl sm:max-w-40 sm:grow-0"
-        >
-          <Link href={nextPageLink}>
-            {isUserCorrect ? "CONTINUE" : "GOT IT"}
-          </Link>
-        </Button>
-      </DrawerContent>
-    </Drawer>
+      </SheetContent>
+    </Sheet>
   )
 }
 

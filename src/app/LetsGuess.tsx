@@ -1,7 +1,7 @@
 "use client"
 
 import { type ChangeEvent } from "react"
-import ResponsiveDrawer from "~/components/ResponsiveDrawer"
+import ResponsiveSheet from "~/components/ResponsiveSheet"
 import { Button } from "~/components/ui/button"
 import { usePlay } from "~/hooks"
 import { useAppStore } from "~/lib/zustand"
@@ -17,7 +17,7 @@ const LetsGuess = () => {
   }
 
   return (
-    <ResponsiveDrawer maxHeight="650px" trigger={<Button>PLAY</Button>}>
+    <ResponsiveSheet maxHeight="650px" trigger={<Button>PLAY</Button>}>
       <ul className="grid w-full gap-2 sm:grid-cols-3">
         {DIFFICULTIES.map((choice, index) => {
           const isSelected = difficulty === choice
@@ -55,7 +55,7 @@ const LetsGuess = () => {
       >
         {`LET'S GUESS`}
       </Button>
-    </ResponsiveDrawer>
+    </ResponsiveSheet>
   )
 }
 

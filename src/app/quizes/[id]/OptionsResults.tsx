@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation"
 import React, { useState, type ChangeEvent } from "react"
 import QuizAnswer from "~/app/quizes/[id]/QuizAnswer"
 import QuizOptions from "~/app/quizes/[id]/QuizOptions"
-import ResponsiveDrawer from "~/components/ResponsiveDrawer"
+import ResponsiveSheet from "~/components/ResponsiveSheet"
 import { Button } from "~/components/ui/button"
 import type { Quiz } from "~/data"
 import { useAppStore } from "~/lib/zustand"
@@ -87,7 +87,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   }
 
   return (
-    <ResponsiveDrawer
+    <ResponsiveSheet
       maxHeight={drawerBreakpointHeight}
       trigger={<Button>OPTIONS</Button>}
     >
@@ -117,7 +117,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
           nextPageLink={getNextPageLink()}
         />
       </div>
-    </ResponsiveDrawer>
+    </ResponsiveSheet>
   )
 }
 

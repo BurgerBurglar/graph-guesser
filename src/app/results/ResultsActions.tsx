@@ -2,14 +2,14 @@
 
 import Link from "next/link"
 import { RWebShare } from "react-web-share"
-import ResponsiveDrawer from "~/components/ResponsiveDrawer"
+import ResponsiveSheet from "~/components/ResponsiveSheet"
 import { Button } from "~/components/ui/button"
 import { usePlay } from "~/hooks"
 
 const ResultsActions = () => {
   const { playRandomGame } = usePlay()
   return (
-    <ResponsiveDrawer maxHeight="800px" trigger={<Button>NEXT</Button>}>
+    <ResponsiveSheet maxHeight="800px" trigger={<Button>NEXT</Button>}>
       <div className="mx-auto flex w-full max-w-md flex-col items-stretch gap-2">
         <RWebShare
           data={{
@@ -38,7 +38,7 @@ const ResultsActions = () => {
           PLAY AGAIN
         </Button>
       </div>
-    </ResponsiveDrawer>
+    </ResponsiveSheet>
   )
 }
 
