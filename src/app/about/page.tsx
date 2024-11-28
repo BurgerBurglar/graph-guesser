@@ -51,7 +51,7 @@ const Results: NextPage = () => {
         </p>
         <h2>Contribution</h2>
         <p>
-          If you find a bug, an inaccurate plot, a bad quiz, an incorrect
+          If you find a bug, an inaccurate plot, a bad quiz, or an incorrect
           answer, please raise an issue{" "}
           <Link
             href="https://github.com/BurgerBurglar/graph-guesser"

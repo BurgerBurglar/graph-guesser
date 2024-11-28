@@ -1,5 +1,13 @@
 "use client";
 
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "~/components/ui/dialog";
 import { Flag, Link as LinkIcon, Share } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -15,6 +23,7 @@ import {
   AlertDialogTitle,
 } from "~/components/ui/alert-dialog";
 import { Button } from "~/components/ui/button";
+import { DialogHeader } from "~/components/ui/dialog";
 import type { Quiz } from "~/data";
 import { cn } from "~/lib/utils";
 import type { QuizStatus } from "~/types";
@@ -44,9 +53,37 @@ const Actions = ({
           SHARE
         </ActionButton>
       </RWebShare>
-      <ActionButton isUserCorrect={isUserCorrect} Icon={Flag}>
-        REPORT
-      </ActionButton>
+      <Dialog>
+        <DialogTrigger asChild>
+          <ActionButton isUserCorrect={isUserCorrect} Icon={Flag}>
+            REPORT
+          </ActionButton>
+        </DialogTrigger>
+        <DialogContent className="bg-sky-50">
+          <DialogHeader>
+            <DialogTitle>Report an issue?</DialogTitle>
+            <DialogDescription className="text-left">
+              If you find a bug, an inaccurate plot, a bad quiz, or an incorrect
+              answer, please raise an issue on GitHub.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="mx-auto flex w-full max-w-sm flex-col items-stretch justify-center gap-2 sm:flex-row">
+            <DialogClose asChild>
+              <Button variant="outline" className="sm:flex-1">
+                Close
+              </Button>
+            </DialogClose>
+            <Button asChild variant="secondary" className="sm:flex-1">
+              <Link
+                href="https://github.com/BurgerBurglar/graph-guesser/issues"
+                target="_blank"
+              >
+                REPORT
+              </Link>
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
@@ -60,7 +97,7 @@ interface ResultAlertProps {
   nextPageLink: string;
 }
 
-const QuizResult: React.FC<ResultAlertProps> = ({
+const QuizAnswer: React.FC<ResultAlertProps> = ({
   status,
   isUserCorrect,
   correctChoice,
@@ -134,4 +171,4 @@ const QuizResult: React.FC<ResultAlertProps> = ({
   );
 };
 
-export default QuizResult;
+export default QuizAnswer;

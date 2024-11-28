@@ -2,8 +2,8 @@
 
 import { useSearchParams } from "next/navigation";
 import React, { useState, type ChangeEvent } from "react";
+import QuizAnswer from "~/app/quizes/[id]/QuizAnswer";
 import QuizOptions from "~/app/quizes/[id]/QuizOptions";
-import QuizResult from "~/app/quizes/[id]/QuizResult";
 import ResponsiveDrawer from "~/components/ResponsiveDrawer";
 import { Button } from "~/components/ui/button";
 import type { Quiz } from "~/data";
@@ -90,7 +90,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
           selectedChoice={selectedChoice}
           handleChange={handleChange}
         />
-        <QuizResult
+        <QuizAnswer
           status={status}
           isUserCorrect={isUserCorrect}
           correctChoice={correctChoice}
