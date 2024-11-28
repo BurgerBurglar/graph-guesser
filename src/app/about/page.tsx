@@ -1,12 +1,6 @@
 import type { NextPage } from "next"
 import Link from "next/link"
-import type { HTMLAttributes } from "react"
 import { Button } from "~/components/ui/button"
-import { cn } from "~/lib/utils"
-
-const H2 = ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
-  <h2 className={cn("pb-2 text-lg font-semibold", className)} {...props} />
-)
 
 const Results: NextPage = () => {
   return (
@@ -15,17 +9,21 @@ const Results: NextPage = () => {
         <div className="-translate-x-6 text-sky-700">GRAPH</div>
         <div className="translate-x-6 text-green-700">GUESSER</div>
       </h1>
-      <article className="[&_a]hover:underline [&_a]:text-pink-600 [&_p]:pb-6 [&_ul]:list-inside [&_ul]:pb-6 [&_ul]:last:pb-0 [&_ul_li]:list-disc">
-        <p className="text-center text-lg">
+      <article>
+        <p className="pb-6 text-center text-lg">
           A fun <span className="text-gray-500 line-through">for me</span> game
           to answer questions and learn more about the world.
         </p>
-        <H2>Please note</H2>
-        <ul>
+        <h2 className="pb-2 text-lg font-semibold">Please note</h2>
+        <ul className="list-inside pb-6 [&_li]:list-disc">
           <li>
             There isn&apos;t a universal agreement on what defines a country.
             This game uses data from{" "}
-            <Link href="https://ourworldindata.org/" target="_blank">
+            <Link
+              href="https://ourworldindata.org/"
+              target="_blank"
+              className="text-pink-600 hover:underline"
+            >
               Our World In Data
             </Link>
             , and I don&apos;t personally agree or disagree with their
@@ -34,7 +32,11 @@ const Results: NextPage = () => {
           <li>
             There isn&apos;t a universal agreement on borders either. This game
             uses maps from{" "}
-            <Link href="https://app.datawrapper.de/" target="_blank">
+            <Link
+              href="https://app.datawrapper.de/"
+              target="_blank"
+              className="text-pink-600 hover:underline"
+            >
               Datawrapper
             </Link>
             , and I don&apos;t personally agree or disagree with their maps, and
@@ -49,14 +51,14 @@ const Results: NextPage = () => {
             fun of them.
           </li>
         </ul>
-        <H2>Anti-cheat</H2>
-        <p>
+        <h2 className="pb-2 text-lg font-semibold">Anti-cheat</h2>
+        <p className="pb-6">
           There is none. Your results won&apos;t be stored on the database. You
           can go back to the previous questions after finishing a game. In fact,
           you can refresh the page after submitting your answer to do it again.
         </p>
-        <H2>Contribution</H2>
-        <p>
+        <h2 className="pb-2 text-lg font-semibold">Contribution</h2>
+        <p className="pb-6">
           If you find a bug, an inaccurate plot, a bad quiz, or an incorrect
           answer, please raise an issue{" "}
           <Link
@@ -66,7 +68,11 @@ const Results: NextPage = () => {
             here
           </Link>
           . If you would like to create a new quiz, create a visalization on{" "}
-          <Link href="https://app.datawrapper.de/" target="_blank">
+          <Link
+            href="https://app.datawrapper.de/"
+            target="_blank"
+            className="text-pink-600 hover:underline"
+          >
             Datawrapper
           </Link>{" "}
           first, and create a PR to update the{" "}
@@ -79,14 +85,14 @@ const Results: NextPage = () => {
           file.
         </p>
         <h3>Please notice:</h3>
-        <ul>
+        <ul className="list-inside pb-6 [&_li]:list-disc">
           <li>Data and visualization must reflect the world realistically.</li>
           <li>
             Quiz cannot be <em>too</em> difficult.
           </li>
         </ul>
-        <H2>Donation</H2>
-        <p>
+        <h2 className="pb-2 text-lg font-semibold">Donation</h2>
+        <p className="pb-0">
           Please don&apos;t donate to me. Play the game, see who needs help the
           most, and find a charity to support them.
         </p>
