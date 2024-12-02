@@ -72,7 +72,7 @@ const Actions = ({
           <div className="mx-auto flex w-full max-w-sm flex-col items-stretch justify-center gap-2 sm:flex-row">
             <DialogClose asChild>
               <Button variant="outline" className="sm:flex-1">
-                Close
+                CLOSE
               </Button>
             </DialogClose>
             <Button asChild variant="secondary" className="sm:flex-1">
