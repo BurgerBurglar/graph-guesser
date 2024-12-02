@@ -12,6 +12,7 @@ import {
   SheetTitle,
   SheetClose,
   SheetDescription,
+  SheetFooter,
 } from "~/components/ui/sheet"
 import { Progress } from "~/components/ui/progress"
 import { useAppStore } from "~/lib/zustand"
@@ -50,18 +51,18 @@ const Header: React.FC = () => {
             Are you sure you want to leave?
           </SheetTitle>
           <SheetDescription className="sr-only">Leave game</SheetDescription>
-          <div className="flex w-full flex-col gap-2 sm:max-w-lg sm:flex-row-reverse">
-            <SheetClose asChild>
-              <Button variant="secondary" className="w-full">
-                STAY
-              </Button>
-            </SheetClose>
+          <SheetFooter>
             <Button variant="outline" asChild>
               <Link href="/" className="w-full">
                 LEAVE
               </Link>
             </Button>
-          </div>
+            <SheetClose asChild>
+              <Button variant="secondary" className="w-full">
+                STAY
+              </Button>
+            </SheetClose>
+          </SheetFooter>
         </SheetContent>
       </Sheet>
       <Progress value={percentage} className="flex-1" />

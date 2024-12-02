@@ -31,6 +31,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
     isDeckDone,
     setResult,
   } = useAppStore()
+
   const [selectedChoice, setSelectedChoice] = useState<string>()
   const [status, setStatus] = useState<QuizStatus>("pending")
   const searchParams = useSearchParams()
@@ -89,6 +90,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   return (
     <ResponsiveSheet
       maxHeight={drawerBreakpointHeight}
+      overlayClassName="bg-black/20"
       trigger={<Button>OPTIONS</Button>}
     >
       <div className="mt-2 flex flex-col justify-end gap-4">

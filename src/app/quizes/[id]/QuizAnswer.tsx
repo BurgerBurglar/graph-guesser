@@ -13,6 +13,7 @@ import {
   DialogClose,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -26,6 +27,7 @@ import {
 } from "~/components/ui/sheet"
 import type { Quiz } from "~/data"
 import { cn } from "~/lib/utils"
+import { useAppStore } from "~/lib/zustand"
 
 const Actions = ({
   quizId,
@@ -36,6 +38,8 @@ const Actions = ({
   isUserCorrect: boolean
   className?: string
 }) => {
+  const difficulty = useAppStore((store) => store.difficulty) ?? "easy"
+
   return (
     <div className={cn("flex h-8 items-stretch", className)}>
       <RWebShare
@@ -45,7 +49,7 @@ const Actions = ({
           url:
             (process.env.SHARE_URL ??
               "https://graph-guesser-8964.vercel.app/") +
-            `quizes/${quizId}?difficulty=easy`,
+            `quizes/${quizId}?difficulty=${difficulty}`,
         }}
       >
         <ActionButton isUserCorrect={isUserCorrect} Icon={Share}>
@@ -66,10 +70,10 @@ const Actions = ({
               answer, please raise an issue on GitHub.
             </DialogDescription>
           </DialogHeader>
-          <div className="mx-auto flex w-full max-w-sm flex-col items-stretch justify-center gap-2 sm:flex-row">
+          <DialogFooter>
             <DialogClose asChild>
               <Button variant="outline" className="sm:flex-1">
-                Close
+                CLOSE
               </Button>
             </DialogClose>
             <Button asChild variant="secondary" className="sm:flex-1">
@@ -80,7 +84,7 @@ const Actions = ({
                 REPORT
               </Link>
             </Button>
-          </div>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
     </div>
