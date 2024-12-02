@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { Flag, Link as LinkIcon, Share } from "lucide-react"
-import Link from "next/link"
-import { useParams } from "next/navigation"
-import React, { type ReactNode } from "react"
-import { RWebShare } from "react-web-share"
-import ActionButton from "~/app/quizes/[id]/ActionButton"
-import { Correct, Error } from "~/components/icons"
-import { Button } from "~/components/ui/button"
+import { Flag, Link as LinkIcon, Share } from "lucide-react";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import React, { type ReactNode } from "react";
+import { RWebShare } from "react-web-share";
+import ActionButton from "~/app/quizes/[id]/ActionButton";
+import { Correct, Error } from "~/components/icons";
+import { Button } from "~/components/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -16,26 +16,29 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "~/components/ui/dialog"
+} from "~/components/ui/dialog";
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetTitle,
   SheetTrigger,
-} from "~/components/ui/sheet"
-import type { Quiz } from "~/data"
-import { cn } from "~/lib/utils"
+} from "~/components/ui/sheet";
+import type { Quiz } from "~/data";
+import { cn } from "~/lib/utils";
+import { useAppStore } from "~/lib/zustand";
 
 const Actions = ({
   quizId,
   isUserCorrect,
   className,
 }: {
-  quizId: string
-  isUserCorrect: boolean
-  className?: string
+  quizId: string;
+  isUserCorrect: boolean;
+  className?: string;
 }) => {
+  const difficulty = useAppStore((store) => store.difficulty) ?? "easy";
+
   return (
     <div className={cn("flex h-8 items-stretch", className)}>
       <RWebShare
@@ -45,7 +48,7 @@ const Actions = ({
           url:
             (process.env.SHARE_URL ??
               "https://graph-guesser-8964.vercel.app/") +
-            `quizes/${quizId}?difficulty=easy`,
+            `quizes/${quizId}?difficulty=${difficulty}`,
         }}
       >
         <ActionButton isUserCorrect={isUserCorrect} Icon={Share}>
@@ -84,16 +87,16 @@ const Actions = ({
         </DialogContent>
       </Dialog>
     </div>
-  )
-}
+  );
+};
 
 interface ResultAlertProps {
-  trigger: ReactNode
-  isUserCorrect: boolean
-  correctChoice: Quiz["correctChoice"]
-  description: Quiz["description"]
-  source: Quiz["source"]
-  nextPageLink: string
+  trigger: ReactNode;
+  isUserCorrect: boolean;
+  correctChoice: Quiz["correctChoice"];
+  description: Quiz["description"];
+  source: Quiz["source"];
+  nextPageLink: string;
 }
 
 const QuizAnswer: React.FC<ResultAlertProps> = ({
@@ -104,9 +107,9 @@ const QuizAnswer: React.FC<ResultAlertProps> = ({
   description,
   nextPageLink,
 }) => {
-  const { id: quizId } = useParams()
-  if (!quizId || Array.isArray(quizId)) return null
-  const ResultIcon = isUserCorrect ? Correct : Error
+  const { id: quizId } = useParams();
+  if (!quizId || Array.isArray(quizId)) return null;
+  const ResultIcon = isUserCorrect ? Correct : Error;
 
   return (
     <Sheet>
@@ -169,7 +172,7 @@ const QuizAnswer: React.FC<ResultAlertProps> = ({
         </div>
       </SheetContent>
     </Sheet>
-  )
-}
+  );
+};
 
-export default QuizAnswer
+export default QuizAnswer;
