@@ -18,10 +18,9 @@ import { Progress } from "~/components/ui/progress"
 import { useAppStore } from "~/lib/zustand"
 
 const Header: React.FC = () => {
-  const {
-    deck: { quizIds },
-    isDeckDone,
-  } = useAppStore()
+  const isDeckDone = useAppStore((store) => store.isDeckDone)
+  const quizIds = useAppStore((store) => store.deck.quizIds)
+
   const params = useParams()
 
   let total = quizIds.length || 1

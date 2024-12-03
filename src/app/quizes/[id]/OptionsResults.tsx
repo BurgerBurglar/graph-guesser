@@ -26,11 +26,9 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   description,
   source,
 }) => {
-  const {
-    deck: { quizIds },
-    isDeckDone,
-    setResult,
-  } = useAppStore()
+  const isDeckDone = useAppStore((store) => store.isDeckDone)
+  const setResult = useAppStore((store) => store.setResult)
+  const quizIds = useAppStore((store) => store.deck.quizIds)
 
   const [selectedChoice, setSelectedChoice] = useState<string>()
   const [status, setStatus] = useState<QuizStatus>("pending")

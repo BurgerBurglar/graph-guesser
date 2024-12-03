@@ -21,7 +21,8 @@ import { useAppStore } from "~/lib/zustand"
 const AllDone: NextPage = () => {
   const router = useRouter()
   const { playRandomGame } = usePlay()
-  const { resestResults } = useAppStore()
+  const resestResults = useAppStore((store) => store.resestResults)
+
   return (
     <main className="container relative flex h-[100dvh] min-h-[511px] flex-col items-stretch justify-between gap-6 px-4 pb-6 pt-16">
       <CloseButton />

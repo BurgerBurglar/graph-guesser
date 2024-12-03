@@ -7,8 +7,9 @@ import { useAppStore } from "~/lib/zustand"
 import { getQuizLink } from "~/utils"
 
 const Overview: NextPage = () => {
+  const results = useAppStore((store) => store.results)
+
   const allQuizIds = [...DATA.keys()]
-  const { results } = useAppStore()
   const quizIdsNotFinished = allQuizIds.filter((id) => !results[id])
 
   return (

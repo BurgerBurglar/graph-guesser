@@ -5,11 +5,9 @@ import QuizOverview from "~/components/QuizOverview"
 import { useAppStore } from "~/lib/zustand"
 
 const QuizOverviewList = () => {
-  const {
-    deck: { quizIds },
-    results,
-    setIsDeckDone,
-  } = useAppStore()
+  const results = useAppStore((store) => store.results)
+  const setIsDeckDone = useAppStore((store) => store.setIsDeckDone)
+  const quizIds = useAppStore((store) => store.deck.quizIds)
 
   // set the deck as done when the component mounts
   // so that we don't do all the quizes again

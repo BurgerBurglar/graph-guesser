@@ -6,7 +6,11 @@ import { getQuizLink } from "./utils"
 
 export const usePlay = () => {
   const router = useRouter()
-  const { initializeRandomDeck, setIsDeckDone } = useAppStore()
+
+  const initializeRandomDeck = useAppStore(
+    (store) => store.initializeRandomDeck,
+  )
+  const setIsDeckDone = useAppStore((store) => store.setIsDeckDone)
 
   const playRandomGame = ({ canPlayOld = false }: { canPlayOld?: boolean }) => {
     setIsDeckDone(false)
