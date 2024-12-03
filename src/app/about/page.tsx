@@ -60,7 +60,7 @@ const Results: NextPage = () => {
           If you find a bug, an inaccurate plot, a bad quiz, or an incorrect
           answer, please raise an issue{" "}
           <Link
-            href="https://github.com/BurgerBurglar/graph-guesser"
+            href="https://github.com/BurgerBurglar/graph-guesser/issues"
             target="_blank"
             className="text-pink-600 hover:underline"
           >

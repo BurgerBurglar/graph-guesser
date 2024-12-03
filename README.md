@@ -15,7 +15,7 @@ None. Your results won't be stored on the database. You can go back to the previ
 
 ## Contribution
 
-If you find a bug, an inaccurate plot, a bad quiz, or an incorrect answer, please raise an issue [here](https://github.com/BurgerBurglar/graph-guesser). If you would like to create a new quiz, create a visualization on [Datawrapper](https://app.datawrapper.de/) first, and create a PR to update the [data.ts](https://github.com/BurgerBurglar/graph-guesser/blob/main/src/data.ts) file.
+If you find a bug, an inaccurate plot, a bad quiz, or an incorrect answer, please raise an issue [here](https://github.com/BurgerBurglar/graph-guesser/issues). If you would like to create a new quiz, create a visualization on [Datawrapper](https://app.datawrapper.de/) first, and create a PR to update the [data.ts](https://github.com/BurgerBurglar/graph-guesser/blob/main/src/data.ts) file.
 
 Recommend charity organizations in the app
 
