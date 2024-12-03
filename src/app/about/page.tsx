@@ -1,14 +1,12 @@
 import type { NextPage } from "next"
 import Link from "next/link"
+import { LogoSmall } from "~/components/logos"
 import { Button } from "~/components/ui/button"
 
 const Results: NextPage = () => {
   return (
     <main className="container relative flex min-h-screen flex-col items-center gap-6 p-4 pb-6">
-      <h1 className="font-title text-2xl font-bold leading-6 tracking-tight sm:text-4xl">
-        <div className="-translate-x-6 text-sky-700">GRAPH</div>
-        <div className="translate-x-6 text-green-700">GUESSER</div>
-      </h1>
+      <LogoSmall />
       <article>
         <p className="pb-6 text-center text-lg">
           A fun <span className="text-gray-500 line-through">for me</span> game

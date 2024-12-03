@@ -25,9 +25,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "~/components/ui/sheet"
-import type { Quiz } from "~/data"
 import { cn } from "~/lib/utils"
 import { useAppStore } from "~/lib/zustand"
+import type { Quiz } from "~/types"
 
 const Actions = ({
   quizId,

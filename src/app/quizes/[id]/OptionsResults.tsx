@@ -6,9 +6,8 @@ import QuizAnswer from "~/app/quizes/[id]/QuizAnswer"
 import QuizOptions from "~/app/quizes/[id]/QuizOptions"
 import ResponsiveSheet from "~/components/ResponsiveSheet"
 import { Button } from "~/components/ui/button"
-import type { Quiz } from "~/data"
 import { useAppStore } from "~/lib/zustand"
-import type { Difficulty, QuizStatus } from "~/types"
+import type { Difficulty, Quiz, QuizStatus } from "~/types"
 import { getQuizLink } from "~/utils"
 
 interface OptionsResultsProps {

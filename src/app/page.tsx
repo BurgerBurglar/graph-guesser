@@ -1,11 +1,12 @@
-import dynamic from "next/dynamic";
-import Image from "next/image";
-import NavLinks from "~/app/NavLinks";
-import ButtonLoading from "~/app/quizes/[id]/ButtonLoading";
+import dynamic from "next/dynamic"
+import Image from "next/image"
+import NavLinks from "~/app/NavLinks"
+import ButtonLoading from "~/app/quizes/[id]/ButtonLoading"
+import { LogoBig } from "~/components/logos"
 const LetsGuess = dynamic(() => import("./LetsGuess"), {
   ssr: false,
   loading: ButtonLoading,
-});
+})
 export default function HomePage() {
   return (
     <main className="container flex min-h-[100dvh] flex-col items-center justify-end gap-4 p-4 pb-6">
@@ -20,10 +21,7 @@ export default function HomePage() {
             priority
           />
         </div>
-        <h1 className="font-title text-5xl font-bold tracking-tight sm:text-[5rem]">
-          <div className="-translate-x-6 text-sky-700">GRAPH</div>
-          <div className="translate-x-6 text-green-700">GUESSER</div>
-        </h1>
+        <LogoBig />
         <section className="text-center text-xl font-medium text-black">
           <p>We have the plots.</p>
           <p>You can guess what they mean.</p>
@@ -33,5 +31,5 @@ export default function HomePage() {
         <LetsGuess />
       </div>
     </main>
-  );
+  )
 }

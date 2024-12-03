@@ -1,9 +1,4 @@
-export type Quiz = {
-  correctChoice: string
-  wrongChoices: string[]
-  description: string
-  source: string
-}
+import type { Charity, Quiz } from "~/types"
 
 export const DATA = new Map<string, Quiz>([
   [
@@ -503,3 +498,90 @@ export const DATA = new Map<string, Quiz>([
     },
   ],
 ])
+
+export const CHARITIES: Charity[] = [
+  {
+    link: "https://www.globalgiving.org/",
+    imgSrc: "/charities/global-giving.png",
+    imgAlt: "GlobalGiving",
+    description:
+      "GlobalGiving is a nonprofit that supports other nonprofits by connecting them to donors and companies.",
+  },
+  {
+    link: "https://www.savethechildren.org/",
+    imgSrc: "/charities/save-the-children.svg",
+    imgAlt: "Save the Children",
+    description:
+      "Save the Children protects and supports worldwide by providing health, education, and emergency aid.",
+  },
+  {
+    link: "https://www.warchild.net/",
+    imgSrc: "/charities/war-child.svg",
+    imgAlt: "War Child",
+    description:
+      "War Child supports children affected by war through education, protection, and psychosocial assistance.",
+  },
+  {
+    link: "https://www.doctorswithoutborders.org/",
+    imgSrc: "/charities/doctors-without-borders.svg",
+    imgAlt: "Doctors Without Borders",
+    description:
+      "Doctors Without Borders provides emergency medical care to people affected by crises, regardless of race, religion, or politics.",
+  },
+  {
+    link: "https://www.wfp.org/",
+    imgSrc: "/charities/world-food-programme.svg",
+    imgAlt: "World Food Programme",
+    description:
+      "World Food Programme addresses hunger and promotes food security globally.",
+  },
+  {
+    link: "https://water.org/",
+    imgSrc: "/charities/water-org.svg",
+    imgAlt: "Water.org",
+    description:
+      "Water.org focuses on providing access to clean water and sanitation.",
+  },
+  {
+    link: "https://www.heifer.org/",
+    imgSrc: "/charities/heifer-international.svg",
+    imgAlt: "Heifer International",
+    description:
+      "Heifer International aims to end hunger and poverty through sustainable agriculture.",
+  },
+  {
+    link: "https://www.malarianomore.org/",
+    imgSrc: "/charities/malaria-no-more.svg",
+    imgAlt: "Malaria No More",
+    description:
+      "Malaria No More aims to end malaria in Africa and other regions by raising awareness and supporting prevention programs.",
+  },
+  {
+    link: "https://www.roomtoread.org/",
+    imgSrc: "/charities/room-to-read.png",
+    imgAlt: "Room to Read",
+    description:
+      "Room to Read promotes literacy and gender equality in education.",
+  },
+  {
+    link: "https://onesky.org/",
+    imgSrc: "/charities/one-sky.png",
+    imgAlt: "One Sky",
+    description:
+      "OneSky provides care, education, and advocacy for children and orphanages across China, Vietnam, and Mongolia.",
+  },
+  {
+    link: "https://www.habitat.org/",
+    imgSrc: "/charities/habitat-for-humanity.svg",
+    imgAlt: "Habitat for Humanity",
+    description:
+      "Habitat for Humanity builds affordable housing for families in need.",
+  },
+  {
+    link: "https://www.care.org/",
+    imgSrc: "/charities/care.svg",
+    imgAlt: "CARE",
+    description:
+      "CARE works on humanitarian aid and development programs, especially for women and children.",
+  },
+]
