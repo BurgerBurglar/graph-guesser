@@ -62,6 +62,7 @@ const Results: NextPage = () => {
           <Link
             href="https://github.com/BurgerBurglar/graph-guesser"
             target="_blank"
+            className="text-pink-600 hover:underline"
           >
             here
           </Link>
@@ -77,6 +78,7 @@ const Results: NextPage = () => {
           <Link
             href="https://github.com/BurgerBurglar/graph-guesser/blob/main/src/data.ts"
             target="_blank"
+            className="text-pink-600 hover:underline"
           >
             <code>data.ts</code>
           </Link>{" "}
@@ -92,7 +94,11 @@ const Results: NextPage = () => {
         <h2 className="pb-2 text-lg font-semibold">Donation</h2>
         <p className="pb-0">
           Please don&apos;t donate to me. Play the game, see who needs help the
-          most, and find a charity to support them.
+          most, and{" "}
+          <Link href="/donation" className="text-pink-600 hover:underline">
+            find a charity to support them here
+          </Link>
+          .
         </p>
       </article>
       <Button asChild className="mt-auto w-full sm:max-w-sm">

@@ -7,6 +7,8 @@ import { LogoSmall } from "~/components/logos"
 import { Input } from "~/components/ui/input"
 import { CHARITIES } from "~/data"
 import { type ChangeEventHandler, useState } from "react"
+import { Button } from "~/components/ui/button"
+import Link from "next/link"
 
 const Donate: NextPage = () => {
   const [search, setSearch] = useState("")
@@ -41,6 +43,9 @@ const Donate: NextPage = () => {
           <DisplayCard key={charity.link} {...charity} />
         ))}
       </ul>
+      <Button asChild className="max-w-xs w-full mx-auto">
+        <Link href="/">GO HOME</Link>
+      </Button>
     </main>
   )
 }
