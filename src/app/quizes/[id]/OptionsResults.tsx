@@ -90,7 +90,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
       overlayClassName="bg-black/20"
       trigger={<Button>OPTIONS</Button>}
     >
-      <div className="mt-2 flex flex-col justify-end gap-4">
+      <div className="mt-2 flex flex-col justify-end gap-2">
         <QuizOptions
           status={status}
           correctChoice={correctChoice}

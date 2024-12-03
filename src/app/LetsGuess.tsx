@@ -19,7 +19,10 @@ const LetsGuess = () => {
   }
 
   return (
-    <ResponsiveSheet maxHeight="650px" trigger={<Button>PLAY</Button>}>
+    <ResponsiveSheet
+      maxHeight="650px"
+      trigger={<Button className="sm:max-w-xs w-full">PLAY</Button>}
+    >
       <ul className="grid w-full gap-2 sm:grid-cols-3">
         {DIFFICULTIES.map((choice, index) => {
           const isSelected = difficulty === choice
@@ -47,7 +50,6 @@ const LetsGuess = () => {
         })}
       </ul>
       <Button
-        variant="primary"
         className="sm:max-w-xs w-full"
         onClick={() =>
           playRandomGame({
