@@ -50,7 +50,7 @@ const Header: React.FC = () => {
             Are you sure you want to leave?
           </SheetTitle>
           <SheetDescription className="sr-only">Leave game</SheetDescription>
-          <SheetFooter>
+          <SheetFooter className="w-full max-w-lg">
             <Button variant="outline" asChild>
               <Link href="/" className="w-full">
                 LEAVE
