@@ -526,7 +526,7 @@ export const CHARITIES: Charity[] = [
     imgSrc: "/charities/doctors-without-borders.svg",
     imgAlt: "Doctors Without Borders",
     description:
-      "Doctors Without Borders provides emergency medical care to people affected by crises, regardless of race, religion, or politics.",
+      "Doctors Without Borders provides emergency medical care to people affected by crises, regardless of their race, religion, or political views.",
   },
   {
     link: "https://www.wfp.org/",
