@@ -48,7 +48,7 @@ const LetsGuess = () => {
       </ul>
       <Button
         variant="primary"
-        className=""
+        className="sm:max-w-xs w-full"
         onClick={() =>
           playRandomGame({
             canPlayOld: false,
