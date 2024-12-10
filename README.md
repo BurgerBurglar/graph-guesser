@@ -1,6 +1,6 @@
 # Graph Guesser
 
-A fun (for me) game to answer questions and learn more about the world.
+[A fun (for me) game](https://graph-guesser-8964.vercel.app/) to answer questions and learn more about the world.
 
 ## Notice
 
