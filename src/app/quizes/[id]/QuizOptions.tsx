@@ -30,8 +30,6 @@ const QuizOptions: React.FC<OptionsProps> = ({
       {choices.map((choice, index) => {
         const isSelected = choice === selectedChoice
         const isCorrectChoice = choice === correctChoice
-        console.log({ disabled })
-        console.log(choice, correctChoice, isCorrectChoice)
         return (
           <li key={index}>
             <input

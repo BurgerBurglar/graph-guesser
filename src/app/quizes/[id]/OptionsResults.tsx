@@ -6,9 +6,8 @@ import QuizAnswer from "~/app/quizes/[id]/QuizAnswer"
 import QuizOptions from "~/app/quizes/[id]/QuizOptions"
 import ResponsiveSheet from "~/components/ResponsiveSheet"
 import { Button } from "~/components/ui/button"
-import type { Quiz } from "~/data"
 import { useAppStore } from "~/lib/zustand"
-import type { Difficulty, QuizStatus } from "~/types"
+import type { Difficulty, Quiz, QuizStatus } from "~/types"
 import { getQuizLink } from "~/utils"
 
 interface OptionsResultsProps {
@@ -26,11 +25,9 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
   description,
   source,
 }) => {
-  const {
-    deck: { quizIds },
-    isDeckDone,
-    setResult,
-  } = useAppStore()
+  const isDeckDone = useAppStore((store) => store.isDeckDone)
+  const setResult = useAppStore((store) => store.setResult)
+  const quizIds = useAppStore((store) => store.deck.quizIds)
 
   const [selectedChoice, setSelectedChoice] = useState<string>()
   const [status, setStatus] = useState<QuizStatus>("pending")

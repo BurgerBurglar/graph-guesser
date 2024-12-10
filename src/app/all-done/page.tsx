@@ -5,13 +5,24 @@ import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { Button, CloseButton } from "~/components/ui/button"
+import {
+  DialogHeader,
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from "~/components/ui/dialog"
 import { usePlay } from "~/hooks"
 import { useAppStore } from "~/lib/zustand"
 
 const AllDone: NextPage = () => {
   const router = useRouter()
   const { playRandomGame } = usePlay()
-  const { resestResults } = useAppStore()
+  const resestResults = useAppStore((store) => store.resestResults)
+
   return (
     <main className="container relative flex h-[100dvh] min-h-[511px] flex-col items-stretch justify-between gap-6 px-4 pb-6 pt-16">
       <CloseButton />
@@ -35,16 +46,41 @@ const AllDone: NextPage = () => {
         <Button variant="outline" className="flex-1" asChild>
           <Link href="/">CHANGE DIFFICULTY</Link>
         </Button>
-        <Button
-          variant="outline"
-          className="flex-1"
-          onClick={() => {
-            resestResults()
-            void router.push("/")
-          }}
-        >
-          CLEAR RECORD
-        </Button>
+
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button variant="outline" className="flex-1">
+              CLEAR RECORD
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Do you want to clear all record?</DialogTitle>
+              <DialogDescription>
+                This action cannot be undone; it will permanently delete your
+                data from your browser.
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter className="gap-2">
+              <DialogClose asChild>
+                <Button variant="outline" className="flex-1">
+                  DO NOT CLEAR
+                </Button>
+              </DialogClose>
+              <Button
+                variant="destructive"
+                className="flex-1"
+                onClick={() => {
+                  resestResults()
+                  void router.push("/")
+                }}
+              >
+                CLEAR RECORD
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+
         <Button
           variant="primary"
           className="flex-1"

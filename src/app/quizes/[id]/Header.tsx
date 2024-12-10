@@ -18,10 +18,9 @@ import { Progress } from "~/components/ui/progress"
 import { useAppStore } from "~/lib/zustand"
 
 const Header: React.FC = () => {
-  const {
-    deck: { quizIds },
-    isDeckDone,
-  } = useAppStore()
+  const isDeckDone = useAppStore((store) => store.isDeckDone)
+  const quizIds = useAppStore((store) => store.deck.quizIds)
+
   const params = useParams()
 
   let total = quizIds.length || 1
@@ -51,7 +50,7 @@ const Header: React.FC = () => {
             Are you sure you want to leave?
           </SheetTitle>
           <SheetDescription className="sr-only">Leave game</SheetDescription>
-          <SheetFooter>
+          <SheetFooter className="w-full max-w-lg">
             <Button variant="outline" asChild>
               <Link href="/" className="w-full">
                 LEAVE

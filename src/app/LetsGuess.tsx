@@ -9,7 +9,9 @@ import type { Difficulty } from "~/types"
 import { DIFFICULTIES } from "~/utils"
 
 const LetsGuess = () => {
-  const { difficulty, setDifficulty } = useAppStore()
+  const difficulty = useAppStore((store) => store.difficulty)
+  const setDifficulty = useAppStore((store) => store.setDifficulty)
+
   const { playRandomGame } = usePlay()
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -46,7 +48,7 @@ const LetsGuess = () => {
       </ul>
       <Button
         variant="primary"
-        className=""
+        className="sm:max-w-xs w-full"
         onClick={() =>
           playRandomGame({
             canPlayOld: false,
