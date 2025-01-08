@@ -53,13 +53,11 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
       : quizIds[nextQuizIndex]
 
   // max height to have a drawer
-  const drawerBreakpointHeight =
-    difficulty === "easy"
-      ? "550px"
-      : difficulty === "medium"
-        ? "630px"
-        : "690px"
-
+  const getDrawerBreakpointHeight = () => {
+    if (difficulty === "easy") return "550px"
+    if (difficulty === "medium") return "630px"
+    return "690px"
+  }
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedChoice(event.target.value)
   }
@@ -76,17 +74,11 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
     return "CHECK"
   }
 
-  const getNextPageLink = () => {
-    if (nextQuizId) {
-      return getQuizLink(nextQuizId)
-    } else {
-      return "/results"
-    }
-  }
+  const nextPageLink = nextQuizId ? getQuizLink(nextQuizId) : "/results"
 
   return (
     <ResponsiveSheet
-      maxHeight={drawerBreakpointHeight}
+      maxHeight={getDrawerBreakpointHeight()}
       overlayClassName="bg-black/20"
       trigger={<Button>OPTIONS</Button>}
     >
@@ -113,7 +105,7 @@ const OptionsResults: React.FC<OptionsResultsProps> = ({
           correctChoice={correctChoice}
           source={source}
           description={description}
-          nextPageLink={getNextPageLink()}
+          nextPageLink={nextPageLink}
         />
       </div>
     </ResponsiveSheet>
