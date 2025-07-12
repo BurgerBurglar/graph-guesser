@@ -1,10 +1,14 @@
 import Link from "next/link"
+import dynamic from "next/dynamic"
 import React from "react"
-import Graph from "~/app/quizes/[id]/Graph"
 import { Correct, Error } from "~/components/icons"
 import { Button } from "~/components/ui/button"
 import { cn } from "~/lib/utils"
 import { getQuizLink } from "~/utils"
+
+const Graph = dynamic(() => import("~/app/quizes/[id]/Graph"), {
+  ssr: false,
+})
 
 interface QuizOverviewProps {
   quizId: string

@@ -1,18 +1,18 @@
-import { Fragment, type ReactNode } from "react";
-import { useMediaQuery } from "usehooks-ts";
+import { Fragment, type ReactNode } from "react"
+import { useMediaQuery } from "usehooks-ts"
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTrigger,
-} from "~/components/ui/sheet";
+} from "~/components/ui/sheet"
 
 type BottomSheetType = {
-  trigger: ReactNode;
-  overlayClassName?: string;
-  children: ReactNode;
-};
+  trigger: ReactNode
+  overlayClassName?: string
+  children: ReactNode
+}
 const BottomSheet = ({
   trigger,
   overlayClassName,
@@ -26,23 +26,26 @@ const BottomSheet = ({
         <SheetHeader>{children}</SheetHeader>
       </SheetContent>
     </Sheet>
-  );
-};
+  )
+}
 
 const ResponsiveSheet = ({
   maxHeight,
   trigger,
+  children,
   ...props
 }: {
-  maxHeight: string;
+  maxHeight: string
 } & BottomSheetType) => {
-  const isShortScreen = useMediaQuery(`(max-height: ${maxHeight})`);
+  const isShortScreen = useMediaQuery(`(max-height: ${maxHeight})`)
 
   return isShortScreen ? (
-    <BottomSheet trigger={trigger} {...props} />
+    <BottomSheet trigger={trigger} {...props}>
+      {children}
+    </BottomSheet>
   ) : (
-    <Fragment {...props} />
-  );
-};
+    <Fragment>{children}</Fragment>
+  )
+}
 
-export default ResponsiveSheet;
+export default ResponsiveSheet

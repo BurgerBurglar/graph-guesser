@@ -7,7 +7,7 @@ interface ResultDisplayProps {
   colorPallete: "sky" | "green"
 }
 
-const ResultDisplay: React.FC<ResultDisplayProps> = ({
+const ResultsDisplay: React.FC<ResultDisplayProps> = ({
   header,
   numCorrect,
   numTotal,
@@ -58,4 +58,4 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({
   )
 }
 
-export default ResultDisplay
+export default ResultsDisplay

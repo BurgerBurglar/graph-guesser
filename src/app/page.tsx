@@ -17,6 +17,7 @@ export default function HomePage() {
             src="/front-page.webp"
             alt="logo"
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="w-auto object-contain"
             priority
           />

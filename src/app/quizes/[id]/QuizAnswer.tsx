@@ -136,7 +136,10 @@ const QuizAnswer: React.FC<ResultAlertProps> = ({
                 className="sm:hidden"
               />
             </SheetTitle>
-            <SheetDescription className="flex flex-col items-start gap-2 text-start text-inherit">
+            <SheetDescription className="sr-only">
+              {isUserCorrect ? "CORRECT" : "INCORRECT"}
+            </SheetDescription>
+            <div className="flex flex-col items-start gap-2 text-start text-inherit text-sm">
               {!isUserCorrect && (
                 <div>
                   <div className="text-lg font-medium">Correct answer:</div>
@@ -159,7 +162,7 @@ const QuizAnswer: React.FC<ResultAlertProps> = ({
                 isUserCorrect={isUserCorrect}
                 className="hidden sm:flex sm:-translate-x-2"
               />
-            </SheetDescription>
+            </div>
           </div>
           <Button
             asChild
