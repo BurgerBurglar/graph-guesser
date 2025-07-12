@@ -47,8 +47,7 @@ const Actions = ({
           title: "Graph Guesser",
           text: "Guess what this plot means on Graph Guesser!",
           url:
-            (process.env.SHARE_URL ??
-              "https://graph-guesser-8964.vercel.app/") +
+            (process.env.SHARE_URL ?? "https://graph-guesser.shuo-tian.me/") +
             `quizes/${quizId}?difficulty=${difficulty}`,
         }}
       >

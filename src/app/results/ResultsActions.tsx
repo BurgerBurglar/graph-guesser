@@ -15,8 +15,7 @@ const ResultsActions = () => {
           data={{
             title: "Graph Guesser",
             text: "Guess what the plots mean!",
-            url:
-              process.env.SHARE_URL ?? "https://graph-guesser-8964.vercel.app/",
+            url: process.env.SHARE_URL ?? "https://graph-guesser.shuo-tian.me/",
           }}
         >
           <Button variant="outline">SHARE</Button>
